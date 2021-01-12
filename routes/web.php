@@ -15,7 +15,17 @@ Auth::routes();
 Route::get('/', function () {
     return view('welcome');
 })->name('inicio');
+//==========================panel de administracion========================================================
+Route::group(['prefix'=>'app'],function(){
+	Route::get('/','AppController@index');
+});
+
+
+//============================================================================================================
+
+
 Route::resource('/lineas', 'LineaController');
+
 
 Route::view('/superlinea', 'linea.super')->name('superlinea');
 Route::view('/playandina','linea.playa')->name('playandina');
