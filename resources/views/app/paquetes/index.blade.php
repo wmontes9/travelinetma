@@ -1214,7 +1214,7 @@
                                         <td class="sorting_1">Dai Rios</td>
                                         <td>Personnel Lead</td>
                                         <td>Edinburgh</td>
-                                        <td>35</td>
+                                        <td>354</td>
                                         <td>2012/09/26</td>
                                         <td>$217,500</td>
                                     </tr><tr role="row" class="odd">
