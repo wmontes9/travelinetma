@@ -10,7 +10,8 @@ class Servicio extends Model
 
     protected $fillable = ["id_paquete","nombre"];
 
-    public function paquete(){
-        return $this->belongsTo(Paquete::class);
+     public function paquetes()
+    {
+        return $this->belongsToMany(Paquete::class,'detalle_servicio','id_servicio', 'id_paquete');
     }
 }

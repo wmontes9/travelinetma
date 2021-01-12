@@ -15,11 +15,8 @@ class CreateServiciosTable extends Migration
     {
         Schema::create('servicios', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->unsignedBigInteger('id_paquete');
             $table->string('nombre');
             $table->timestamps();
-
-            $table->foreign("id_paquete")->references("id")->on("paquetes")->delete("cascade");
         });
     }
 

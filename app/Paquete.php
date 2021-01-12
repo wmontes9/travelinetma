@@ -12,7 +12,7 @@ class Paquete extends Model
 
     public function servicios()
     {
-    	return $this->hasMany(Servicio::class, 'id_paquete');
+        return $this->belongsToMany(Servicio::class,'detalle_servicio','id_paquete', 'id_servicio');
     }
     public function destinos()
     {

@@ -21,6 +21,8 @@
     <!-- Style.css -->
     <link rel="stylesheet" type="text/css" href="{{asset('template/admin/files/assets/css/style.css')}}">
     <link rel="stylesheet" type="text/css" href="{{asset('template/admin/files/assets/css/jquery.mCustomScrollbar.css')}}">
+
+    <script type="text/javascript" src="{{asset('template/admin/files/bower_components/jquery/dist/jquery.min.js')}}"></script>
 </head>
 
 <body>
@@ -1719,12 +1721,7 @@
                     <div class="pcoded-content">
                         <div class="pcoded-inner-content">
                             <div class="main-body">
-                                <div class="page-wrapper">
-                                    <div class="page-body">
-                                       @yield('content')
-                                    </div>
-                                </div>
-
+                                @yield('content')
                                 <div id="styleSelector">
 
                                 </div>
@@ -1737,10 +1734,28 @@
     </div>
 
     <!-- Required Jquery -->
-    <script type="text/javascript" src="{{asset('template/admin/files/bower_components/jquery/dist/jquery.min.js')}}"></script>
+    
     <script type="text/javascript" src="{{asset('template/admin/files/bower_components/jquery-ui/jquery-ui.min.js')}}"></script>
     <script type="text/javascript" src="{{asset('template/admin/files/bower_components/popper.js/dist/umd/popper.min.js')}}"></script>
     <script type="text/javascript" src="{{asset('template/admin/files/bower_components/bootstrap/dist/js/bootstrap.min.js')}}"></script>
+    <!-- jquery slimscroll js -->
+    <script type="text/javascript" src="{{ asset('template/admin/files/bower_components/jquery-slimscroll/jquery.slimscroll.js')}}"></script>
+    <!-- modernizr js -->
+    <script type="text/javascript" src="{{ asset('template/admin/files/bower_components/modernizr/modernizr.js')}}"></script>
+    <script type="text/javascript" src="{{ asset('template/admin/files/bower_components/modernizr/feature-detects/css-scrollbars.js')}}"></script>
+
+     <!-- data-table js -->
+     <script src="{{ asset('template/admin/files/bower_components/datatables.net/js/jquery.dataTables.min.js')}}"></script>
+     <script src="{{ asset('template/admin/files/bower_components/datatables.net-buttons/js/dataTables.buttons.min.js')}}"></script>
+     <script src="{{ asset('template/admin/files/assets/pages/data-table/js/jszip.min.js')}}"></script>
+     <script src="{{ asset('template/admin/files/assets/pages/data-table/js/pdfmake.min.js')}}"></script>
+     <script src="{{ asset('template/admin/files/assets/pages/data-table/js/vfs_fonts.js')}}"></script>
+     <script src="{{ asset('template/admin/files/bower_components/datatables.net-buttons/js/buttons.print.min.js')}}"></script>
+     <script src="{{ asset('template/admin/files/bower_components/datatables.net-buttons/js/buttons.html5.min.js')}}"></script>
+     <script src="{{ asset('template/admin/files/assets/pages/data-table/js/dataTables.bootstrap4.min.js')}}"></script>
+     <script src="{{ asset('template/admin/files/bower_components/datatables.net-responsive/js/dataTables.responsive.min.js')}}"></script>
+     <script src="{{ asset('template/admin/files/bower_components/datatables.net-responsive-bs4/js/responsive.bootstrap4.min.js')}}"></script>
+ 
     <!-- jquery slimscroll js -->
     <script type="text/javascript" src="{{asset('template/admin/files/bower_components/jquery-slimscroll/jquery.slimscroll.js')}}"></script>
     <!-- modernizr js -->

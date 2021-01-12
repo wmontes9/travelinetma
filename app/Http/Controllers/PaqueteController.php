@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\paquete;
+use App\Paquete;
 use Illuminate\Http\Request;
 
 class PaqueteController extends Controller
@@ -14,7 +14,15 @@ class PaqueteController extends Controller
      */
     public function index()
     {
-        //
+        $paquetes = new PaqueteController();
+        $paquetes = $paquetes->get_paquetes();
+        return view('app.paquetes.index',compact('paquetes'));
+    }
+
+
+    public function get_paquetes(){
+        $lis_paquetes = Paquete::all()->toArray();
+        return $lis_paquetes;
     }
 
     /**
