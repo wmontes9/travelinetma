@@ -15,13 +15,8 @@
     <!-- Google font-->
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,800" rel="stylesheet">
     <!-- Required Fremwork -->
-    <link rel="stylesheet" type="text/css" href="{{asset('template/admin/files/bower_components/bootstrap/dist/css/bootstrap.min.css')}}">
-    <!-- feather Awesome -->
-    <link rel="stylesheet" type="text/css" href="{{asset('template/admin/files/assets/icon/feather/css/feather.css')}}">
-    <!-- Style.css -->
-    <link rel="stylesheet" type="text/css" href="{{asset('template/admin/files/assets/css/style.css')}}">
-    <link rel="stylesheet" type="text/css" href="{{asset('template/admin/files/assets/css/jquery.mCustomScrollbar.css')}}">
 
+    <link rel="stylesheet" href="{{asset('css/app.admin.css')}}">
     <script type="text/javascript" src="{{asset('template/admin/files/bower_components/jquery/dist/jquery.min.js')}}"></script>
 </head>
 
@@ -1733,49 +1728,7 @@
         </div>
     </div>
 
-    <!-- Required Jquery -->
-    
-    <script type="text/javascript" src="{{asset('template/admin/files/bower_components/jquery-ui/jquery-ui.min.js')}}"></script>
-    <script type="text/javascript" src="{{asset('template/admin/files/bower_components/popper.js/dist/umd/popper.min.js')}}"></script>
-    <script type="text/javascript" src="{{asset('template/admin/files/bower_components/bootstrap/dist/js/bootstrap.min.js')}}"></script>
-    <!-- jquery slimscroll js -->
-    <script type="text/javascript" src="{{ asset('template/admin/files/bower_components/jquery-slimscroll/jquery.slimscroll.js')}}"></script>
-    <!-- modernizr js -->
-    <script type="text/javascript" src="{{ asset('template/admin/files/bower_components/modernizr/modernizr.js')}}"></script>
-    <script type="text/javascript" src="{{ asset('template/admin/files/bower_components/modernizr/feature-detects/css-scrollbars.js')}}"></script>
 
-     <!-- data-table js -->
-     <script src="{{ asset('template/admin/files/bower_components/datatables.net/js/jquery.dataTables.min.js')}}"></script>
-     <script src="{{ asset('template/admin/files/bower_components/datatables.net-buttons/js/dataTables.buttons.min.js')}}"></script>
-     <script src="{{ asset('template/admin/files/assets/pages/data-table/js/jszip.min.js')}}"></script>
-     <script src="{{ asset('template/admin/files/assets/pages/data-table/js/pdfmake.min.js')}}"></script>
-     <script src="{{ asset('template/admin/files/bower_components/datatables.net-buttons/js/buttons.print.min.js')}}"></script>
-     <script src="{{ asset('template/admin/files/bower_components/datatables.net-buttons/js/buttons.html5.min.js')}}"></script>
-     <script src="{{ asset('template/admin/files/assets/pages/data-table/js/dataTables.bootstrap4.min.js')}}"></script>
-     <script src="{{ asset('template/adm in/files/assets/pages/data-table/js/vfs_fonts.js')}}"></script>
-     <script src="{{ asset('template/admin/files/bower_components/datatables.net-responsive/js/dataTables.responsive.min.js')}}"></script>
-     <script src="{{ asset('template/admin/files/bower_components/datatables.net-responsive-bs4/js/responsive.bootstrap4.min.js')}}"></script>
- 
-    <!-- jquery slimscroll js -->
-    <script type="text/javascript" src="{{asset('template/admin/files/bower_components/jquery-slimscroll/jquery.slimscroll.js')}}"></script>
-    <!-- modernizr js -->
-    <script type="text/javascript" src="{{asset('template/admin/files/bower_components/modernizr/modernizr.js')}}"></script>
-    <script type="text/javascript" src="{{asset('template/admin/files/bower_components/modernizr/feature-detects/css-scrollbars.js')}}"></script>
-    <!-- Chart js -->
-    <script type="text/javascript" src="{{asset('template/admin/files/bower_components/chart.js/dist/Chart.js')}}"></script>
-    <!-- amchart js -->
-    <script src="{{asset('template/admin/files/assets/pages/widget/amchart/amcharts.js')}}"></script>
-    <script src="{{asset('template/admin/files/assets/pages/widget/amchart/serial.js')}}"></script>
-    <script src="{{asset('template/admin/files/assets/pages/widget/amchart/light.js')}}"></script>
-    <!-- Custom js -->
-    <script type="text/javascript" src="{{asset('template/admin/files/assets/js/SmoothScroll.js')}}"></script>
-    <script src="{{asset('template/admin/files/assets/js/pcoded.min.js')}}"></script>
-    <script src="{{asset('template/admin/files/assets/js/jquery.mCustomScrollbar.concat.min.js')}}"></script>
-    <script src="{{asset('template/admin/files/assets/js/vartical-layout.min.js')}}"></script>
-    <script type="text/javascript" src="{{asset('template/admin/files/assets/pages/dashboard/analytic-dashboard.min.js')}}"></script>
-    <script type="text/javascript" src="{{asset('template/admin/files/assets/js/script.js')}}"></script>
 </body>
-
-
-<!-- Mirrored from demo.dashboardpack.com/adminty-html/default/dashboard-analytics.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 12 Jan 2021 17:54:37 GMT -->
+<script src="{{asset('js/app.admin.js')}}"></script>
 </html>

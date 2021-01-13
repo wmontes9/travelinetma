@@ -32,7 +32,7 @@ class PaqueteController extends Controller
      */
     public function create()
     {
-        //
+        return view('app.paquetes.create');
     }
 
     /**
