@@ -16,7 +16,8 @@ class AddDetalleServicio extends Migration
         Schema::create('detalle_servicio', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->unsignedBigInteger('id_paquete')->index();
-            $table->unsignedBigInteger('id_servicio')->index();            
+            $table->unsignedBigInteger('id_servicio')->index();
+            $table->double('valor', 8, 2);       
             $table->timestamps();
 
             $table->foreign('id_paquete')->references('id')->on('paquetes');
@@ -32,6 +33,6 @@ class AddDetalleServicio extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('servicios');
+        Schema::dropIfExists('detalle_servicio');
     }
 }

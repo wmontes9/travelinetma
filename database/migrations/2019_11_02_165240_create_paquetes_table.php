@@ -18,7 +18,7 @@ class CreatePaquetesTable extends Migration
             $table->unsignedBigInteger("id_linea");
             $table->string('nombre');
             $table->string('duracion');
-            $table->string('valor');
+            $table->double('valor', 10, 2)->nullable();
             $table->timestamps();
 
             $table->foreign("id_linea")->references("id")->on("lineas")->delete("cascade");

@@ -10,10 +10,15 @@ class Paquete extends Model
 
     protected $fillable = ["id_linea","nombre","duracion", "valor"];
 
-    public function servicios()
+   /* public function servicios()
     {
         return $this->belongsToMany(Servicio::class,'detalle_servicio','id_paquete', 'id_servicio');
+    }*/
+    public function servicios()
+    {
+        return $this->belongsToMany(Servicio::class,'detalle_servicio','id_paquete', 'id_servicio')->withPivot('id_servicio','valor');
     }
+    
     public function destinos()
     {
     	return $this->hasMany(Destino::class, 'id_paquete');
