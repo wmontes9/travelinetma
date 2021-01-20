@@ -18,6 +18,9 @@
 
     <link rel="stylesheet" href="{{asset('css/app.admin.css')}}">
     <script type="text/javascript" src="{{asset('template/admin/files/bower_components/jquery/dist/jquery.min.js')}}"></script>
+    
+    <link rel="stylesheet" type="text/css" href="{{asset('icon/themify-icons/themify-icons.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{asset('icon/icofont/css/icofont.css')}}">
 </head>
 
 <body>
@@ -332,6 +335,29 @@
                         <div class="pcoded-inner-navbar main-menu">
                             <div class="pcoded-navigatio-lavel">Navigation</div>
                             <ul class="pcoded-item pcoded-left-item">
+                                <li class="pcoded-hasmenu active pcoded-trigger">
+                                    <a href="javascript:void(0)">
+                                        <span class="pcoded-micon"><i class="feather icon-home"></i></span>
+                                        <span class="pcoded-mtext">Administrador</span>
+                                    </a>
+                                    <ul class="pcoded-submenu">
+                                        <li class="active">
+                                            <a href="{{url('admin/paquete')}}">
+                                                <span class="pcoded-mtext">Paquetes</span>
+                                            </a>
+                                        </li>
+                                        <li class="">
+                                            <a href="{{url('admin/servicio')}}">
+                                                <span class="pcoded-mtext">Servicios</span>
+                                            </a>
+                                        </li>
+                                        <li class="">
+                                            <a href="{{url('admin/detalle_servicio')}}">
+                                                <span class="pcoded-mtext">Detalle servicio</span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li>
                                 <li class="pcoded-hasmenu active pcoded-trigger">
                                     <a href="javascript:void(0)">
                                         <span class="pcoded-micon"><i class="feather icon-home"></i></span>

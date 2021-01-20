@@ -19,6 +19,9 @@ Route::get('/', function () {
 Route::group(['prefix'=>'admin'],function(){
     Route::get('/','AppController@index');
     Route::resource('paquete','PaqueteController');
+    Route::resource('servicio','ServicioController');
+    Route::get('buscar_servicio','DetalleServicioController@buscar')->name('buscar_servicio');
+    Route::resource('detalle_servicio','DetalleServicioController');
 });
 
 
