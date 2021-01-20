@@ -9,6 +9,7 @@ Route::get('/', function () {  return view('welcome');})->name('inicio');
 Route::group(['prefix'=>'admin', 'middleware'=>'auth_user'],function(){
     Route::get('/','AppController@index');
 
+    Route::resource('linea','LineaController');
     Route::resource('paquete','PaqueteController'); 
     Route::resource('/usuario','UsuarioController'); 
     Route::resource('servicio','ServicioController');

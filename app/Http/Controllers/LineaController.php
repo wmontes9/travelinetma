@@ -6,16 +6,32 @@ use App\Linea;
 use App\Paquete;
 use App\Tipo;
 use Illuminate\Http\Request;
+use Session;
 
 class LineaController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+    public $page = '';
+
+    public function __construct(){
+        if(!empty($_REQUEST['page'])){
+            $this->page = $_REQUEST['page'];
+        }
+        
+    }
+
     public function index()
-    {     
+    {  
+        $lineas = Linea::all();
+
+       switch ($this->page) {
+            case 'list':
+                    return view('app.lineas.index',compact('lineas'));
+                break;
+            default:
+
+                break;
+        }
+
         $tipo =  Tipo::with("lineas")->get()->toJson();
         return $tipo;
     }
@@ -27,7 +43,7 @@ class LineaController extends Controller
      */
     public function create()
     {
-        //
+        return view('app.lineas.create');
     }
 
     /**
@@ -38,7 +54,13 @@ class LineaController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $linea = new Linea();
+        $linea->nombre = $request->nombre;
+        $linea->vivencia = $request->vivencia;
+        $linea->save();
+
+        Session::flash('response','Registro creado correctamente');
+        return redirect()->back();
     }
 
     /**

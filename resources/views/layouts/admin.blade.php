@@ -168,12 +168,17 @@
                         <div class="pcoded-inner-navbar main-menu">
                             <div class="pcoded-navigatio-lavel">Menu de navegación</div>
                             <ul class="pcoded-item pcoded-left-item">
-                                <li class=" ">
+                                <li class="">
                                     <a href="{{ url('/admin') }}">
                                         <span class="pcoded-micon"><i class="feather icon-home"></i></span>
-<<<<<<< HEAD
                                         <span class="pcoded-mtext">Panel</span>
-=======
+                                    </a>
+                                </li>
+
+                                <li class="pcoded-hasmenu">
+                                    <a href="javascript:void(0);">
+                                        <span class="pcoded-micon"><i class="feather icon-home"></i></span>
+
                                         <span class="pcoded-mtext">Administrador</span>
                                     </a>
                                     <ul class="pcoded-submenu">
@@ -194,13 +199,14 @@
                                         </li>
                                     </ul>
                                 </li>
-                                <li class="pcoded-hasmenu active pcoded-trigger">
-                                    <a href="javascript:void(0)">
+
+                                <li class="">
+                                    <a href="{{ url('/admin/linea') }}?page=list">
                                         <span class="pcoded-micon"><i class="feather icon-home"></i></span>
-                                        <span class="pcoded-mtext">Dashboard</span>
->>>>>>> 311d49343738664322f22990f67cd3f3ae4909c2
+                                        <span class="pcoded-mtext">Lineas</span>
                                     </a>
                                 </li>
+                               
 
 
                                 <li class="pcoded-hasmenu">

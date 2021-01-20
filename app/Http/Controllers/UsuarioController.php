@@ -30,7 +30,15 @@ class UsuarioController extends Controller
     }
 
     public function update(Request $request, $id_user){
-
+    	switch ($this->page) {
+    		case '':
+    			# code...
+    			break;
+    		
+    		default:
+    			# code...
+    			break;
+    	}
     }
 
     public function update_profile (){
