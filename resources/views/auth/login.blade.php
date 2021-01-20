@@ -3,32 +3,22 @@
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Login') }}</div>
-
-                <div class="card-body">
-                    <form method="POST" action="{{ route('login') }}">
-                        @csrf
-
+        <div id="form-login">
+            <h1>Iniciar sesión</h1>
+                 <form method="POST" action="{{ route('login') }}" >
+                        @csrf 
                         <div class="form-group row">
-                            <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
-
-                            <div class="col-md-6">
+                            <span>Correo</span>
                                 <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
-
                                 @error('email')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
                                 @enderror
-                            </div>
                         </div>
 
                         <div class="form-group row">
-                            <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
-
-                            <div class="col-md-6">
+                            <span>Contraseña</span>
                                 <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
 
                                 @error('password')
@@ -36,38 +26,66 @@
                                         <strong>{{ $message }}</strong>
                                     </span>
                                 @enderror
-                            </div>
                         </div>
 
                         <div class="form-group row">
-                            <div class="col-md-6 offset-md-4">
                                 <div class="form-check">
                                     <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
 
                                     <label class="form-check-label" for="remember">
-                                        {{ __('Remember Me') }}
+                                        Recuperar contraseña
                                     </label>
                                 </div>
-                            </div>
                         </div>
 
                         <div class="form-group row mb-0">
-                            <div class="col-md-8 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
-                                    {{ __('Login') }}
+                                <button type="submit" class="btn btn-block btn-outline-success">
+                                    Acceder
                                 </button>
 
                                 @if (Route::has('password.request'))
                                     <a class="btn btn-link" href="{{ route('password.request') }}">
-                                        {{ __('Forgot Your Password?') }}
+                                        Recuperar acceso
                                     </a>
                                 @endif
-                            </div>
                         </div>
                     </form>
-                </div>
             </div>
-        </div>
     </div>
 </div>
+
+
+<style>
+    #form-login {
+    border: 1px #00800033 dashed;
+    margin: 162px 0 100px 0;
+    background: #f3f3f3;
+    padding: 70px 0;
+    box-shadow: 0px 6px 14px 1px #0000003b;
+}
+
+    #form-login h1 {
+    border-left: 5px #028c11 solid;
+    padding-left: 10px;
+    height: 37px;
+    font-size: 37px
+}
+    #form-login form {
+    padding: 10px 60px 2px 60px;
+    display: block;
+    width: 430px;
+}
+.form-control {
+    height: 45px;
+    border-radius: 0;
+}
+
+.btn-outline-success {
+    background: white;
+    /* background: #000; */
+    border: 1px green solid;
+    padding: 10px 0;
+    color: green;
+}
+</style>
 @endsection

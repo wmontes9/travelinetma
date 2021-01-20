@@ -4,7 +4,3 @@ Route::get('/inicio', function () {
 });
 
 
-
-Route::get('/admin', function () {
-    //return view('app/index');
-});

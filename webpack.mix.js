@@ -50,4 +50,6 @@ mix.scripts([
 	'resources/assets/template/admin/files/bower_components/datatables.net-responsive-bs4/css/responsive.bootstrap4.min.css',
     'resources/assets/template/admin/files/assets/css/style.css',
     'resources/assets/template/admin/files/assets/css/jquery.mCustomScrollbar.css',
+    'resources/css/admin.css',
     ], 'public/css/app.admin.css');
+ 
