@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Paquete;
+use App\Linea;
 use Illuminate\Http\Request;
 
 class PaqueteController extends Controller
@@ -24,7 +25,10 @@ class PaqueteController extends Controller
         $lis_paquetes = Paquete::all()->toArray();
         return $lis_paquetes;
     }
-
+    public function get_lineas(){
+        $lis_lineas = Linea::all()->toArray();
+        return $lis_lineas;
+    }
     /**
      * Show the form for creating a new resource.
      *
@@ -32,7 +36,9 @@ class PaqueteController extends Controller
      */
     public function create()
     {
-        return view('app.paquetes.create');
+        $lineas = new PaqueteController();
+        $lineas = $lineas->get_lineas();
+        return view('app.paquetes.create',compact('lineas'));
     }
 
     /**
@@ -43,6 +49,14 @@ class PaqueteController extends Controller
      */
     public function store(Request $request)
     {
+        $paquete = new Paquete();
+        $paquete->id_linea = $request->input('id_linea');
+        $paquete->nombre = $request->input('nombre');
+        $paquete->duracion = $request->input('duracion');
+        $paquete->valor = $request->input('valor');
+        $paquete->save();
+        
+        return redirect()->route('paquete.index');
         //
     }
 
@@ -65,6 +79,9 @@ class PaqueteController extends Controller
      */
     public function edit(paquete $paquete)
     {
+        $lineas = new PaqueteController();
+        $lineas = $lineas->get_lineas();
+        return view('app.paquetes.edit',compact('lineas','paquete'));
         //
     }
 
@@ -77,6 +94,14 @@ class PaqueteController extends Controller
      */
     public function update(Request $request, paquete $paquete)
     {
+        $paquete->id_linea = $request->input('id_linea');
+        $paquete->nombre = $request->input('nombre');
+        $paquete->duracion = $request->input('duracion');
+        $paquete->valor = $request->input('valor');
+        
+        $paquete->save();
+
+        return redirect()->route('paquete.index');
         //
     }
 

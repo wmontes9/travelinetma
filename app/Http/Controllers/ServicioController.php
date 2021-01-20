@@ -14,9 +14,14 @@ class ServicioController extends Controller
      */
     public function index()
     {
-        //
+        $servicios = new ServicioController();
+        $servicios = $servicios->get_servicios();
+        return view('app.servicios.index',compact('servicios'));
     }
-
+    public function get_servicios(){
+        $lis_servicios = Servicio::all()->toArray();
+        return $lis_servicios;
+    }
     /**
      * Show the form for creating a new resource.
      *
@@ -24,7 +29,7 @@ class ServicioController extends Controller
      */
     public function create()
     {
-        //
+        return view('app.servicios.create');
     }
 
     /**
@@ -35,7 +40,11 @@ class ServicioController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $paquete = new Servicio();
+        $paquete->nombre = $request->input('nombre');
+        $paquete->save();
+        
+        return redirect()->route('servicio.index');
     }
 
     /**
@@ -57,7 +66,7 @@ class ServicioController extends Controller
      */
     public function edit(servicio $servicio)
     {
-        //
+        return view('app.servicios.edit',compact('servicio'));
     }
 
     /**
@@ -69,7 +78,10 @@ class ServicioController extends Controller
      */
     public function update(Request $request, servicio $servicio)
     {
-        //
+        $servicio->nombre = $request->input('nombre');
+        $servicio->save();
+
+        return redirect()->route('servicio.index');
     }
 
     /**

@@ -1,10 +1,6 @@
 @extends('layouts.admin')
 
 @section('content')
-Lorem ipsum, dolor sit amet consectetur adipisicing elit. Culpa consectetur quis beatae consequuntur earum explicabo deleniti tempora blanditiis illum eveniet quasi ut doloremque dolor iure, quo, nisi, voluptates ex, dolore.
-
-
-{{ Auth::user()->id_rol }}
 <div class="page-wrapper">
                                     <!-- Page-header start -->
         <div class="page-header">
@@ -62,8 +58,9 @@ Lorem ipsum, dolor sit amet consectetur adipisicing elit. Culpa consectetur quis
 				                    <div class="row">
 				                    	<div class="col-md-12">
 				                    		<div class="card-block">
-												<form action="{{ route('paquete.store') }}" method="POST">
+												<form action="{{ route('paquete.update',$paquete) }}" method="POST">
 													@csrf
+													@method('PUT')
 					                            	<div class="row">
 														<div class="form-group col-md-3">
 										            		<label for="">Línea</label>
@@ -71,26 +68,26 @@ Lorem ipsum, dolor sit amet consectetur adipisicing elit. Culpa consectetur quis
 	                                                            <option value="opt1">--Seleccionar--
 																</option>
 																@foreach ($lineas as $values)
-	                                                            	<option value="{{$values['id']}}"> {{$values['nombre']}}</option>
+	                                                            	<option value="{{$values['id']}}" @if($paquete->id=== $values['id']) selected='selected' @endif> {{$values['nombre']}}</option>
 																@endforeach
 	                                                        </select>
 	                                                    </div>
 					                            		<div class="form-group col-md-3">
 					                            			<label for="">Nombre</label>
-										            		<input type="text" name="nombre" class="form-control">
+										            		<input type="text" name="nombre" value="{{ $paquete->nombre }}" class="form-control">
 										            	</div>
 										            	<div class="form-group col-md-3">
 					                            			<label for="">Duración</label>
-										            		<input type="text" name="duracion" class="form-control">
+										            		<input type="text" name="duracion" value="{{ $paquete->duracion }}" class="form-control">
 										            	</div>
 										            	<div class="form-group col-md-3">
 					                            			<label for="">Valor</label>
-										            		<input type="text" name="valor" class="form-control">
+										            		<input type="text" name="valor" value="{{ $paquete->valor }}" class="form-control">
 										            	</div>
 										            	
 										            	<div class="col-md-12">
 										            		<div class="modal-footer">
-										            			<button class="btn btn-outline-primary">Crear</button>
+										            			<button class="btn btn-outline-primary">Guardar cambios</button>
 										            		</div>
 										            	</div>
 
