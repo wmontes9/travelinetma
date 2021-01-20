@@ -77,6 +77,11 @@
                               </div>
                            </div>
                            @isset($paquete)
+                           <div class="page-header-title">
+                              <div class="d-inline">
+                                 <h4>Servicios asociados al paquete</h4>
+                              </div>
+                           </div>
                            <div class="card-header">
                               <a href="{{ url('admin/servicio/create') }}" class="btn btn-outline-primary">AÑADIR</a>
                            </div>

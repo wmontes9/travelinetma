@@ -61,9 +61,8 @@ class DetalleServicioController extends Controller
      */
     public function store(Request $request)
     {
-        
         $paquete = Paquete::findOrFail($request->paquete);
-        $paquete->servicios()->sync($request->servicio);
+        $paquete->servicios()->sync($request->servicios);
        
         return redirect()->back();
         //return redirect()->route('detalle_servicio.index');
