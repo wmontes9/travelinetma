@@ -8,15 +8,13 @@ Route::get('/', function () {  return view('welcome');})->name('inicio');
 //==========================panel de administracion========================================================
 Route::group(['prefix'=>'admin', 'middleware'=>'auth_user'],function(){
     Route::get('/','AppController@index');
-<<<<<<< HEAD
+
     Route::resource('paquete','PaqueteController'); 
     Route::resource('/usuario','UsuarioController'); 
-=======
-    Route::resource('paquete','PaqueteController');
     Route::resource('servicio','ServicioController');
     Route::get('buscar_servicio','DetalleServicioController@buscar')->name('buscar_servicio');
     Route::resource('detalle_servicio','DetalleServicioController');
->>>>>>> 311d49343738664322f22990f67cd3f3ae4909c2
+
 });
 
 
