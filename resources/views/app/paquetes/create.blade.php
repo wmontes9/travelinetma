@@ -1,6 +1,10 @@
 @extends('layouts.admin')
 
 @section('content')
+Lorem ipsum, dolor sit amet consectetur adipisicing elit. Culpa consectetur quis beatae consequuntur earum explicabo deleniti tempora blanditiis illum eveniet quasi ut doloremque dolor iure, quo, nisi, voluptates ex, dolore.
+
+
+{{ Auth::user()->id_rol }}
 <div class="page-wrapper">
                                     <!-- Page-header start -->
         <div class="page-header">

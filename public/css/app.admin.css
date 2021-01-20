@@ -2059,3 +2059,37 @@ yx-axis
 #mCSB_1_scrollbar_horizontal .mCSB_dragger{ width: 100px; }
 
 .mCSB_1_scrollbar .mCSB_dragger .mCSB_draggerRail{ width: 4px; }  */
+.main-body {
+    padding: 1.8rem;
+}
+.main-body .page-wrapper .page-header {
+    margin-bottom: 30px;
+}
+
+.page-header-breadcrumb {
+    display: inline-flex !important;
+    float: right !important;
+}
+.page-header {
+    margin: 0 0 10px 0;
+}
+.user-img{
+	max-width: 120px
+}
+div.title p.ttl-middle {
+    font-family: 'Bauhaus 93';
+    font-size: 1.8rem;
+    color: #fff;
+    text-align: center;
+
+}
+div.title p.ttl-after {
+    font-family: 'Bauhaus 93';
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    padding-bottom: .5em;
+    padding-left: .2em;
+    color: #fff;
+    font-size: 0.8em;
+}

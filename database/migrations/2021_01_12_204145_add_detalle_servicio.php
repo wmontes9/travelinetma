@@ -23,6 +23,7 @@ class AddDetalleServicio extends Migration
             $table->foreign('id_paquete')->references('id')->on('paquetes');
             $table->foreign('id_servicio')->references('id')->on('servicios');
         });
+        //Schema::dropIfExists('detalle_servicio');
         
     }
 
