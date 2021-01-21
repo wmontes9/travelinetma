@@ -92,7 +92,7 @@ class DetalleServicioController extends Controller
      */
     public function show($id)
     {
-        //
+        dd('hola desde rama lineas');
     }
 
     /**
