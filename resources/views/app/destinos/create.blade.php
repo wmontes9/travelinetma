@@ -62,15 +62,15 @@ Lorem ipsum, dolor sit amet consectetur adipisicing elit. Culpa consectetur quis
 				                    <div class="row">
 				                    	<div class="col-md-12">
 				                    		<div class="card-block">
-												<form action="{{ route('paquete.store') }}" method="POST">
+												<form action="{{ route('destino.store') }}" method="POST">
 													@csrf
 					                            	<div class="row">
 														<div class="form-group col-md-3">
-										            		<label for="">Línea</label>
-	                                                        <select name="id_linea" class="form-control form-control-primary">
+										            		<label for="">Paquete</label>
+	                                                        <select name="id_paquete" class="form-control form-control-primary">
 	                                                            <option value="opt1">--Seleccionar--
 																</option>
-																@foreach ($lineas as $values)
+																@foreach ($paquetes as $values)
 	                                                            	<option value="{{$values['id']}}"> {{$values['nombre']}}</option>
 																@endforeach
 	                                                        </select>
@@ -78,16 +78,7 @@ Lorem ipsum, dolor sit amet consectetur adipisicing elit. Culpa consectetur quis
 					                            		<div class="form-group col-md-3">
 					                            			<label for="">Nombre</label>
 										            		<input type="text" name="nombre" class="form-control">
-										            	</div>
-										            	<div class="form-group col-md-3">
-					                            			<label for="">Duración</label>
-										            		<input type="text" name="duracion" class="form-control">
-										            	</div>
-										            	<div class="form-group col-md-3">
-					                            			<label for="">Valor</label>
-										            		<input type="text" name="valor" class="form-control">
-										            	</div>
-										            	
+										            	</div>										            	
 										            	<div class="col-md-12">
 										            		<div class="modal-footer">
 										            			<button class="btn btn-outline-primary">Crear</button>

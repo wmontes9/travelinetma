@@ -2,7 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\destino;
+use App\Paquete;
+use App\Destino;
 use Illuminate\Http\Request;
 
 class DestinoController extends Controller
@@ -14,7 +15,19 @@ class DestinoController extends Controller
      */
     public function index()
     {
-        //
+        $destinos = new DestinoController();
+        $destinos = $destinos->get_destinos();
+        return view('app.destinos.index',compact('destinos'));
+    }
+
+
+    public function get_destinos(){
+        $lis_destinos = Destino::all()->toArray();
+        return $lis_destinos;
+    }
+    public function get_paquetes(){
+        $lis_paquetes = Paquete::all()->toArray();
+        return $lis_paquetes;
     }
 
     /**
@@ -24,7 +37,9 @@ class DestinoController extends Controller
      */
     public function create()
     {
-        //
+        $paquetes = new DestinoController();
+        $paquetes = $paquetes->get_paquetes();
+        return view('app.destinos.create',compact('paquetes'));
     }
 
     /**
@@ -35,7 +50,12 @@ class DestinoController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $destino = new Destino();
+        $destino->nombre = $request->input('nombre');
+        $destino->id_paquete = $request->input('id_paquete');
+        $destino->save();
+        
+        return redirect()->route('destino.index');
     }
 
     /**
@@ -57,7 +77,9 @@ class DestinoController extends Controller
      */
     public function edit(destino $destino)
     {
-        //
+        $paquetes = new PaqueteController();
+        $paquetes = $paquetes->get_paquetes();
+        return view('app.destinos.edit',compact('paquetes','destino'));
     }
 
     /**
@@ -69,7 +91,12 @@ class DestinoController extends Controller
      */
     public function update(Request $request, destino $destino)
     {
-        //
+        $destino->id_paquete = $request->input('id_paquete');
+        $destino->nombre = $request->input('nombre');
+    
+        $destino->save();
+
+        return redirect()->route('destino.index');
     }
 
     /**

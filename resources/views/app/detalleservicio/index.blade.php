@@ -43,6 +43,14 @@
                            <div class="row">
                               <div class="col-xs-12 col-sm-12">
                                  <div class="card-block">
+                                    @if (Session::has('response'))
+                                          <div class="alert alert-success alert-dismissible fade show" role="alert">
+                                            <strong>Mensaje!</strong> {{ Session::get('response') }}
+                                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                              <span aria-hidden="true">&times;</span>
+                                            </button>
+                                       </div>
+                                       @endif
 												<form action="{{ route('buscar_servicio') }}" method="GET">
 													@csrf
                                           <div class="row">
@@ -97,11 +105,11 @@
                                        <th>Nombre</th>
                                        <th>Valor</th>
                                     </thead>
-                                    <tbody> 
+                                    <tbody id="servicios"> 
                                        @isset($servicios)
                                        @foreach($servicios as $values) 
                                           <tr>
-                                             <td><input type="checkbox" 
+                                             <td><input type="checkbox" data_id="{{ $values['id'] }}" onchange="setValor(this)"
                                                 name="servicios[]" 
                                                 value="{{$values['id']}}" 
                                                 @foreach($list_servicios as $servici) 
@@ -110,10 +118,11 @@
                                                 @endforeach
                                                 >{{$values['id']}}</td> 
                                              <td>{{$values['nombre']}}</td>
-                                             <td>
+                                             <td id="id_servicio-{{ $values['id'] }}">
+
                                                 @foreach($list_servicios as $servici)
                                                    @if($servici['id'] === $values['id'])
-                                                   <input type="text" name="valores[]" value="{{ $servici['pivot']['valor'] }}"> 
+                                                      <input type="text" name="valores[]" value="{{ $servici['pivot']['valor'] }}"> 
                                                    @endif
                                                 @endforeach
                                              </td>
@@ -136,4 +145,20 @@
       </div>
       <!-- Page-body end -->
    </div>
+
+   <script>
+
+      function setValor(e){
+         var id_servicio = e.attributes.data_id.value;
+         var check = $(`input[data_id=${id_servicio}]`).prop('checked');
+         if(id_servicio!='' && check==true){
+
+            var input = `<input type="text" name="valores[]">`;
+            $(`#id_servicio-${id_servicio}`).html(input);
+         }else{
+           $(`#id_servicio-${id_servicio}`).html(''); 
+         }
+      }
+
+   </script>
 @endsection

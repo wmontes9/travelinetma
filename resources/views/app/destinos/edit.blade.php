@@ -58,16 +58,27 @@
 				                    <div class="row">
 				                    	<div class="col-md-12">
 				                    		<div class="card-block">
-												<form action="{{ route('servicio.store') }}" method="POST">
+												<form action="{{ route('destino.update',$destino) }}" method="POST">
 													@csrf
+													@method('PUT')
 					                            	<div class="row">
+														<div class="form-group col-md-3">
+										            		<label for="">Paquete</label>
+	                                                        <select name="id_paquete" class="form-control form-control-primary">
+	                                                            <option value="opt1">--Seleccionar--
+																</option>
+																@foreach ($paquetes as $values)
+	                                                            	<option value="{{$values['id']}}" @if($destino->id=== $values['id']) selected='selected' @endif> {{$values['nombre']}}</option>
+																@endforeach
+	                                                        </select>
+	                                                    </div>
 					                            		<div class="form-group col-md-3">
 					                            			<label for="">Nombre</label>
-										            		<input type="text" name="nombre" class="form-control">
-										            	</div>
+										            		<input type="text" name="nombre" value="{{ $destino->nombre }}" class="form-control">
+										            	</div>										            	
 										            	<div class="col-md-12">
 										            		<div class="modal-footer">
-										            			<button class="btn btn-outline-primary">Crear</button>
+										            			<button class="btn btn-outline-primary">Guardar cambios</button>
 										            		</div>
 										            	</div>
 

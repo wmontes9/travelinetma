@@ -109,7 +109,7 @@
                             <li class="user-profile header-notification">
                                 <div class="dropdown-primary dropdown">
                                     <div class="dropdown-toggle" data-toggle="dropdown">
-                                        <img src="{{ url('/img/panel/user-profile/avatar')}}/{{ Auth::user()->foto }}" class="img-radius"
+                                        <img src="#" class="img-radius"
                                             alt="User-Profile-Image">
                                         <span>John Doe</span>
                                         <i class="feather icon-chevron-down"></i>
@@ -195,6 +195,16 @@
                                         <li class="">
                                             <a href="{{url('admin/detalle_servicio')}}">
                                                 <span class="pcoded-mtext">Detalle servicio</span>
+                                            </a>
+                                        </li>
+                                        <li class="">
+                                            <a href="{{url('admin/destino')}}">
+                                                <span class="pcoded-mtext">Destinos</span>
+                                            </a>
+                                        </li>
+                                        <li class="">
+                                            <a href="{{url('admin/imagen')}}">
+                                                <span class="pcoded-mtext">Imagenes destinos</span>
                                             </a>
                                         </li>
                                     </ul>

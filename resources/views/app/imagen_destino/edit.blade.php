@@ -58,14 +58,28 @@
 				                    <div class="row">
 				                    	<div class="col-md-12">
 				                    		<div class="card-block">
-												<form action="{{ route('servicio.update',$servicio) }}" method="POST">
-													@csrf
-													@method('PUT')
+												<form action="{{ route('imagen.update',$imagen) }}" enctype="multipart/form-data" method="POST">
+                                                    {{csrf_field()}}
+                                                    @method('put')
 					                            	<div class="row">
-					                            		<div class="form-group col-md-3">
-					                            			<label for="">Nombre</label>
-										            		<input type="text" name="nombre" value="{{ $servicio->nombre }}" class="form-control">
-										            	</div>
+                                                        <div class="form-group col-md-3">
+										            		<label for="">Destinos</label>
+	                                                        <select name="id_destino" class="form-control form-control-primary">
+	                                                            <option value="opt1">--Seleccionar--
+																</option>
+																@foreach ($destinos as $values)
+	                                                            	<option value="{{$values['id']}}" @if($imagen->id_destino===$values['id']) selected='selected' @endif> {{$values['nombre']}}</option>
+																@endforeach
+	                                                        </select>
+	                                                    </div>
+                                                        <div class="form-group col-md-3">
+                                                            <label for="">Imagen</label>
+                                                            <input type="file" name="url_imagen_e"  class="form-control">
+                                                        </div>
+                                                        <div class="form-group col-md-3">
+                                                            <label for="">Imagen</label>
+                                                            <img src='{{ asset("storage/imgDestino")}}/{{$imagen->url_imagen}}' class="img-responsive" width="100%">
+                                                        </div>										            	
 										            	<div class="col-md-12">
 										            		<div class="modal-footer">
 										            			<button class="btn btn-outline-primary">Guardar cambios</button>
