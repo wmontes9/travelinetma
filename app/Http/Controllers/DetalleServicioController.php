@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Paquete;
 use DB;
 use Illuminate\Http\Request;
+use App\DetalleServicio;
+use Session;
 
 class DetalleServicioController extends Controller
 {
@@ -31,6 +33,7 @@ class DetalleServicioController extends Controller
         $id_paquete = $request->input("id_paquete"); 
         $paquete = Paquete::findOrFail($id_paquete);
         $list_servicios = $paquete->servicios->toarray();
+        //dd($paquete);
     
         /*$valor_servicio = DB::table('paquetes')
         ->join('detalle_servicio', 'paquetes.id', '=', 'detalle_servicio.id_paquete')
@@ -61,10 +64,22 @@ class DetalleServicioController extends Controller
      */
     public function store(Request $request)
     {
-        
-        $paquete = Paquete::findOrFail($request->paquete);
-        $paquete->servicios()->sync($request->servicio);
-       
+        foreach ($request->servicios as $index => $value) {
+            $detalle = new DetalleServicio();
+            $detalle->id_servicio = $value;
+            $detalle->id_paquete = $request->paquete;
+            $detalle->valor = $request->valores[$index];
+
+            $sql = DetalleServicio::where('id_paquete',$request->paquete)->where('id_servicio','=',$value)->select('*')->get();
+            if(count($sql)==0){
+                $detalle->save();
+            }else{
+                $detalleSer = new DetalleServicioController();
+                $detalleSer->update($detalle->valor, $sql[0]->id);
+            }
+            
+        }
+        Session::flash('response','Servicios añadidos correctamente.');
         return redirect()->back();
         //return redirect()->route('detalle_servicio.index');
     }
@@ -98,9 +113,11 @@ class DetalleServicioController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update($valor, $id)
     {
-        //
+        $detalle = DetalleServicio::find($id);
+        $detalle->valor = $valor;
+        $detalle->save();
     }
 
     /**

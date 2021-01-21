@@ -55,7 +55,11 @@
                                        		<tr>
                                        			<td> {{ $key }} </td>
                                        			<td> {{ $value->nombre }} </td>
-                                       			<td> {{ $value->vivencia }} </td>
+                                       			<td>
+                                       				@php
+                                       					echo substr($value->vivencia, 0,100).'...';
+                                       				@endphp
+                                       			 </td>
                                        			<td> 
                                        				<a href=""> Editar </a>
                                        				<a href=""> Eliminar </a>
