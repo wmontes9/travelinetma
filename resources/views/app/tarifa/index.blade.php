@@ -18,7 +18,7 @@
                      <li class="breadcrumb-item" style="float: left;">
                         <a href="{{ url('/admin') }}"> <i class="feather icon-home"></i> Panel </a>
                      </li>
-                     <li class="breadcrumb-item" style="float: left;"><a href="#!">Lineas</a>
+                     <li class="breadcrumb-item" style="float: left;"><a href="#!">tarifas</a>
                      </li>
 
                   </ul>
@@ -34,7 +34,7 @@
                <!-- Zero config.table start -->
                <div class="card">
                   <div class="card-header">
-                  <a href="{{ url('admin/linea/create') }}" class="btn btn-outline-primary">AÑADIR</a>
+                  <a href="{{ url('admin/tarifa/create') }}" class="btn btn-outline-primary">AÑADIR</a>
                   </div>
                   <div class="card-block">
                      <div class="dt-responsive table-responsive">
@@ -45,23 +45,21 @@
                                     <thead>
                                        <tr role="row">
                                           <td>N°</td>
-                                          <td>Nombre</td>
-                                          <td  >Descripción</td>
+                                          <td>Paquete</td>
+                                          <td></td>
                                           <td>Opciones</td>
                                        </tr>
                                     </thead>
                                     <tbody>
-                                       @foreach ($lineas as $key => $value)
+                                       @foreach ($tarifas as $key => $value)
                                        		<tr>
                                        			<td> {{ $key }} </td>
                                        			<td> {{ $value->nombre }} </td>
                                        			<td>
-                                       				@php
-                                       					echo substr($value->vivencia, 0,100).'...';
-                                       				@endphp
+                                       				
                                        			 </td>
                                        			<td> 
-                                       				<a href="{{ url('/admin/linea',$value->id) }}/edit"> Editar </a>
+                                       				
                                        				<a href=""> Eliminar </a>
                                        			 </td>	
                                        		</tr>

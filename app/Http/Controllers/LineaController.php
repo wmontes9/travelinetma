@@ -92,7 +92,7 @@ class LineaController extends Controller
      */
     public function edit(Linea $linea)
     {
-        //
+       return view('app/lineas.edit',compact('linea'));
     }
 
     /**
@@ -104,7 +104,12 @@ class LineaController extends Controller
      */
     public function update(Request $request, Linea $linea)
     {
-        //
+        $linea->nombre = $request->nombre;
+        $linea->vivencia = $request->vivencia;
+        $linea->save();
+        Session::flash('response','Registro actualizado correctamente');
+        return redirect()->back();
+
     }
 
     /**

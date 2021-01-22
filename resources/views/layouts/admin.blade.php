@@ -206,6 +206,14 @@
                                         <span class="pcoded-mtext">Lineas</span>
                                     </a>
                                 </li>
+
+
+                                 <li class="">
+                                    <a href="{{ url('/admin/tarifa') }}?page=list">
+                                        <span class="pcoded-micon"><i class="feather icon-home"></i></span>
+                                        <span class="pcoded-mtext">Tarifas</span>
+                                    </a>
+                                </li>
                                
 
 
