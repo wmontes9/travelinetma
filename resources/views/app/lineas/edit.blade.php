@@ -25,7 +25,7 @@
                             </li>
                             <li class="breadcrumb-item" style="float: left;"><a href="{{ url('/admin/linea?page=list') }}">Lineas</a>
                             </li>
-                            <li class="breadcrumb-item" style="float: left;"><a href="#!">create</a>
+                            <li class="breadcrumb-item" style="float: left;"><a href="#!">edit</a>
                             </li>
                         </ul>
                     </div>
@@ -46,7 +46,7 @@
 				                    	<div class="col-md-12">
 				                    		<div class="card-header">
 					                            <h5>Formulario</h5>
-					                            <span>Añada nuevas lineas turisticas.</span>
+					                            <span>Edite la linea  {{ $linea->nombre }}.</span>
 
 
 					                            <div class="card-header-right">
@@ -69,31 +69,23 @@
 													</div>
 				                    			@endif
 					                    			
-												<form action="{{ route('linea.store') }}" method="POST">
+												<form action="{{ route('linea.update',$linea->id) }}" method="POST">
 													@csrf
+													@method('put')
 					                            	<div class="row">
-														<div class="form-group col-md-3">
-															<label for="">Seleccione el tipo</label>
-														    <select name="id_tipo" class="form-control form-control-primary">
-														       <option value="opt1">--Seleccionar--</option>
-														       @foreach ($categorias as $values)
-														          <option value="{{ $values->id }}" > {{ $values->nombre }} </option>
-														       @endforeach
-														    </select>
-														</div>
 														
 					                            		<div class="form-group col-md-3">
 					                            			<label for="">Nombre</label>
-										            		<input type="text" name="nombre" class="form-control" required>
+										            		<input type="text" name="nombre" class="form-control" value="{{ $linea->nombre }}"  required>
 										            	</div>
-										            	<div class="form-group col-md-6">
+										            	<div class="form-group col-md-9">
 					                            			<label for="">Descripción</label>
-										            		<input type="text" name="vivencia" class="form-control" required>
+										            		<input type="text" name="vivencia" class="form-control" value="{{ $linea->vivencia }}" required>
 										            	</div>
 										            	
 										            	<div class="col-md-12">
 										            		<div class="modal-footer">
-										            			<button class="btn btn-outline-primary">Crear</button>
+										            			<button class="btn btn-outline-primary">ACTUALIZAR</button>
 										            		</div>
 										            	</div>
 

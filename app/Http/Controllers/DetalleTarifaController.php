@@ -2,12 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\tipo;
 use Illuminate\Http\Request;
-use Session;
 
-
-class TipoController extends Controller
+class DetalleTarifaController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -17,11 +14,6 @@ class TipoController extends Controller
     public function index()
     {
         //
-    }
-
-    public function get_tipos(){
-        $tipos = Tipo::orderBy('id','DESC')->get();
-        return $tipos;
     }
 
     /**
@@ -42,22 +34,16 @@ class TipoController extends Controller
      */
     public function store(Request $request)
     {
-        $tipo = new Tipo();
-        $tipo->nombre = $request->nombre;
-        $tipo->save();
-
-         Session::flash('response','Categoria añadida correctamente.');
-        return redirect()->back();
-
+        //
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\tipo  $tipo
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(tipo $tipo)
+    public function show($id)
     {
         //
     }
@@ -65,10 +51,10 @@ class TipoController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\tipo  $tipo
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(tipo $tipo)
+    public function edit($id)
     {
         //
     }
@@ -77,10 +63,10 @@ class TipoController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\tipo  $tipo
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, tipo $tipo)
+    public function update(Request $request, $id)
     {
         //
     }
@@ -88,10 +74,10 @@ class TipoController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\tipo  $tipo
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(tipo $tipo)
+    public function destroy($id)
     {
         //
     }
