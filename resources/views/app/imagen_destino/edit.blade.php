@@ -72,7 +72,7 @@
 																@endforeach
 	                                                        </select>
 	                                                    </div>
-                                                        <div class="form-group col-md-3">
+                                                        <div class="form-group col-md-5">
                                                             <label for="">Imagen</label>
                                                             <input type="file" name="url_imagen_e"  class="form-control">
                                                         </div>

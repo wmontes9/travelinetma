@@ -26,8 +26,8 @@
 <style>
         .whatsapp {
             position:fixed;
-            width:60px;
-            height:60px;
+            width:50px;
+            height:50px;
             bottom:30px;
             right:30px;
             background-color:#25d366;
@@ -38,7 +38,7 @@
             z-index:100;            
         }
         .whatsapp:hover{
-            color:white;
+            color:rgba(255, 255, 255, 0.4);
         }
 
         .whatsapp-icon {
@@ -110,8 +110,53 @@
 .activ{
     color:darkgreen !important;
 }
-.red{
-    color: #FFF;
+.facebook{
+    position:fixed;
+    width:50px;
+    height:50px;
+    bottom:90px;
+    right:30px;
+    background-color:#0b59c0;
+    color:#FFF;
+    border-radius:50px;
+    text-align:center;
+    font-size:30px;
+    z-index:100;
+}
+.facebook:hover{
+    color:rgba(255, 255, 255, 0.4);
+}
+.twitter{
+    position:fixed;
+    width:50px;
+    height:50px;
+    bottom:150px;
+    right:30px;
+    background-color:#0b59c0;
+    color:#FFF;
+    border-radius:50px;
+    text-align:center;
+    font-size:30px;
+    z-index:100; 
+}
+.twitter:hover{
+    color:rgba(255, 255, 255, 0.4);
+}
+.instagram{
+    position:fixed;
+    width:50px;
+    height:50px;
+    bottom:210px;
+    right:30px;
+    background-color:#0b59c0;
+    color:#FFF;
+    border-radius:50px;
+    text-align:center;
+    font-size:30px;
+    z-index:100;
+}
+.instagram:hover{
+    color:rgba(255, 255, 255, 0.4);
 }
 </style>    
 <body>
@@ -119,6 +164,11 @@
     <a href="https://api.whatsapp.com/send?phone=573115182141&text=Hola%2C%20deseo%20adquirir%20mas%20informacion." class="whatsapp d-flex justify-content-center align-items-center" target="_blank"> 
         <i class="fab fa-whatsapp"></i>
     </a>
+    <div class="header-social pull-right">
+        <a href="https://www.facebook.com/pg/TravelineTmaLineaViajera/posts/?ref=page_internal" class="facebook d-flex justify-content-center align-items-center" target="blank"><i class="fab fa-facebook"></i>
+        <a href="https://twitter.com/search?q=%40ttraveline&s=08" class="twitter d-flex justify-content-center align-items-center" target="blank"><i class="fab fa-twitter"></i></a>
+        <a href="https://www.instagram.com/travelinetma/" class="instagram d-flex justify-content-center align-items-center" target="blank"><i class="fab fa-instagram"></i></a>
+    </div>
     <div id="app">
         <nav class="navbar navbar-expand-lg navbar-light bg-white justify-content-end position-relative  position-fixed fixed-top" id="nav">
            
@@ -258,14 +308,6 @@
                 <i class="fas fa-envelope fa-2x mx-3"></i> travelinetma67@gmail.com <br><br>
                 <i class="fas fa-mobile-alt fa-2x mx-3"></i>311 5182141 - 317 5929764<br><br>
                 <i class="fab fa-algolia fa-2x mx-3"></i> 24-7
-            </div>
-            <div class="col-md-2 col-sm-2 col-xs-2 pt-2 text-white">
-                <br>
-                    <a href="https://www.facebook.com/pg/TravelineTmaLineaViajera/posts/?ref=page_internal" class="red" target="blank"><i class="fab fa-facebook fa-2x mx-3 "></i>travelinetma</a><br><br>
-                    <a href="https://twitter.com/search?q=%40ttraveline&s=08" class="red"><i class="fab fa-twitter-square fa-2x mx-3 "></i>@ttraveline</a><br><br>
-                    <a href="https://www.instagram.com/travelinetma/" class="red"><i class="fab fa-instagram  fa-2x mx-3 "></i>travelinetma</a><br><br>
-                    {{-- <i class="fab fa-whatsapp  fa-2x mx-3 "></i> --}}
-                
             </div>
             <div class="col-md-2 col-sm-2 col-xs-2 pt-2">
                 <img src="img/logo.png" class="img-fluid">
