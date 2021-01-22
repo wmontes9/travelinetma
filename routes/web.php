@@ -12,6 +12,7 @@ Route::group(['prefix'=>'admin', 'middleware'=>'auth_user'],function(){
     Route::resource('linea','LineaController');
     Route::resource('paquete','PaqueteController'); 
     Route::resource('/tarifa','TarifaController');
+    Route::resource('/tipo','TipoController');
     Route::resource('/usuario','UsuarioController'); 
     Route::resource('servicio','ServicioController');
     Route::get('buscar_servicio','DetalleServicioController@buscar')->name('buscar_servicio');

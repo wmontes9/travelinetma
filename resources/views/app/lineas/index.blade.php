@@ -26,6 +26,21 @@
             </div>
          </div>
       </div>
+
+      <style>
+table {
+
+  overflow-x:auto;
+}
+table td {
+  word-wrap: break-word;
+  max-width: 400px;
+}
+table td {
+  white-space:inherit;
+}
+</style>
+
       <!-- Page-header end -->
       <!-- Page-body start -->
       <div class="page-body">
@@ -45,25 +60,46 @@
                                     <thead>
                                        <tr role="row">
                                           <td>N°</td>
-                                          <td>Nombre</td>
-                                          <td  >Descripción</td>
-                                          <td>Opciones</td>
+                                          <td>Categoria</td>
+                                          <td>linea</td>
                                        </tr>
                                     </thead>
                                     <tbody>
                                        @foreach ($lineas as $key => $value)
                                        		<tr>
-                                       			<td> {{ $key }} </td>
-                                       			<td> {{ $value->nombre }} </td>
-                                       			<td>
-                                       				@php
-                                       					echo substr($value->vivencia, 0,100).'...';
-                                       				@endphp
+                                       			<td width="5%"> {{ $key }} </td>
+                                       			<td width="10%"> {{ $value->nombre }} </td>
+                                       			<td width="65%" style="white-space: inherit ;">
+                                                   <ul>
+                                                       @foreach($value->lineas as $index => $linea)
+                                                            <li> 
+                                                               <b> {{ $index }}.  {{ $linea->nombre }}</b> 
+                                                                   <div class="dropdown" style="float: right; padding-right: 20px">
+                                                                       <i class="fa fa-home dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                                         Opciones
+                                                                       </i>
+                                                                       <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+                                                                         <button class="dropdown-item" type="button">Editar</button>
+                                                                         <button class="dropdown-item" type="button">Eliminar</button>
+                                                                       </div>
+                                                                     </div>
+
+                                                                <br>
+                                                               <div class="textos">
+                                                                        <span class="d-inline-block" tabindex="0" data-toggle="tooltip" title="{{ $linea->vivencia }}" style="cursor: pointer;">
+                                                                           @php
+                                                                              echo '- '.substr($linea->vivencia, 0,300).'...';
+                                                                           @endphp
+
+                                                                         </span>
+                                                               </div>
+                                                              
+                                                              
+                                                            </li>
+                                                       @endforeach
+                                                   </ul>
                                        			 </td>
-                                       			<td> 
-                                       				<a href="{{ url('/admin/linea',$value->id) }}/edit"> Editar </a>
-                                       				<a href=""> Eliminar </a>
-                                       			 </td>	
+                                       				
                                        		</tr>
                                        @endforeach
                                     </tbody>

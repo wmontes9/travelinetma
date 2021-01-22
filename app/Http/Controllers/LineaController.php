@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Linea;
 use App\Paquete;
 use App\Tipo;
+use App\TipoLinea;
 use Illuminate\Http\Request;
 use Session;
 
@@ -21,11 +22,19 @@ class LineaController extends Controller
 
     public function index()
     {  
-        $lineas = Linea::all();
+      
+
 
        switch ($this->page) {
             case 'list':
+                    $lineas = new LineaController();
+                    $lineas = $lineas->get_lineas();
                     return view('app.lineas.index',compact('lineas'));
+                break;
+             case 'categorias':
+                    $categorias = new TipoController();
+                    $categorias = $categorias->get_tipos();
+                    return view('app.lineas.categoria',compact('categorias'));
                 break;
             default:
 
@@ -36,6 +45,14 @@ class LineaController extends Controller
         return $tipo;
     }
 
+    public function get_lineas(){
+      $lineas =  Tipo::with("lineas")->get();
+      foreach ($lineas as $key => $value) {
+        
+      }
+      return $lineas;
+    }
+
     /**
      * Show the form for creating a new resource.
      *
@@ -43,7 +60,9 @@ class LineaController extends Controller
      */
     public function create()
     {
-        return view('app.lineas.create');
+        $categorias = new TipoController();
+        $categorias = $categorias->get_tipos();
+        return view('app.lineas.create',compact('categorias'));
     }
 
     /**
@@ -58,6 +77,13 @@ class LineaController extends Controller
         $linea->nombre = $request->nombre;
         $linea->vivencia = $request->vivencia;
         $linea->save();
+
+        $id_linea = $linea->id;
+
+        $tipos_linea = new TipoLinea();
+        $tipos_linea->id_linea = $id_linea;
+        $tipos_linea->id_tipo = $request->id_tipo;
+        $tipos_linea->save();
 
         Session::flash('response','Registro creado correctamente');
         return redirect()->back();

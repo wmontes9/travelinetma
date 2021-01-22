@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use DB;
 use Session;
+use App\Tarifa;
 
 class TarifaController extends Controller
 {
@@ -46,7 +47,10 @@ class TarifaController extends Controller
      */
     public function create()
     {
-        return view('app.tarifa.create');
+        $paquetes = new PaqueteController();
+        $paquetes = $paquetes->get_paquetes();
+
+        return view('app.tarifa.create',compact('paquetes'));
     }
 
     /**
@@ -57,7 +61,18 @@ class TarifaController extends Controller
      */
     public function store(Request $request)
     {
-        //
+           $tarifa = new Tarifa();
+           $tarifa->id_paquete = $request->id_paquete;
+           $tarifa->edad_min = $request->minEdad;
+           $tarifa->edad_max = $request->maxEdad;
+           $tarifa->valor = $request->valor;
+           $tarifa->save();
+           Session::flash('response','Tarifa añadida correctamente.');
+           return redirect()->back();
+    }
+
+    public function get_tarifas_paquete($id_paquete){
+       // $tarifas = Tarifa::where('id_paquete','')
     }
 
     /**
@@ -68,7 +83,8 @@ class TarifaController extends Controller
      */
     public function show($id)
     {
-        //
+        $tarifas = Tarifa::where('id_paquete','=',$id)->select('*')->get();
+        return $tarifas;
     }
 
     /**

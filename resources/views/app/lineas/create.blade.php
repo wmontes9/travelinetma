@@ -72,12 +72,21 @@
 												<form action="{{ route('linea.store') }}" method="POST">
 													@csrf
 					                            	<div class="row">
+														<div class="form-group col-md-3">
+															<label for="">Seleccione el tipo</label>
+														    <select name="id_tipo" class="form-control form-control-primary">
+														       <option value="opt1">--Seleccionar--</option>
+														       @foreach ($categorias as $values)
+														          <option value="{{ $values->id }}" > {{ $values->nombre }} </option>
+														       @endforeach
+														    </select>
+														</div>
 														
 					                            		<div class="form-group col-md-3">
 					                            			<label for="">Nombre</label>
 										            		<input type="text" name="nombre" class="form-control" required>
 										            	</div>
-										            	<div class="form-group col-md-9">
+										            	<div class="form-group col-md-6">
 					                            			<label for="">Descripción</label>
 										            		<input type="text" name="vivencia" class="form-control" required>
 										            	</div>

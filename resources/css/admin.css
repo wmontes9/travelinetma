@@ -32,3 +32,10 @@ div.title p.ttl-after {
     color: #fff;
     font-size: 0.8em;
 }
+
+ul.pcoded-submenu li a {
+    padding-left: 44px !important;
+}
+ul.pcoded-submenu li a {
+    padding-left: 54px !important;
+}

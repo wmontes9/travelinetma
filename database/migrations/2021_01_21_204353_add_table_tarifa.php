@@ -16,7 +16,9 @@ class AddTableTarifa extends Migration
          Schema::create('tarifa', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->unsignedBigInteger('id_paquete')->index();
-            $table->text('data');
+            $table->string('edad_min');
+            $table->string('edad_max');
+            $table->string('valor');
             $table->timestamps();
 
             $table->foreign('id_paquete')->references('id')->on('paquetes');
