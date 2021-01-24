@@ -23,10 +23,10 @@ Route::group(['prefix'=>'admin'],function(){
 });
 
 
-//============================================================================================================
-
-
+//=========================================== Sitio Web cliente =================================================================
 Route::resource('/lineas', 'LineaController');
+
+
 
 Route::view('/superlinea', 'linea.super')->name('superlinea');
 Route::view('/playandina','linea.playa')->name('playandina');
@@ -37,3 +37,7 @@ Route::view('/tunjahistorica','linea.tunjah')->name('tunjahistorica');
 Route::view('/navidad','linea.navidad')->name('navidad');
 Route::view('/cocuy','linea.cocuy')->name('cocuy');
 Route::view('/norteg','linea.norteg')->name('norteg');
+
+Route::group(['prefix'=>'categoria'],function(){
+    Route::resource('/{tipo}','TipoController');
+});

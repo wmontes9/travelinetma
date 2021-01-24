@@ -69,26 +69,31 @@
 													</div>
 				                    			@endif
 					                    			
-												<form action="{{ route('linea.store') }}" method="POST">
+												<form action="{{ route('linea.store') }}" method="POST" enctype="multipart/form-data">
 													@csrf
 					                            	<div class="row">
-														<div class="form-group col-md-3">
+														<div class="form-group col-md-4">
 															<label for="">Seleccione el tipo</label>
-														    <select name="id_tipo" class="form-control form-control-primary">
-														       <option value="opt1">--Seleccionar--</option>
+														    <select name="id_tipo" class="form-control form-control-primary" required>
+														    	<option></option>
 														       @foreach ($categorias as $values)
 														          <option value="{{ $values->id }}" > {{ $values->nombre }} </option>
 														       @endforeach
 														    </select>
 														</div>
+
+														<div class="form-group col-md-4">
+															<span>Banner <small>1800x730px</small></span>
+															<input type="file" name="image" class="form-control" style="margin-top: 7px" required>
+														</div>
 														
-					                            		<div class="form-group col-md-3">
+					                            		<div class="form-group col-md-4">
 					                            			<label for="">Nombre</label>
 										            		<input type="text" name="nombre" class="form-control" required>
 										            	</div>
-										            	<div class="form-group col-md-6">
+										            	<div class="form-group col-md-12">
 					                            			<label for="">Descripción</label>
-										            		<input type="text" name="vivencia" class="form-control" required>
+										            		<textarea name="vivencia" class="form-control" rows="5" required></textarea>
 										            	</div>
 										            	
 										            	<div class="col-md-12">

@@ -5,41 +5,71 @@ namespace App\Http\Controllers;
 use App\tipo;
 use Illuminate\Http\Request;
 use Session;
+use App\Linea;
+use App\Paquete;
 
 
 class TipoController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
-    {
-        //
+    public $page = '';
+    public $id_linea = '';
+
+    public function __construct(){
+        if(!empty($_REQUEST['linea']) && !empty($_REQUEST['ids'])){
+            $this->page = $_REQUEST['linea'];
+            $this->id_linea = $_REQUEST['ids'];
+        }
+        
     }
+
+    public function index()
+    {  
+        $linea = new TipoController();
+        $linea = $linea->get_detalles($this->id_linea);
+        if($linea){
+            dd($linea['servicios']);
+            return view('lineas.detalles',compact('linea'));
+        }else{
+            return redirect()->back();
+        }
+    }
+
+
+    public function get_detalles($id_linea){
+        $linea = Linea::find($id_linea);
+
+         $servicios = Paquete::with(['itinerario', 
+            'servicios',
+            'destinos',
+            'destinos.imagenes'])
+            ->where("id_linea", "=", $id_linea)
+            ->first();
+
+            if($servicios!=null){
+                return array('datos_linea'=>$linea,'servicios'=>$servicios); 
+            }else{  
+                return array(); 
+               //return redirect()->back(); 
+            }   
+
+
+
+                 
+            
+    }
+
 
     public function get_tipos(){
         $tipos = Tipo::orderBy('id','DESC')->get();
         return $tipos;
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function create()
     {
         //
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
+
     public function store(Request $request)
     {
         $tipo = new Tipo();
@@ -57,9 +87,22 @@ class TipoController extends Controller
      * @param  \App\tipo  $tipo
      * @return \Illuminate\Http\Response
      */
+
+
     public function show(tipo $tipo)
     {
-        //
+        dd($linea);
+        $servicios = Paquete::with(['itinerario', 
+            'servicios',
+            'destinos',
+            'destinos.imagenes'])
+        ->where("id_linea", "=", $linea->id)
+        ->first()
+        ->toArray();          
+        return view('lineas.index',[
+            "datos_linea" => $linea,
+            "servicios" => $servicios
+        ]);
     }
 
     /**

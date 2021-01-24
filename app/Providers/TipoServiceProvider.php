@@ -3,14 +3,12 @@
 namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
-use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\Facades\View;
-use App\Tipo;
 
-class AppServiceProvider extends ServiceProvider
+class TipoServiceProvider extends ServiceProvider
 {
     /**
-     * Register any application services.
+     * Register services.
      *
      * @return void
      */
@@ -20,13 +18,13 @@ class AppServiceProvider extends ServiceProvider
     }
 
     /**
-     * Bootstrap any application services.
+     * Bootstrap services.
      *
      * @return void
      */
     public function boot()
     {
-        Schema::defaultStringLength(191);
-      //  View::share('partials.list_tipos',);
+
+        View::composer(['partials.list_tipos'],'App\Http\ViewComposer\TipoComposer');
     }
 }

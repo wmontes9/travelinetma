@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use App\Linea;
 use App\Paquete;
 use App\Tipo;
+use App\Servicio;
+use App\DetalleServicio;
+use App\Tarifa;
 use App\TipoLinea;
 use Illuminate\Http\Request;
 use Session;
@@ -22,9 +25,6 @@ class LineaController extends Controller
 
     public function index()
     {  
-      
-
-
        switch ($this->page) {
             case 'list':
                     $lineas = new LineaController();
@@ -37,19 +37,15 @@ class LineaController extends Controller
                     return view('app.lineas.categoria',compact('categorias'));
                 break;
             default:
-
                 break;
         }
 
-        $tipo =  Tipo::with("lineas")->get()->toJson();
+        $tipo =  Tipo::with("lineas")->get();
         return $tipo;
     }
 
     public function get_lineas(){
       $lineas =  Tipo::with("lineas")->get();
-      foreach ($lineas as $key => $value) {
-        
-      }
       return $lineas;
     }
 
@@ -73,7 +69,12 @@ class LineaController extends Controller
      */
     public function store(Request $request)
     {
+        //file     
+        $file = $request->image->store('public/banner/lineas');     
+        $nombre = explode('/',$file);
+
         $linea = new Linea();
+        $linea->image = $nombre[3];
         $linea->nombre = $request->nombre;
         $linea->vivencia = $request->vivencia;
         $linea->save();
@@ -89,19 +90,16 @@ class LineaController extends Controller
         return redirect()->back();
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Linea  $linea
-     * @return \Illuminate\Http\Response
-     */
+
+
     public function show(Linea $linea)
     {
+       
         $servicios = Paquete::with(['itinerario', 
             'servicios',
             'destinos',
             'destinos.imagenes'])
-        ->where("id_linea", "=", $linea->id)
+        ->where("id_linea", "=", $id_linea)
         ->first()
         ->toArray();          
         return view('lineas.index',[
@@ -146,7 +144,15 @@ class LineaController extends Controller
      */
     public function destroy(Linea $linea)
     {
-        //
+        //verificar paquetes
+        $paquetes = Paquete::where('id_linea','=',$linea->id)->select('*')->get();
+        foreach ($paquetes as $key => $value) {
+            $servicios = Servicio::where('id_paquete','=',$value->id)->delete();
+            $detalle_servicios = DetalleServicio::where('id_paquete','=',$value->id)->delete();
+            $detalle_servicios = DetalleServicio::where('id_paquete','=',$value->id)->delete();
+
+        }
+        dd($paquetes);
     }
 
 }

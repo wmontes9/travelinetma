@@ -80,7 +80,11 @@ table td {
                                                                        </i>
                                                                        <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
                                                                          <button class="dropdown-item" type="button">Editar</button>
-                                                                         <button class="dropdown-item" type="button">Eliminar</button>
+                                                                         <form action="{{ route('linea.destroy',$linea->id) }}" method="post">
+                                                                           @csrf
+                                                                           @method('delete')
+                                                                           <button  type="submit" class="dropdown-item">ELiminar</button>
+                                                                         </form>
                                                                        </div>
                                                                      </div>
 

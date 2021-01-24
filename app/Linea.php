@@ -15,8 +15,10 @@ class Linea extends Model
     {
     	return $this->belongsToMany(Tipo::class, 'tipo_lineas', 'id_linea', 'id_tipo');
     }
+    
     public function paquetes()
     {
         return $this->hasMany(Paquete::class, 'id_linea');
     }
 }
+ 

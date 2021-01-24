@@ -40,7 +40,9 @@ mix.scripts([
     'resources/assets/template/admin/files/assets/js/vartical-layout.min.js',
     'resources/assets/template/admin/files/assets/js/jquery.mCustomScrollbar.concat.min.js',
     'resources/assets/template/admin/files/assets/js/script.js',
-	], 'public/js/app.admin.js')
+	], 'public/js/app.admin.js').scripts([
+        'resources/js/components/app.js'
+    ],'public/js/app.client.js')
     .styles([
     'resources/assets/template/admin/files/bower_components/bootstrap/dist/css/bootstrap.min.css',
 		'resources/assets/template/admin/files/assets/icon/feather/css/feather.css',
@@ -51,5 +53,7 @@ mix.scripts([
     'resources/assets/template/admin/files/assets/css/style.css',
     'resources/assets/template/admin/files/assets/css/jquery.mCustomScrollbar.css',
     'resources/css/admin.css',
-    ], 'public/css/app.admin.css');
+    ], 'public/css/app.admin.css').styles([
+        'resources/css/app.client.css'
+    ],'public/css/app.client.css');
  

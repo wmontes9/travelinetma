@@ -10,10 +10,13 @@
     <link rel="stylesheet" href="{{ asset('/css/all.css') }}">
     <link rel="stylesheet" href="{{ asset('/css/bootstrap.css') }}">
     <link rel="stylesheet" href="{{ asset('/css/app.css') }}">
+    <link rel="stylesheet" href="{{ asset('/css/app.client.css') }}">
 
     <!-- Scripts -->
     <script src="{{ asset('js/all.js') }}" defer></script>
     <script src="{{ asset('js/jquery.js') }}" defer></script>
+    <script src="{{ asset('js/app.client.js') }}" defer></script>
+
     <script src="{{ asset('js/popper.js') }}" defer></script>
     <script src="{{ asset('js/bootstrap.js') }}" defer></script>
     <script src="{{ asset('js/main.js') }}" defer></script>
@@ -24,143 +27,10 @@
     <link rel="shortcut icon" href="img/logo.jpg">
 </head>
 <style>
-        .whatsapp {
-            position:fixed;
-            width:50px;
-            height:50px;
-            bottom:30px;
-            right:30px;
-            background-color:#25d366;
-            color:#FFF;
-            border-radius:50px;
-            text-align:center;
-            font-size:30px;
-            z-index:100;            
-        }
-        .whatsapp:hover{
-            color:rgba(255, 255, 255, 0.4);
-        }
 
-        .whatsapp-icon {
-            margin-top:13px;
-        }
-        .carousel-control-prev-icon,
-.carousel-control-next-icon {
-  outline: white;
-  background-color: #FF2FE3; 
-  background-size: 100%, 100%;
-  border-radius: 50%;
-  border: 1px solid white;
-}
 
-.solid-service-box {
-	text-align: center;
-	background: #fff;
-	padding: 20px 10px;
-	-webkit-transition: all 0.4s ease-out 0s;
-	-o-transition: all 0.4s ease-out 0s;
-	transition: all 0.4s ease-out 0s;
-}
-
-.solid-service-box h2 {
-	font-size: 48px;
-	color: #727272;
-	margin-bottom: 20px;
-	-webkit-transition: all 0.4s;
-	-o-transition: all 0.4s;
-	transition: all 0.4s;
-}
-
-.solid-service-box h3 {
-	margin-bottom: 20px;
-}
-
-.solid-service-box p {
-	font-size: 14px;
-	margin-bottom: 20px;
-}
-.solid-service-box .readmore {
-	font-size: 12px;
-	font-weight: 700;
-	text-transform: uppercase;
-	color: #222;
-	opacity: 0;
-	visibility: hidden;
-	position: relative;
-	bottom: -20px;
-	-webkit-transition: all 0.4s;
-	-o-transition: all 0.4s;
-	transition: all 0.4s;
-}
-
-.solid-service-box:hover {
-	background:lightgreen;
-}
-
-.solid-service-box:hover h2 {
-	color: #222;
-}
-
-.solid-service-box:hover .readmore {
-	visibility: visible;
-	opacity: 1;
-	bottom: 0;
-}
-.link { color:#222; }
-.activ{
-    color:darkgreen !important;
-}
-.facebook{
-    position:fixed;
-    width:50px;
-    height:50px;
-    bottom:90px;
-    right:30px;
-    background-color:#0b59c0;
-    color:#FFF;
-    border-radius:50px;
-    text-align:center;
-    font-size:30px;
-    z-index:100;
-}
-.facebook:hover{
-    color:rgba(255, 255, 255, 0.4);
-}
-.twitter{
-    position:fixed;
-    width:50px;
-    height:50px;
-    bottom:150px;
-    right:30px;
-    background-color:#0b59c0;
-    color:#FFF;
-    border-radius:50px;
-    text-align:center;
-    font-size:30px;
-    z-index:100; 
-}
-.twitter:hover{
-    color:rgba(255, 255, 255, 0.4);
-}
-.instagram{
-    position:fixed;
-    width:50px;
-    height:50px;
-    bottom:210px;
-    right:30px;
-    background-color:#0b59c0;
-    color:#FFF;
-    border-radius:50px;
-    text-align:center;
-    font-size:30px;
-    z-index:100;
-}
-.instagram:hover{
-    color:rgba(255, 255, 255, 0.4);
-}
 </style>    
 <body>
-  <div class="container-fluid"> 
     <a href="https://api.whatsapp.com/send?phone=573115182141&text=Hola%2C%20deseo%20adquirir%20mas%20informacion." class="whatsapp d-flex justify-content-center align-items-center" target="_blank"> 
         <i class="fab fa-whatsapp"></i>
     </a>
@@ -192,20 +62,16 @@
                         <a class="nav-link" href="https://drive.google.com/file/d/1qD8N2zQ_bXXlxCXN-EFKoCxxZkUDokza/view?usp=sharing" target="_blank">Catálogo de servicios</a>
                     </li>
                    
-                    <li class="nav-item dropdown">
-                        <a class="{{request()->routeIs('superlinea', 'playandina', 'termal', 'tunjahistorica', 'navidad', 'cocuy', 'norteg') ? 'activ' : '' }} nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                          Líneas de servicio
+                   <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="http://example.com" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                          Lineas de servicio
                         </a>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="{{request()->routeIs('superlinea') ? 'activ' : '' }} dropdown-item" href="{{url('/superlinea')}}">Super línea</a>
-                        <a class="{{request()->routeIs('playandina') ? 'activ' : '' }} dropdown-item" href="{{url('/playandina')}}">Playa andina</a>
-                        <a class="{{request()->routeIs('termal') ? 'activ' : '' }} dropdown-item" href="{{url('/termal')}}">Paseo termal</a> 
-                        <a class="{{request()->routeIs('tunjahistorica') ? 'activ' : '' }} dropdown-item" href="{{url('/tunjahistorica')}}">Tunja histórica</a>
-                        <a class="{{request()->routeIs('navidad') ? 'activ' : '' }} dropdown-item" href="{{url('/navidad')}}">Línea navideña</a>
-                        <a class="{{request()->routeIs('cocuy') ? 'activ' : '' }} dropdown-item" href="{{url('/cocuy')}}">El Cocuy</a>
-                        <a class="{{request()->routeIs('norteg') ? 'activ' : '' }} dropdown-item" href="{{url('/norteg')}}">Norte y Gutierrez</a>
-                    </div>
-                    </li>
+                        <ul class="dropdown-menu categorias" aria-labelledby="navbarDropdownMenuLink">
+                            @include('partials.list_tipos');
+                        </ul>
+                      </li>
+
+
                     <li class="nav-item item-menu px-2">
                         <a class="{{request()->routeIs('establecimientos') ? 'activ' : '' }} nav-link" href="{{url('/establecimientos')}}">Hoteles</a>
                     </li>
@@ -232,51 +98,7 @@
         </main>
     </div>
     <div class="container">
-        {{-- <div class="row" id="contacto">
-            <div class="col-md-12">
-                <h2 class="text-center title text-company">Contactenos</h2>
-            </div>
-        </div>
-        <div class="row d-flex justify-content-center">                
-            <div class="col-md-8">
-                <form enctype="multipart/form-data" action="contact" method="POST">
-                    @csrf		
-                    <div>
-                        <label for="name">Nombre y apellido  <span class="required">*</span></label>
-                        <div class="inputs form-group">
-                            <input class="aweform form-control" type="text" id="name" name="name" placeholder="Ingrese su nombre" value="{{ old('name')}}"/>
-                            {!! $errors -> first('name','<small>:message</small>')!!}
-                        </div>  
-                    </div>
-                    
-                    <div>
-                        <label for="email">Correo electrónico<span class="required">*</span></label>
-                        <div class="inputs form-group">
-                            <input class="aweform form-control" type="text" id="email" name="email" placeholder="E-mail..." value="{{ old('email')}}"/>
-                            {!! $errors -> first('email','<small>:message</small>')!!}
-                        </div>  
-                    </div>
-                    
-                    <div>
-                        <label for="phone">Teléfono <span class="required">*</span></label>
-                        <div class="inputs form-group">
-                            <input class="aweform small form-control" type="text" id="phone" name="phone" placeholder="Teléfono" value="{{ old('phone')}}"/>
-                            {!! $errors -> first('phone','<small>:message</small>')!!}
-                        </div>  
-                    </div>
-                    <div>
-                        <label for="message">Mensaje <span class="required">*</span></label>
-                        <div class="inputs form-group">
-                            <textarea class="aweform form-control" id="message" name="message" rows="6" cols="5" placeholder="Ingrese su mensaje, solicitud o consulta" value="{{ old('message')}}"></textarea>
-                            {!! $errors -> first('message','<small>:message</small>')!!}
-                        </div>  
-                    </div>		
-                    <div class="form-group text-center">
-                        <button class="btn btn-success"><i class="fa fa-chevron-circle-right"></i> Enviar</button>   
-                    </div>
-                </form>
-            </div>
-        </div>     --}}
+        
     </div>
 {{-- <div class="row">
 <iframe class="col-md-12" src="https://drive.google.com/file/d/1qD8N2zQ_bXXlxCXN-EFKoCxxZkUDokza/preview" style="height:600px;"></iframe>
@@ -325,6 +147,33 @@
             <hr>
         </p>
     </footer>
-  </div>
+  <script>
+    window.onload = ()=>{
+         var url = "{{ url("/") }}";
+        set_url(url);
+        // get_lineas();
+    }
+
+
+    $('.dropdown-menu a.dropdown-toggle').on('click', function(e) {
+      if (!$(this).next().hasClass('show')) {
+        console.log(this);
+        $(this).parents('.dropdown-menu').first().find('.show').removeClass("show");
+      }
+      var $subMenu = $(this).next(".dropdown-menu");
+      $subMenu.toggleClass('show');
+
+
+      $(this).parents('li.nav-item.dropdown.show').on('hidden.bs.dropdown', function(e) {
+        $('.dropdown-submenu .show').removeClass("show");
+      });
+
+
+  return false;
+});
+
+
+  </script>
+
 </body>
 </html>
