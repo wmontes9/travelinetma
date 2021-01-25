@@ -21,6 +21,7 @@ class users_table_seeder extends Seeder
         $user->apellidos = 'sistema';
         $user->documento = '00000000000';
         $user->telefono = '00000000000';
+        $user->foto = 'fghfghf';
         $user->save();
 
         $id_user = $user->id;

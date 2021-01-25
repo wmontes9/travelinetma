@@ -3,11 +3,11 @@
 
 
 Auth::routes();
-Route::get('/', function () {  return view('welcome');})->name('inicio');
+//Route::get('/', function () {  return view('welcome');})->name('inicio');
 
 //==========================panel de administracion========================================================
-Route::group(['prefix'=>'admin'],function(){
-//Route::group(['prefix'=>'admin', 'middleware'=>'auth_user'],function(){
+//Route::group(['prefix'=>'admin'],function(){
+Route::group(['prefix'=>'admin', 'middleware'=>'auth_user'],function(){
     Route::get('/','AppController@index');
 
     Route::resource('linea','LineaController');
