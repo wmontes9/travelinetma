@@ -7,9 +7,23 @@
             <div class="col-lg-8">
                <div class="page-header-title">
                   <div class="d-inline">
-                     <h4>Destinos</h4>
-                     <span>Destinos de la línea turistica</span>
+                     <h4>Imagenes de destino</h4>
+                     <span>Lista de imagenes</span>
                   </div>
+               </div>
+            </div>
+            <div class="col-lg-4">
+               <div class="page-header-breadcrumb">
+                  <ul class="breadcrumb-title">
+                     <li class="breadcrumb-item" style="float: left;">
+                        <a href="../index.html"> <i class="feather icon-home"></i> </a>
+                     </li>
+                     <li class="breadcrumb-item" style="float: left;"><a href="{{ url('/admin') }}">Panel Administrador</a>
+                     </li>
+                     <li class="breadcrumb-item" style="float: left;">
+                        <a href="#!">Imagen</a>
+                     </li>
+                  </ul>
                </div>
             </div>
          </div>
