@@ -24,6 +24,7 @@ class TipoController extends Controller
 
     public function index()
     {  
+<<<<<<< HEAD
 
 
         $linea = $this->get_detalles($this->id_linea);
@@ -34,6 +35,13 @@ class TipoController extends Controller
             $tarifas = $tarifas->show($linea['servicios']->id);
             $detalles_servicios = $detalles_servicios->show($linea['servicios']->id);
             return view('lineas.detalles',compact('linea','tarifas','detalles_servicios'));
+=======
+      
+
+        $linea = $this->get_detalles($this->id_linea);
+        if($linea){
+            return view('lineas.detalles',compact('linea'));
+>>>>>>> fd061cf184ee7acfe8a09e6dd461ad9a38541ba3
         }else{
             return redirect()->back();
         }
