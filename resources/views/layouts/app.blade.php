@@ -107,36 +107,18 @@
             @yield('content')
         </main>
     </div>
-    <div class="container">
-        
-    </div>
+
+    <style>
+        main.py-4 {
+    margin: 38px 0 0 0;
+}
+    </style>
+
 {{-- <div class="row">
 <iframe class="col-md-12" src="https://drive.google.com/file/d/1qD8N2zQ_bXXlxCXN-EFKoCxxZkUDokza/preview" style="height:600px;"></iframe>
 </div> --}}
-<<<<<<< HEAD
-<style>
-    section#marcas {
-    background: #f3f3f3;
-    margin: 0 0 -33px 0;
-    padding: 44px 0 25px 0;
-}
-</style>
-<section id="marcas">
-    <div class="container">
-        <div class="row shadow px-4 pb-4">
-            <div class="col-md-12"><h3>Somos poseedores de las marcas: </h3></div>
-            <div class="col-md-6 col-sm-6 text-center">
-                <img src="img/boyacav.jpg" alt="" class="img-fluid">
-            </div>
-            <div class="col-md-6 col-sm-6 text-center">
-                <img src="img/Soy Boyaca.png" alt="" class="img-fluid">
-            </div>
-        </div>
-    </div>
-</section>
-    
-<hr/>
-=======
+
+
 <!--<div class="container">
     <div class="row shadow px-4 pb-4">
         <div class="col-md-12"><h3>Somos poseedores de las marcas: </h3></div>
@@ -149,7 +131,7 @@
     </div>
 </div>
 <hr/>-->
->>>>>>> fd061cf184ee7acfe8a09e6dd461ad9a38541ba3
+
     <footer class="w-100 bg-dark">
         <div class="row">
             <div class="col-md-3 pt-2 col-sm-3 col-xs-3 text-white ml-3" id="contacto">

@@ -11,10 +11,10 @@ Route::group(['prefix'=>'categoria'],function(){
     Route::get('{tipo}','TipoController@index');
 });
 
-<<<<<<< HEAD
+
 Route::resource('detalle_compra','DetalleCompraController');
-=======
->>>>>>> fd061cf184ee7acfe8a09e6dd461ad9a38541ba3
+
+
 
 Route::group(['prefix'=>'admin', 'middleware'=>'auth_user'],function(){
     Route::get('/','AppController@index');
