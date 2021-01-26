@@ -24,10 +24,10 @@ class TipoController extends Controller
 
     public function index()
     {  
-        $linea = new TipoController();
-        $linea = $linea->get_detalles($this->id_linea);
+      
+
+        $linea = $this->get_detalles($this->id_linea);
         if($linea){
-            dd($linea['servicios']);
             return view('lineas.detalles',compact('linea'));
         }else{
             return redirect()->back();
@@ -91,7 +91,7 @@ class TipoController extends Controller
 
     public function show(tipo $tipo)
     {
-        dd($linea);
+       // dd($linea);
         $servicios = Paquete::with(['itinerario', 
             'servicios',
             'destinos',
