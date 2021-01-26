@@ -7,9 +7,8 @@
             <div class="col-lg-8">
                <div class="page-header-title">
                   <div class="d-inline">
-                     <h4>Basic Table Sizes</h4>
-                     <span>lorem ipsum dolor sit amet, consectetur adipisicing
-                     elit</span>
+                     <h4>Paquetes</h4>
+                     <span>Lista de paquetes</span>
                   </div>
                </div>
             </div>
@@ -19,10 +18,10 @@
                      <li class="breadcrumb-item" style="float: left;">
                         <a href="../index.html"> <i class="feather icon-home"></i> </a>
                      </li>
-                     <li class="breadcrumb-item" style="float: left;"><a href="#!">Bootstrap Table</a>
+                     <li class="breadcrumb-item" style="float: left;"><a href="{{ url('/admin') }}">Panel Administrador</a>
                      </li>
-                     <li class="breadcrumb-item" style="float: left;"><a href="#!">Basic
-                        Initialization</a>
+                     <li class="breadcrumb-item" style="float: left;">
+                        <a href="#!">Paquete</a>
                      </li>
                   </ul>
                </div>

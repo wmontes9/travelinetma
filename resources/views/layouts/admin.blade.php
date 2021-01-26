@@ -204,7 +204,7 @@
                                         </li>
                                         <li class="">
                                             <a href="{{url('admin/imagen')}}">
-                                                <span class="pcoded-mtext">Imagenes destinos</span>
+                                                <span class="pcoded-mtext">Imagenes destino</span>
                                             </a>
                                         </li>
                                     </ul>

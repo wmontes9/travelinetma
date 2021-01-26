@@ -1,10 +1,7 @@
 @extends('layouts.admin')
 
 @section('content')
-Lorem ipsum, dolor sit amet consectetur adipisicing elit. Culpa consectetur quis beatae consequuntur earum explicabo deleniti tempora blanditiis illum eveniet quasi ut doloremque dolor iure, quo, nisi, voluptates ex, dolore.
-
-
-<!-- {{--> //Auth::user()->id_rol --}}
+{{ Auth::user()->id_rol }}
 <div class="page-wrapper">
                                     <!-- Page-header start -->
         <div class="page-header">
@@ -12,9 +9,8 @@ Lorem ipsum, dolor sit amet consectetur adipisicing elit. Culpa consectetur quis
                 <div class="col-lg-8">
                     <div class="page-header-title">
                         <div class="d-inline">
-                            <h4>Basic Form Inputs</h4>
-                            <span>Lorem ipsum dolor sit <code>amet</code>, consectetur
-                                adipisicing elit</span>
+                            <h4>Paquete de servicio</h4>
+                            <span>Descripción del paquete de servicio</span>
                         </div>
                     </div>
                 </div>
@@ -24,9 +20,9 @@ Lorem ipsum, dolor sit amet consectetur adipisicing elit. Culpa consectetur quis
                             <li class="breadcrumb-item" style="float: left;">
                                 <a href="https://demo.dashboardpack.com/adminty-html/index.html"> <i class="feather icon-home"></i> </a>
                             </li>
-                            <li class="breadcrumb-item" style="float: left;"><a href="#!">Form Components</a>
+                            <li class="breadcrumb-item" style="float: left;"><a href="{{ url('/admin/paquete') }}">Paquetes</a>
                             </li>
-                            <li class="breadcrumb-item" style="float: left;"><a href="#!">Form Components</a>
+                            <li class="breadcrumb-item" style="float: left;"><a href="#!">Añadir</a>
                             </li>
                         </ul>
                     </div>
@@ -46,11 +42,8 @@ Lorem ipsum, dolor sit amet consectetur adipisicing elit. Culpa consectetur quis
 			                    	<div class="row">
 				                    	<div class="col-md-12">
 				                    		<div class="card-header">
-					                            <h5>Basic Form Inputs</h5>
-					                            <span>Add class of <code>.form-control</code> with
-					                                <code>&lt;input&gt;</code> tag</span>
-
-
+					                            <h5>Formulario para crear un paquete</h5>
+					                            <span>Favor completar la información</span>
 					                            <div class="card-header-right">
 					                                <i class="icofont icofont-spinner-alt-5"></i>
 					                            </div>

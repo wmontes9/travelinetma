@@ -2,10 +2,9 @@
     @extends('layouts.admin')
 
     @section('content')
-    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Culpa consectetur quis beatae consequuntur earum explicabo deleniti tempora blanditiis illum eveniet quasi ut doloremque dolor iure, quo, nisi, voluptates ex, dolore.
     
     
-    <!-- {{--> //Auth::user()->id_rol --}}
+    {{ Auth::user()->id_rol }}
     <div class="page-wrapper">
                                         <!-- Page-header start -->
             <div class="page-header">
@@ -13,9 +12,8 @@
                     <div class="col-lg-8">
                         <div class="page-header-title">
                             <div class="d-inline">
-                                <h4>Basic Form Inputs</h4>
-                                <span>Lorem ipsum dolor sit <code>amet</code>, consectetur
-                                    adipisicing elit</span>
+                                <h4>Imagenes</h4>
+                                <span>Imagenes destino</span>
                             </div>
                         </div>
                     </div>
@@ -25,9 +23,9 @@
                                 <li class="breadcrumb-item" style="float: left;">
                                     <a href="https://demo.dashboardpack.com/adminty-html/index.html"> <i class="feather icon-home"></i> </a>
                                 </li>
-                                <li class="breadcrumb-item" style="float: left;"><a href="#!">Form Components</a>
+                                <li class="breadcrumb-item" style="float: left;"><a href="{{ url('/admin/imagen') }}">Imagenes</a>
                                 </li>
-                                <li class="breadcrumb-item" style="float: left;"><a href="#!">Form Components</a>
+                                <li class="breadcrumb-item" style="float: left;"><a href="#!">Añadir</a>
                                 </li>
                             </ul>
                         </div>
@@ -47,9 +45,8 @@
                                         <div class="row">
                                             <div class="col-md-12">
                                                 <div class="card-header">
-                                                    <h5>Basic Form Inputs</h5>
-                                                    <span>Add class of <code>.form-control</code> with
-                                                        <code>&lt;input&gt;</code> tag</span>
+                                                    <h5>Formulario para asociar una imagen a un destino</h5>
+					                                <span>Favor completar la información</span>
     
     
                                                     <div class="card-header-right">
