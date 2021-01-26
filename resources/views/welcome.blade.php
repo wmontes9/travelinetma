@@ -58,7 +58,7 @@
         <div class="row">
             <div class="col-md-12">
                 <br>
-                <h2 class="text-center title text-company">Líneas de Servicio.</h2>
+                <h2 class="text-center title text-company">Líneas de Servicio</h2>
             </div>
         </div>
 
@@ -98,43 +98,72 @@
         }
         </style>
         <div id="myBtnContainer" class="text-center">
-          <button class="btn active" onclick="filterSelection('all')"> Todas</button>
+          <button class="btn active" onclick="filterSelection('all')" element="0"> Todas</button>
           @foreach ($lis_tipos as $tipo)
-          <button class="btn" onclick="filterSelection('{{ $tipo['id'] }}')"> {{ $tipo['nombre'] }}</button>
-        @endforeach
+              <button class="btn" onclick="filterSelection('{{ $tipo['id'] }}')" element="{{ $tipo['id'] }}"> {{ $tipo['nombre'] }}</button>
+          @endforeach
         </div>
         <hr>
         <div class="container-fluid">
             <div class="row row-cols-1 row-cols-md-3 g-4">
-                @foreach ($lineas as $linea)
-                    <div class="col-md-6 col-lg-6 filterDiv {{ $linea->id_tipo }}">
-                        <div class="col">
-                            <div class="card">
-                              <img
-                                src="https://mdbootstrap.com/img/new/standard/city/041.jpg"
-                                class="card-img-top"
-                                alt="..."
-                              />
-                              <div class="card-body">
-                                <h5 class="card-title"><a href="#">{{ $linea->nombre }}</a></h5>
-                                <p class="card-text">
-                                    {{ $linea->nombre }}
-                                </p>
-                              </div>
+                @foreach($tipos as  $value)
+                    @foreach($value['lineas'] as $index => $linea)        
+                        <div class="col-md-6 col-lg-6 filterDiv  {{ $linea['pivot']['id_tipo'] }} show active">
+                            <div class="col">
+                                <div class="card">
+                                    <img
+                                    src='{{ asset("storage/banner/lineas")}}/{{$linea['image']}}'
+                                    class="card-img-top"
+                                    alt="..."
+                                    />
+                                    <div class="card-body">
+                                    <h5 class="card-title"><a href="{{ url('/categoria',$value['nombre']) }}?ids={{ $linea['id'] }}&linea={{ $linea['nombre'] }}">{{ $linea['nombre'] }}</a></h5>
+                                    <p class="card-text">
+                                        {{ $linea['nombre'] }}
+                                    </p>
+                                    </div>
+                                </div>
                             </div>
                         </div>
-                    </div>
+                    @endforeach
                 @endforeach
-          </div>
+            </div>
+        </div>
+        <hr>
+        <h3>Somos poseedores de las marcas:</h2>
+        <div id="bs4-multi-slide-carousel" class="carousel slide" data-ride="carousel" >
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <div class="row">
+                        <div class="col text-center"><img src="img/boyacav.jpg" class="img-fluid" alt="1 slide"></div>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <div class="row">
+                        <div class="col text-center"><img src="img/Soy Boyaca.png" class="img-fluid" alt="2 slide"></div>
+                    </div>
+                </div>
+            </div>
+            <a class="carousel-control-prev" href="#bs4-multi-slide-carousel" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+            </a>
+            <a class="carousel-control-next text-faded" href="#bs4-multi-slide-carousel" role="button" data-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+            </a>
         </div>
         <script>
         filterSelection("all")
         function filterSelection(c) {
+            console.log(c);
           var x, i;
           x = document.getElementsByClassName("filterDiv");
           if (c == "all") c = "";
           for (i = 0; i < x.length; i++) {
-            bnt_class();
+            console.log(x[i]);
+
+            bnt_class(c);
             w3RemoveClass(x[i], "show");
             if (x[i].className.indexOf(c) > -1) w3AddClass(x[i], "show");
           }
@@ -162,15 +191,18 @@
         }
         
         // Add active class to the current button (highlight it)
-        function bnt_class(){
+        function bnt_class(btn=null){
+            //console.log(btn);
             var btnContainer = document.getElementById("myBtnContainer");
             var btns = btnContainer.getElementsByClassName("btn");
             for (var i = 0; i < btns.length; i++) {
-            btns[i].addEventListener("click", function(){
-                var current = document.getElementsByClassName("active");
-                current[0].className = current[0].className.replace(" active", "");
-                this.className += " active";
-            });
+                    $('#myBtnContainer button').removeClass('active');
+                    $(`#myBtnContainer button[element='${btn}']`).addClass('active');
+                    btns[i].addEventListener("click", function(){
+                    var current = document.getElementsByClassName("active");
+                    current[0].className = current[0].className.replace(" active", "");
+                    this.className += " active";
+                });
             }
         }
        

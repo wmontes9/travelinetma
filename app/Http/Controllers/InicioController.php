@@ -21,7 +21,10 @@ class InicioController extends Controller
             ->join('tipos', 'tipo_lineas.id_tipo', '=', 'tipos.id')
             ->select('lineas.*', 'tipo_lineas.id_tipo')
             ->get()->toArray();
-        return view('welcome',compact('lis_tipos','lineas'));
+        $tipos = Tipo::with("lineas")->get()->toArray();
+        //dd($tipos);
+        //dd($tipos[3]['lineas'][0]['pivot']['id_tipo']);
+        return view('welcome',compact('lis_tipos','lineas','tipos'));
     }
 
     /**

@@ -67,7 +67,7 @@
                           Lineas de servicio
                         </a>
                         <ul class="dropdown-menu categorias" aria-labelledby="navbarDropdownMenuLink">
-                            @include('partials.list_tipos');
+                            @include('partials.list_tipos')
                         </ul>
                       </li>
 
@@ -103,7 +103,7 @@
 {{-- <div class="row">
 <iframe class="col-md-12" src="https://drive.google.com/file/d/1qD8N2zQ_bXXlxCXN-EFKoCxxZkUDokza/preview" style="height:600px;"></iframe>
 </div> --}}
-<div class="container">
+<!--<div class="container">
     <div class="row shadow px-4 pb-4">
         <div class="col-md-12"><h3>Somos poseedores de las marcas: </h3></div>
         <div class="col-md-6 col-sm-6 text-center">
@@ -114,7 +114,7 @@
         </div>
     </div>
 </div>
-<hr/>
+<hr/>-->
     <footer class="w-100 bg-dark">
         <div class="row">
             <div class="col-md-3 pt-2 col-sm-3 col-xs-3 text-white ml-3" id="contacto">
@@ -132,7 +132,7 @@
                 <i class="fab fa-algolia fa-2x mx-3"></i> 24-7
             </div>
             <div class="col-md-2 col-sm-2 col-xs-2 pt-2">
-                <img src="img/logo.png" class="img-fluid">
+                <img src="{{asset('img/logo.png')}}" class="img-fluid">
             </div>
         </div>
         <p class="text-center w-100 text-white">
@@ -143,7 +143,7 @@
             <br>
             En Traveline TMA. Protegemos el medio ambiente
             <br>
-            TravelLinetma - Todos los derechos reservados.
+            TravelLinetma - Todos los derechos reservadoss.
             <hr>
         </p>
     </footer>
