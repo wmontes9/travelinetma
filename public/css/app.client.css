@@ -202,3 +202,47 @@ span.divider {
         margin-left: auto;
     }
 }
+
+.fixed-top {
+    top: 30px;
+}
+
+.top {
+    display: block;
+    width: 100%;
+    background: #016d0d;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 9999
+}
+.top ul{
+    display: flex;
+    justify-content: flex-end;
+    list-style: none;
+}
+.top li a{
+    color: #fff;
+}
+.top li{
+    padding: 0 30px;
+}
+.content{
+    max-width: 98%;
+    margin:auto;
+    display: block;
+}
+.top li a:hover{
+text-decoration: none;
+}
+
+main.py-4 {
+    margin: 47px 0;
+}
+
+@media(max-width: 570px){
+    .top{
+        display: none;
+    }
+}

@@ -31,6 +31,15 @@
 
 </style>    
 <body>
+    <div class="top">
+            <div class="content" style="padding: 0 !important;height: auto;">
+                <ul>
+                    <li><a href="tel:317 5929764"><i class="fa fa-mobile"></i> +57 317 5929764</a></li>
+                    <li><a href="mail:informacion@travelinetma.com.co"> <i class="fa fa-envelope"></i> informacion@travelinetma.com.co</a></li> 
+                     <li><a href="javascript:void(0);"> <i class="fa fa-envelope"></i> Fax: 941 446 227</a></li>
+                </ul>
+            </div>
+        </div>
     <a href="https://api.whatsapp.com/send?phone=573115182141&text=Hola%2C%20deseo%20adquirir%20mas%20informacion." class="whatsapp d-flex justify-content-center align-items-center" target="_blank"> 
         <i class="fab fa-whatsapp"></i>
     </a>
@@ -40,8 +49,9 @@
         <a href="https://www.instagram.com/travelinetma/" class="instagram d-flex justify-content-center align-items-center" target="blank"><i class="fab fa-instagram"></i></a>
     </div>
     <div id="app">
+        
         <nav class="navbar navbar-expand-lg navbar-light bg-white justify-content-end position-relative  position-fixed fixed-top" id="nav">
-           
+            
             <button class="navbar-toggler mt-1 mr-1 float-left" type="button" data-toggle="collapse" data-target="#menu" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -103,17 +113,27 @@
 {{-- <div class="row">
 <iframe class="col-md-12" src="https://drive.google.com/file/d/1qD8N2zQ_bXXlxCXN-EFKoCxxZkUDokza/preview" style="height:600px;"></iframe>
 </div> --}}
-<div class="container">
-    <div class="row shadow px-4 pb-4">
-        <div class="col-md-12"><h3>Somos poseedores de las marcas: </h3></div>
-        <div class="col-md-6 col-sm-6 text-center">
-            <img src="img/boyacav.jpg" alt="" class="img-fluid">
-        </div>
-        <div class="col-md-6 col-sm-6 text-center">
-            <img src="img/Soy Boyaca.png" alt="" class="img-fluid">
+<style>
+    section#marcas {
+    background: #f3f3f3;
+    margin: 0 0 -33px 0;
+    padding: 44px 0 25px 0;
+}
+</style>
+<section id="marcas">
+    <div class="container">
+        <div class="row shadow px-4 pb-4">
+            <div class="col-md-12"><h3>Somos poseedores de las marcas: </h3></div>
+            <div class="col-md-6 col-sm-6 text-center">
+                <img src="img/boyacav.jpg" alt="" class="img-fluid">
+            </div>
+            <div class="col-md-6 col-sm-6 text-center">
+                <img src="img/Soy Boyaca.png" alt="" class="img-fluid">
+            </div>
         </div>
     </div>
-</div>
+</section>
+    
 <hr/>
     <footer class="w-100 bg-dark">
         <div class="row">

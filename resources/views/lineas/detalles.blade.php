@@ -91,33 +91,62 @@
                 <ul class="list-group">
                     <li class="list-group-item active">Incluye</li>
                     <ol>
-                        <li>Transporte</li>
-                        <li>Seguro</li>
-                        <li>Guía turístico</li>
-                        <li>Entradas a las actividades</li>
-                        <li>Almuerzo</li>
-                      </ol>
+                        @foreach($detalles_servicios as $index => $value)
+                            <li>{{ $value->nombre }}</li>
+                        @endforeach
+                    </ol>
                 </ul>
             </div>
 
             <div class="col-md-4">
+                @php
+                    $long = count($tarifas);
+                @endphp
                 <table class="table table-bordered">
                     <thead>
                         <tr>
-                          <th colspan="3" style="background-color:darkgreen; font-size:1.3em;" class="text-white">Tarifas</th>
+                          <td colspan="{{ $long }}" style="background-color:darkgreen; font-size:1.3em;" class="text-white">Tarifas por persona</td>
                         </tr>
-                      <tr>
-                        <th>Adulto</th>
-                        <th>Niño mayor de 5 años</th>
-                        <th>Niño menor de 5 años</th>
-                      </tr>
+                       
                     </thead>
-                    <tbody>    
-                      <tr class="table-success" style="font-size:1.1em;">
-                        <td>$200.000</b></td>
-                        <td>$175.000</td>
-                        <td>$50.000</td>
-                      </tr>
+                    <tbody>
+                     <tr>
+                        @foreach($tarifas as $inde => $tarifa)
+                            <td style="background-color:#b7c95d;"> {{ $tarifa->edad_min }} - {{ $tarifa->edad_max }} Años / {{ $tarifa->valor }}% </td>
+                        @endforeach 
+                    </tr>
+                     <tr>
+                        @php
+                            $id_paquete = '';
+                        @endphp
+                        @foreach($tarifas as $key => $tarifa)
+                            <td style="background-color:#b7c95d;">
+                               @php
+                                    $total_servicios = 0;
+                               @endphp
+                                @foreach($detalles_servicios as $index => $servicio)
+                                    @php
+                                        $id_paquete = $servicio->id_paquete;
+                                        $total_servicios = $total_servicios + $servicio->valor;
+                                    @endphp
+                                @endforeach
+
+                                 @php
+                                    $porcentaje = $total_servicios * $tarifa->valor;
+                                    $descuento = $porcentaje / 100;
+                                    $total = $total_servicios - $descuento;
+                                     echo '$'.number_format($total);
+                                 @endphp
+                            </td>
+                        @endforeach 
+                    </tr>
+                    <tr>
+                        <td colspan="{{ $long }}">
+                            <p class="text-right">
+                                <a href="#modal-carrito-list" class="btn btn-outline-success" data-toggle="modal" ><i class="fa fa-cart-plus"></i> Contratar</a>
+                            </p>
+                        </td>
+                    </tr>
                     </tbody>
                 </table>
             </div>
@@ -126,5 +155,89 @@
 
     </div>
 </section>
+
+
+<section class="carrito-list">
+    <form action="{{ route('detalle_compra.store') }}" id="form-compra" method="post">
+        @csrf
+        <input type="hidden" name="id_paquete" value="{{ $id_paquete }}">
+         <div class="modal fade" id="modal-carrito-list">
+               <div class="modal-dialog modal-lg modal-dialog-centered">
+                   <div class="modal-content">
+                       <div class="modal-body">
+                            <h2 class="text-muted">Datos de las personas</h2>
+                            <p>Por favor digite la información de las personas que asistiran.</p>
+                           <table class="table table-bordered" id="personas">
+                               <thead  >
+                                   <tr>
+                                       <th>Nombres</th>
+                                       <th>Apellidos</th>
+                                       <th>Tipo documento</th>
+                                       <th>Documento</th>
+                                       <th>Edad</th>
+                                   </tr>
+                               </thead>
+                               <tbody>
+                                   <tr>
+                                       <td> <input type="text" name="nombres[]" class="form-control"> </td>
+                                       <td> <input type="text" name="apellidos[]" class="form-control"> </td>
+                                        <td>
+                                            <select name="tipo_documento[]" class="form-control">
+                                                <option value="1">RC - Registro Civil</option>
+                                                <option value="2">TI - Tarjeta de identidad</option>
+                                                <option value="3">CC - Cédula de ciudadanía</option>
+                                                <option value="4">CE - Cédula de extranjería</option>
+                                                <option value="5">PA - Pasaporte</option>
+                                                <option value="6">MS - Menor sin identificación</option>
+                                                <option value="7">AS - Adulto sin identidad.</option>
+                                            </select>
+                                        </td>
+                                       <td> <input type="text" name="documentos[]" class="form-control"> </td>
+                                       <td> <input type="number" name="edad[]" class="form-control"> </td>
+                                   </tr>
+                               </tbody>
+                           </table>
+                           <p class="modal-footer">
+                               <a href="javascript:void(0);" onclick="nueva_fila()" class="btn btn-outline-primary"> <i class="fa fa-plus"></i> </a>
+                           </p>
+                       </div>
+                       <div class="modal-footer">
+                           <button type="button" class="btn btn-outline-warning" data-dismiss="modal">Close</button>
+                           <button type="submit" class="btn btn-outline-success">Finalizar y pagar</button>
+                       </div>
+                   </div>
+               </div>
+           </div>
+    </form>
+           
+</section>
+
+<script src="{{ asset('js/jquery.js') }}"></script>
+<script>
+    function nueva_fila(){
+        var fila = ` 
+            <tr>
+               <td> <input type="text" name="nombres[]" class="form-control"> </td>
+               <td> <input type="text" name="apellidos[]" class="form-control"> </td>
+                <td>
+                    <select name="tipo_documento[]" class="form-control">
+                        <option value="1">RC - Registro Civil</option>
+                        <option value="2">TI - Tarjeta de identidad</option>
+                        <option value="3">CC - Cédula de ciudadanía</option>
+                        <option value="4">CE - Cédula de extranjería</option>
+                        <option value="5">PA - Pasaporte</option>
+                        <option value="6">MS - Menor sin identificación</option>
+                        <option value="7">AS - Adulto sin identidad.</option>
+                    </select>
+                </td>
+               <td> <input type="text" name="documentos[]" class="form-control"> </td>
+               <td> <input type="number" name="edad[]" class="form-control"> </td>
+           </tr>
+         `;
+
+         $('#personas tbody').append(fila);
+    }
+</script>
+
 
 @endsection

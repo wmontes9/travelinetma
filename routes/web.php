@@ -7,6 +7,12 @@ Auth::routes();
 
 //==========================panel de administracion========================================================
 //Route::group(['prefix'=>'admin'],function(){
+Route::group(['prefix'=>'categoria'],function(){
+    Route::get('{tipo}','TipoController@index');
+});
+
+Route::resource('detalle_compra','DetalleCompraController');
+
 Route::group(['prefix'=>'admin', 'middleware'=>'auth_user'],function(){
     Route::get('/','AppController@index');
 
@@ -38,6 +44,3 @@ Route::view('/navidad','linea.navidad')->name('navidad');
 Route::view('/cocuy','linea.cocuy')->name('cocuy');
 Route::view('/norteg','linea.norteg')->name('norteg');
 
-Route::group(['prefix'=>'categoria'],function(){
-    Route::resource('/{tipo}','TipoController');
-});

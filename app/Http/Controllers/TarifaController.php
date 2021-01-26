@@ -20,7 +20,7 @@ class TarifaController extends Controller
 
 
     public function index(){
-
+ 
         switch ($this->page) {
             case 'list':
                     $tarifasCont = new TarifaController();
@@ -83,7 +83,8 @@ class TarifaController extends Controller
      */
     public function show($id)
     {
-        $tarifas = Tarifa::where('id_paquete','=',$id)->select('*')->get();
+        $tarifas = Tarifa::where('id_paquete','=',$id)->select('*')->orderBy('edad_max','ASC')->get();
+        //dd($tarifas);
         return $tarifas;
     }
 

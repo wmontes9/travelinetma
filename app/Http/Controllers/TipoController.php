@@ -24,11 +24,16 @@ class TipoController extends Controller
 
     public function index()
     {  
-        $linea = new TipoController();
-        $linea = $linea->get_detalles($this->id_linea);
+
+
+        $linea = $this->get_detalles($this->id_linea);
         if($linea){
-            dd($linea['servicios']);
-            return view('lineas.detalles',compact('linea'));
+            $tarifas = new TarifaController();
+            $detalles_servicios = new DetalleServicioController();
+            //dd($linea['servicios']->id);
+            $tarifas = $tarifas->show($linea['servicios']->id);
+            $detalles_servicios = $detalles_servicios->show($linea['servicios']->id);
+            return view('lineas.detalles',compact('linea','tarifas','detalles_servicios'));
         }else{
             return redirect()->back();
         }
@@ -91,7 +96,7 @@ class TipoController extends Controller
 
     public function show(tipo $tipo)
     {
-        dd($linea);
+       // dd($linea);
         $servicios = Paquete::with(['itinerario', 
             'servicios',
             'destinos',

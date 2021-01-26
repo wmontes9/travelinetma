@@ -95,9 +95,12 @@ class DetalleServicioController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
-    {
-        dd('hola desde rama lineas');
+
+    public function show($id_paquete){
+        $detalles = DB::table('servicios as s')->join('detalle_servicio as ds','ds.id_servicio','=','s.id')
+        ->where('ds.id_paquete','=',$id_paquete)->select('*')->get();
+        
+        return $detalles;
     }
 
     /**

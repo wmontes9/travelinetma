@@ -1,9 +1,14 @@
 @extends("layouts.app")
 @section("content") 
+<style>
+    #carouselExampleCaptions h3.title {
+    font-size: 61px;
+}
+</style>
     <div class="d-none d-sm-none d-md-block"> 
    
     </div>
-    <div class="container-fluid">   
+    <div class="container-flid">   
         <br>
         <br>    
         <div id="carouselExampleCaptions" class="carousel slide" data-ride="carousel" >
@@ -98,16 +103,16 @@
         }
         </style>
         <div id="myBtnContainer" class="text-center">
-          <button class="btn active" onclick="filterSelection('all')"> Todas</button>
+          <button class="btn active" onclick="filterSelection('all')" element="0"> Todas</button>
           @foreach ($lis_tipos as $tipo)
-          <button class="btn" onclick="filterSelection('{{ $tipo['id'] }}')"> {{ $tipo['nombre'] }}</button>
-        @endforeach
+              <button class="btn" onclick="filterSelection('{{ $tipo['id'] }}')" element="{{ $tipo['id'] }}"> {{ $tipo['nombre'] }}</button>
+          @endforeach
         </div>
         <hr>
         <div class="container-fluid">
             <div class="row row-cols-1 row-cols-md-3 g-4">
                 @foreach ($lineas as $linea)
-                    <div class="col-md-6 col-lg-6 filterDiv {{ $linea->id_tipo }}">
+                    <div class="col-md-6 col-lg-6 filterDiv {{ $linea->id_tipo }} show active">
                         <div class="col">
                             <div class="card">
                               <img
@@ -130,11 +135,14 @@
         <script>
         filterSelection("all")
         function filterSelection(c) {
+            console.log(c);
           var x, i;
           x = document.getElementsByClassName("filterDiv");
           if (c == "all") c = "";
           for (i = 0; i < x.length; i++) {
-            bnt_class();
+            console.log(x[i]);
+
+            bnt_class(c);
             w3RemoveClass(x[i], "show");
             if (x[i].className.indexOf(c) > -1) w3AddClass(x[i], "show");
           }
@@ -162,15 +170,18 @@
         }
         
         // Add active class to the current button (highlight it)
-        function bnt_class(){
+        function bnt_class(btn=null){
+            console.log(btn);
             var btnContainer = document.getElementById("myBtnContainer");
             var btns = btnContainer.getElementsByClassName("btn");
             for (var i = 0; i < btns.length; i++) {
-            btns[i].addEventListener("click", function(){
-                var current = document.getElementsByClassName("active");
-                current[0].className = current[0].className.replace(" active", "");
-                this.className += " active";
-            });
+                    $('#myBtnContainer button').removeClass('active');
+                    $(`#myBtnContainer button[element='${btn}']`).addClass('active');
+                    btns[i].addEventListener("click", function(){
+                    var current = document.getElementsByClassName("active");
+                    current[0].className = current[0].className.replace(" active", "");
+                    this.className += " active";
+                });
             }
         }
        
