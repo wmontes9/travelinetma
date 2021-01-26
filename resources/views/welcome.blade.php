@@ -169,7 +169,7 @@
         </style>
         <section id="marcas">
             <div class="container">
-                <h3>Somos poseedores de las marcas:</h2>
+                <h3 class="text-center" style="margin: 10px 0">Somos poseedores de las marcas:</h2>
                 <div id="bs4-multi-slide-carousel" class="carousel slide" data-ride="carousel" >
                     <div class="carousel-inner">
                         <div class="carousel-item active">
