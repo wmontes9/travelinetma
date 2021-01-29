@@ -101,11 +101,11 @@
           background-color: #666;
           color: white;
         }
-        .card {
+ /*       .card {
     height: 552px;
     margin: 29px 0;
     background: #f3f3f3;
-}
+}*/
         </style>
         <div id="myBtnContainer" class="text-center">
           <button class="btn active" onclick="filterSelection('all')" element="0"> Todas</button>
@@ -117,26 +117,6 @@
         <div class="container-fluid">
             <div class="row row-cols-1 row-cols-md-3 g-4">
 
-                @foreach ($lineas as $linea)
-                    <div class="col-md-6 col-lg-4 filterDiv {{ $linea->id_tipo }} show active">
-                        <div class="col">
-                            <div class="card">
-                              <img
-                                src="https://mdbootstrap.com/img/new/standard/city/041.jpg"
-                                class="card-img-top"
-                                alt="..."
-                              />
-                              <div class="card-body">
-                                <h5 class="card-title"><a href="#">{{ $linea->nombre }}</a></h5>
-                                <p class="card-text">
-                                   
-                                </p>
-                              </div>
-                          </div>
-
-                      </div>
-                  </div>
-                  @endforeach
 
                 @foreach($tipos as  $value)
                     @foreach($value['lineas'] as $index => $linea)        
