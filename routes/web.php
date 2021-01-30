@@ -35,6 +35,8 @@ Route::group(['prefix'=>'admin', 'middleware'=>'auth_user'],function(){
 //=========================================== Sitio Web cliente =================================================================
 Route::resource('/lineas', 'LineaController');
 
+Route::resource('contacto','ContactoController');
+
 
 
 Route::view('/superlinea', 'linea.super')->name('superlinea');

@@ -159,7 +159,7 @@
                     <div class="carousel-inner">
                         <div class="carousel-item active">
                             <div class="row">
-                                <div class="col text-center"><img src="img/boyacav.jpg" class="img-fluid" alt="1 slide"></div>
+                                <div class="col text-center"><img src="img/boyaca_es _para_vivirla.png" class="img-fluid" alt="1 slide"></div>
                             </div>
                         </div>
                         <div class="carousel-item">

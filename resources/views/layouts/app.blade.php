@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="{{ asset('/css/all.css') }}">
     <link rel="stylesheet" href="{{ asset('/css/bootstrap.css') }}">
     <link rel="stylesheet" href="{{ asset('/css/app.css') }}">
+    <link rel="stylesheet" href="{{ asset('/assets/css/font-awesome.min.css') }}">
     <link rel="stylesheet" href="{{ asset('/css/app.client.css') }}">
 
     <!-- Scripts -->
@@ -59,7 +60,7 @@
                 <ul class="navbar-nav mt-2 mt-lg-0 text-center">
                     <li class="nav-item item-menu px-2">
                     <div>
-                        <img src="{{asset('img/logo-small.jpg')}}" alt="traveline" class="">
+                        <img src="{{asset('img/logo-small.png')}}" style="max-width: 100px; margin-top: -6px" alt="traveline" class="">
                     </div> 
                     </li>
                     <li class="nav-item item-menu px-2">
@@ -86,7 +87,7 @@
                         <a class="{{request()->routeIs('establecimientos') ? 'activ' : '' }} nav-link" href="{{url('/establecimientos')}}">Hoteles</a>
                     </li>
                     <li class="nav-item item-menu px-2">
-                        <a class="nav-link" href="#contacto">Contactenos</a>
+                        <a class="nav-link" href="{{ url('/contacto') }}">Contactenos</a>
                     </li>
                    {{--  <li class="nav-item item-menu px-2">
                         <a class="nav-link" href="LineaServicio.html">Lineas de Servicios</a>
@@ -114,23 +115,7 @@
 }
     </style>
 
-{{-- <div class="row">
-<iframe class="col-md-12" src="https://drive.google.com/file/d/1qD8N2zQ_bXXlxCXN-EFKoCxxZkUDokza/preview" style="height:600px;"></iframe>
-</div> --}}
 
-
-<!--<div class="container">
-    <div class="row shadow px-4 pb-4">
-        <div class="col-md-12"><h3>Somos poseedores de las marcas: </h3></div>
-        <div class="col-md-6 col-sm-6 text-center">
-            <img src="img/boyacav.jpg" alt="" class="img-fluid">
-        </div>
-        <div class="col-md-6 col-sm-6 text-center">
-            <img src="img/Soy Boyaca.png" alt="" class="img-fluid">
-        </div>
-    </div>
-</div>
-<hr/>-->
 
     <footer class="w-100 bg-dark">
         <div class="row">
