@@ -1,5 +1,28 @@
 @extends("layouts.app")
 @section("content")
+<section class="banner-about">
+    <div id="carousel-id" class="carousel slide" data-ride="carousel">
+        <ol class="carousel-indicators">
+            <li data-target="#carousel-id" data-slide-to="0" class=""></li>
+            <li data-target="#carousel-id" data-slide-to="1" class=""></li>
+            <li data-target="#carousel-id" data-slide-to="2" class="active"></li>
+        </ol>
+        <div class="carousel-inner">
+            <div class="item">
+                <img  alt="First slide" src="{{ url('img/banner/about/1.png') }}">
+                <div class="container">
+                    <div class="carousel-caption">
+                        <h1 style="font-size: 50px">SOBRE NOSOTROS.</h1>
+                        <p></p>
+                    </div>
+                </div>
+            </div>
+           
+        </div>
+        <a class="left carousel-control" href="#carousel-id" data-slide="prev"><span class="glyphicon glyphicon-chevron-left"></span></a>
+        <a class="right carousel-control" href="#carousel-id" data-slide="next"><span class="glyphicon glyphicon-chevron-right"></span></a>
+    </div>
+</section>
 <br><br><br>
     <section id="content-fluid">
         <div class="row">
@@ -45,4 +68,21 @@
         </div>
         
     </section>
+
+    <style>
+        .carousel-inner img {
+            width: 100%;
+            background-attachment: fixed;
+            overflow: hidden;
+        }
+
+        #banner-about{
+            max-height: 400px;
+            overflow: hidden;
+        }
+
+        #banner-about h1{
+            font-size: 410px;
+        }
+    </style>
 @endsection
