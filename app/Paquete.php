@@ -23,10 +23,13 @@ class Paquete extends Model
     {
     	return $this->hasMany(Destino::class, 'id_paquete');
     }
+
     public function itinerario()
     {
     	return $this->hasMany(Itinerario::class, 'id_paquete');
     }
+
+    
     public function linea()
     {
         return $this->belongsTo(Linea::class, 'id_paquete');

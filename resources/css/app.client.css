@@ -246,3 +246,55 @@ main.py-4 {
         display: none;
     }
 }
+
+  .list-group-item.active {
+    color: #006400 !important;
+    background-color: transparent !important;
+    border-color: #ff8300 !important;
+    border-radius: 0 !important;
+}
+
+section#informacion {
+    padding: 79px 0 60px 0;
+    background: #fff9f2;
+}
+
+.caracteristicas_paquete{
+  background: #fff
+}
+
+
+.list-group-item.active {
+    color: #ffffff !important;
+    background-color: darkgreen !important;
+    border-color: #ff8300 !important;
+    border-radius: 0 !important;
+}
+
+  #paquetes{
+    padding:50px 0 40px 0;
+  }
+
+  #paquetes .col-md-9 .card{
+    margin: 10px 0;
+    padding: 0 !important;
+    border: 1px solid rgb(0 191 21);
+  }
+  .card .col-md-3{
+    padding: 0 !important;
+  }
+  #paquetes .card .card h3 {
+    font-family: fantasy;
+    font-size: 18px;
+}
+
+
+#paquetes .card h3 a {
+    color: #016d0d;
+    font-family: fantasy;
+}
+
+.selector-lineas{
+  background: #f3f3f3;
+  padding: 20px 5px
+}

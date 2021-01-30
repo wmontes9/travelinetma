@@ -66,9 +66,10 @@ class PaqueteController extends Controller
      * @param  \App\paquete  $paquete
      * @return \Illuminate\Http\Response
      */
-    public function show(paquete $paquete)
+    public function show($id_linea)
     {
-        //
+        $paquetes = Paquete::where('id_linea','=',$id_linea)->select('*')->get();
+        return $paquetes;
     }
 
     /**

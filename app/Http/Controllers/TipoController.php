@@ -7,6 +7,9 @@ use Illuminate\Http\Request;
 use Session;
 use App\Linea;
 use App\Paquete;
+use DB;
+use App\Destino;
+use App\Tarifa;
 
 
 class TipoController extends Controller
@@ -25,51 +28,101 @@ class TipoController extends Controller
     public function index()
     {  
 
-
-
         $linea = $this->get_detalles($this->id_linea);
+
         if($linea){
-            $tarifas = new TarifaController();
+           
+
+
             $detalles_servicios = new DetalleServicioController();
-            //dd($linea['servicios']->id);
-            $tarifas = $tarifas->show($linea['servicios']->id);
             $detalles_servicios = $detalles_servicios->show($linea['servicios']->id);
-            return view('lineas.detalles',compact('linea','tarifas','detalles_servicios'));
 
-      
+            $tipo = $this->get_tipo_linea($this->id_linea);
+            $id_tipo = $tipo->id_tipo;
 
-        $linea = $this->get_detalles($this->id_linea);
-        if($linea){
-            return view('lineas.detalles',compact('linea'));
+            $lineas = $this->get_lineas_tipo($id_tipo);
+
+
+            $paquetes = new PaqueteController();
+            $paquetes = $paquetes->show($this->id_linea);
+
+
+            //
+            $id_paquete = '';
+            if(!empty($_REQUEST['id_paquete'])){
+                $id_paquete = $_REQUEST['id_paquete'];
+                $destinos = Destino::where('id_paquete',$id_paquete)->with(['imagenes'])->get();
+                
+                $detalles_servicios = Paquete::where('id',$id_paquete)->with(['servicios'])->get();
+
+
+                $tarifas = Tarifa::where('id_paquete',$id_paquete)->with('paquetes')->get();
+
+
+                foreach ($detalles_servicios as $key => $value) {
+                    foreach ($value->servicios as $key => $servicio) {
+
+                       // dump($servicio->pivot->valor);
+                    }
+                }
+
+               // dd();
+
+                 return view('lineas.detalles',compact('linea','destinos','lineas','tipo','tarifas','detalles_servicios','paquetes'));
+            }else{
+                 return view('lineas.detalles',compact('linea','lineas','tipo','detalles_servicios','paquetes'));
+            }
+           
+
         }else{
-            return redirect()->back();
+              //  return redirect()->back();
         }
-    }
 }
 
 
-    public function get_detalles($id_linea){
-        $linea = Linea::find($id_linea);
+public function get_tipo_linea($id_linea){
+    $sql = DB::table('tipo_lineas as tl')
+    ->join('tipos as t','t.id','tl.id_tipo')
+    ->join('lineas as l','l.id','tl.id_linea')
+    ->where('id_linea',$id_linea)->select('*','t.nombre as categoria')->get()->last();
 
-         $servicios = Paquete::with(['itinerario', 
-            'servicios',
-            'destinos',
-            'destinos.imagenes'])
-            ->where("id_linea", "=", $id_linea)
-            ->first();
-
-            if($servicios!=null){
-                return array('datos_linea'=>$linea,'servicios'=>$servicios); 
-            }else{  
-                return array(); 
-               //return redirect()->back(); 
-            }   
+   //dd($sql);
+    return $sql;
+}
 
 
+public function get_lineas_tipo($id_tipo){
+    $sql = DB::table('lineas as l')
+    ->join('tipo_lineas as tl','tl.id_linea','l.id')
+    ->where('tl.id_tipo',$id_tipo)
+    ->select('*')->get();
 
-                 
-            
-    }
+    return $sql;
+}
+
+
+
+
+
+
+public function get_detalles($id_linea){
+    $linea = Linea::find($id_linea);
+
+     $servicios = Paquete::with(['itinerario', 
+        'servicios',
+        'destinos',
+        'destinos.imagenes'])
+        ->where("id_linea", "=", $id_linea)
+        ->first();
+
+        if($servicios!=null){
+            return array('datos_linea'=>$linea,'servicios'=>$servicios); 
+        }else{  
+            return array(); 
+           //return redirect()->back(); 
+        }             
+        
+}
 
 
     public function get_tipos(){

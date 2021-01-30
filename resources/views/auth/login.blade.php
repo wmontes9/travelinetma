@@ -4,9 +4,11 @@
 <div class="container">
     <div class="row justify-content-center">
         <div id="form-login">
-            <h1>Iniciar sesión</h1>
                  <form method="POST" action="{{ route('login') }}" >
                         @csrf 
+                        <div class="logo" style="width: 130px;display: block;margin: 10px auto">
+                            <img src="{{ url('img/logo.png') }}" alt="" style="width: 100%">
+                        </div>
                         <div class="form-group row">
                             <span>Correo</span>
                                 <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>

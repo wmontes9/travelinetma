@@ -58,7 +58,7 @@
                           @endphp
                        </td>
                       <td>
-                        <a href="" class="btn btn-outline-danger btn-block"> <i class="fa fa-trash"></i> </a>
+                        <a href="{{ url('detalle_compra',$index) }}" class="btn btn-outline-danger btn-block"> <i class="fa fa-trash"></i> </a>
                       </td>
                     </tr>
                 @endforeach
@@ -180,7 +180,8 @@
                     currency: 'COP',
                     amountInCents: monto,
                     reference: ref,
-                    publicKey: 'pub_prod_Zzkf0UPT3rHF546TH4XDSo1W0RmfkfQT'
+                    //publicKey: 'pub_prod_Zzkf0UPT3rHF546TH4XDSo1W0RmfkfQT'
+                    publicKey: 'pub_test_q63oZEkSRLI51w4L2zyVd2e9AoEXj8Fo'
                    // redirectUrl: 'https://transaction-redirect.wompi.co/check' // Optional
                   });
 

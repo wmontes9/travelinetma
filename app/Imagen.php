@@ -12,6 +12,6 @@ class Imagen extends Model
 
     public function destino()
     {
-        return $this->belongsTo(Destino::class);
+        return $this->belongsTo(Destino::class, 'id_paquete');
     }
 }

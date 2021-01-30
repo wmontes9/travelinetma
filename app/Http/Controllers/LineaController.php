@@ -11,6 +11,7 @@ use App\Tarifa;
 use App\TipoLinea;
 use Illuminate\Http\Request;
 use Session;
+use DB;
 
 class LineaController extends Controller
 {
@@ -21,6 +22,16 @@ class LineaController extends Controller
             $this->page = $_REQUEST['page'];
         }
         
+    }
+
+
+    public function get_linea($id_categoria){ 
+       $linea = DB::table('lineas as l')
+       ->join('tipo_lineas as tl','tl.id_linea','=','l.id')
+       ->join('tipos as t','t.id','=','tl.id_tipo')
+       ->where('t.id',$id_categoria)
+       ->select('*')->get()->last();
+       return $linea;
     }
 
     public function index()

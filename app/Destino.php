@@ -11,6 +11,6 @@ class Destino extends Model
     protected $fillable = ["id_paquete","nombre"];
 
     public function imagenes(){
-    	return $this->hasMany(Imagen::class, 'id_destino');
+    	return $this->hasMany(Imagen::class, 'id_destino','id_paquete');
     }    
 }

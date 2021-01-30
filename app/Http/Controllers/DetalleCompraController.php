@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Session;
+use App\Tarifa;
+use App\Paquete;
 
 class DetalleCompraController extends Controller
 {
@@ -37,9 +39,12 @@ class DetalleCompraController extends Controller
     {
         $tarifas = new TarifaController();
         $detalles_servicios = new DetalleServicioController();
-        $tarifas = $tarifas->show($request->id_paquete);
-        $detalles_servicios = $detalles_servicios->show($request->id_paquete);
-        //dd($request->all());
+
+        $tarifas = Tarifa::where('id_paquete',$request->id_paquete)->with('paquetes')->get();
+      //  dd($request->all());
+    
+         $detalles_servicios = Paquete::where('id',$request->id_paquete)->with(['servicios'])->get();
+        //dd($detalles_servicios);
 
 
         $count_array = count($request->nombres);
@@ -53,16 +58,19 @@ class DetalleCompraController extends Controller
             $valor = 0;
             $total = 0;
 
+
              foreach($tarifas as $key => $tarifa){
-                //dd($tarifa->edad_max);
+                 //dd('aca');
+               // dd($tarifa->edad_min);
 
                 if($edad >= $tarifa->edad_min && $edad<=$tarifa->edad_max ){
                      $total_servicios = 0;
                     //dd('ac');
-                    foreach($detalles_servicios as $index => $servicio){
-
-                        $id_paquete = $servicio->id_paquete;
-                        $total_servicios = $total_servicios + $servicio->valor;
+                    foreach($detalles_servicios as $index => $detalle){
+                        foreach($detalle->servicios as $key => $servicio){
+                              $id_paquete = $servicio->id_paquete;
+                             $total_servicios = $total_servicios + $servicio->pivot->valor;
+                        }
 
                     }
 
@@ -98,9 +106,12 @@ class DetalleCompraController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($index)
     {
-        //
+        $carrito = Session::get('carrito');
+        unset($carrito[$index]);
+        Session::put('carrito',$carrito);
+        return redirect()->back();
     }
 
     /**
