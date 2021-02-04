@@ -8,8 +8,8 @@
                 <div class="col-lg-8">
                     <div class="page-header-title">
                         <div class="d-inline">
-                            <h4>Editar destino</h4>
-                            <span>Modificar la información del destino</span>
+                            <h4>Categoria</h4>
+                            <span>Descripción de la categoria</span>
                         </div>
                     </div>
                 </div>
@@ -19,9 +19,9 @@
                             <li class="breadcrumb-item" style="float: left;">
                                 <a href="https://demo.dashboardpack.com/adminty-html/index.html"> <i class="feather icon-home"></i> </a>
                             </li>
-                            <li class="breadcrumb-item" style="float: left;"><a href="{{ url('/admin/destino') }}">Destinos</a>
+                            <li class="breadcrumb-item" style="float: left;"><a href="{{ url('/admin/tipo_establecimiento') }}">Categoria</a>
                             </li>
-                            <li class="breadcrumb-item" style="float: left;"><a href="#!">Editar</a>
+                            <li class="breadcrumb-item" style="float: left;"><a href="#!">Añadir</a>
                             </li>
                         </ul>
                     </div>
@@ -41,9 +41,8 @@
 			                    	<div class="row">
 				                    	<div class="col-md-12">
 				                    		<div class="card-header">
-					                            <h5>Formulario para modificar la información del destino</h5>
+					                            <h5>Formulario para crear una categoria</h5>
 					                            <span>Favor completar la información</span>
-
 
 					                            <div class="card-header-right">
 					                                <i class="icofont icofont-spinner-alt-5"></i>
@@ -56,26 +55,16 @@
 				                    <div class="row">
 				                    	<div class="col-md-12">
 				                    		<div class="card-block">
-												<form action="{{ route('destino.update',$destino) }}" method="POST">
+												<form action="{{ route('tipo_establecimiento.store') }}" method="POST">
 													@csrf
-													@method('PUT')
 					                            	<div class="row">
-														<div class="form-group col-md-3">
-										            		<label for="">Paquete{{ $destino->id }}</label>
-	                                                        <select name="id_paquete" class="form-control form-control-primary">
-	                                                            <option value="opt1">--Seleccionar--</option>
-																@foreach ($paquetes as $values)
-	                                                            	<option value="{{$values['id']}}" @if($destino->id_paquete=== $values['id']) selected='selected' @endif> {{$values['nombre']}}</option>
-																@endforeach
-	                                                        </select>
-	                                                    </div>
 					                            		<div class="form-group col-md-3">
 					                            			<label for="">Nombre</label>
-										            		<input type="text" name="nombre" value="{{ $destino->nombre }}" class="form-control">
-										            	</div>										            	
+										            		<input type="text" name="nombre" class="form-control">
+										            	</div>
 										            	<div class="col-md-12">
 										            		<div class="modal-footer">
-										            			<button class="btn btn-outline-primary">Guardar cambios</button>
+										            			<button class="btn btn-outline-primary">Crear</button>
 										            		</div>
 										            	</div>
 

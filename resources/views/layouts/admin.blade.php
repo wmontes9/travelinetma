@@ -208,7 +208,25 @@
                                         </li>
                                     </ul>
                                 </li>
+                                <li class="pcoded-hasmenu">
+                                    <a href="javascript:void(0);">
+                                        <span class="pcoded-micon"><i class="feather icon-home"></i></span>
 
+                                        <span class="pcoded-mtext">Establecimientos</span>
+                                    </a>
+                                    <ul class="pcoded-submenu">
+                                        <li>
+                                            <a href="{{ url('/admin/establecimiento') }}?page=list">
+                                                <i class="fa fa-level-up" aria-hidden="true"></i> <span >Establecimientos</span>
+                                            </a>
+                                        </li>
+                                        <li class="">
+                                            <a href="{{ url('/admin/tipo_establecimiento') }}?page=categorias">
+                                                <span >Categorias</span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li>
                                 <li class="pcoded-hasmenu">
                                     <a href="javascript:void(0);">
                                         <span class="pcoded-micon"><i class="feather icon-home"></i></span>
