@@ -84,7 +84,7 @@
 
 
                     <li class="nav-item item-menu px-2">
-                        <a class="{{request()->routeIs('establecimientos') ? 'activ' : '' }} nav-link" href="{{url('/establecimiento')}}">Hoteles</a>
+                        <a class="{{request()->routeIs('establecimientos') ? 'activ' : '' }} nav-link" href="{{url('/establecimiento')}}">Establecimientos</a>
                     </li>
                     <li class="nav-item item-menu px-2">
                         <a class="nav-link" href="{{ url('/contacto') }}">Contactenos</a>
