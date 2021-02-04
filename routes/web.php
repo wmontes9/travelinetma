@@ -29,6 +29,8 @@ Route::group(['prefix'=>'admin', 'middleware'=>'auth_user'],function(){
     Route::resource('detalle_servicio','DetalleServicioController');
     Route::resource('destino','DestinoController');
     Route::resource('imagen','ImagenController');
+    Route::resource('tipo_establecimiento','TipoEstablecimientoController');
+    Route::resource('establecimiento','EstablecimientoController');
 });
 
 
@@ -36,7 +38,7 @@ Route::group(['prefix'=>'admin', 'middleware'=>'auth_user'],function(){
 Route::resource('/lineas', 'LineaController');
 
 Route::resource('contacto','ContactoController');
-
+Route::get('/establecimiento','EstablecimientoController@consultarestablecimientos');
 
 
 Route::view('/superlinea', 'linea.super')->name('superlinea');

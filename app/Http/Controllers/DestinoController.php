@@ -79,6 +79,7 @@ class DestinoController extends Controller
     {
         $paquetes = new PaqueteController();
         $paquetes = $paquetes->get_paquetes();
+        //dd($destino);
         return view('app.destinos.edit',compact('paquetes','destino'));
     }
 

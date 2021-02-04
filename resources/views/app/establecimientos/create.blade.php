@@ -1,6 +1,7 @@
 @extends('layouts.admin')
 
 @section('content')
+{{ Auth::user()->id_rol }}
 <div class="page-wrapper">
                                     <!-- Page-header start -->
         <div class="page-header">
@@ -8,8 +9,8 @@
                 <div class="col-lg-8">
                     <div class="page-header-title">
                         <div class="d-inline">
-                            <h4>Editar destino</h4>
-                            <span>Modificar la información del destino</span>
+                            <h4>Establecimiento</h4>
+                            <span>Descripción del establecimiento</span>
                         </div>
                     </div>
                 </div>
@@ -19,9 +20,9 @@
                             <li class="breadcrumb-item" style="float: left;">
                                 <a href="https://demo.dashboardpack.com/adminty-html/index.html"> <i class="feather icon-home"></i> </a>
                             </li>
-                            <li class="breadcrumb-item" style="float: left;"><a href="{{ url('/admin/destino') }}">Destinos</a>
+                            <li class="breadcrumb-item" style="float: left;"><a href="{{ url('/admin/establecimiento') }}">Establecimientos</a>
                             </li>
-                            <li class="breadcrumb-item" style="float: left;"><a href="#!">Editar</a>
+                            <li class="breadcrumb-item" style="float: left;"><a href="#!">Añadir</a>
                             </li>
                         </ul>
                     </div>
@@ -41,10 +42,8 @@
 			                    	<div class="row">
 				                    	<div class="col-md-12">
 				                    		<div class="card-header">
-					                            <h5>Formulario para modificar la información del destino</h5>
+					                            <h5>Formulario para crear un establecimiento</h5>
 					                            <span>Favor completar la información</span>
-
-
 					                            <div class="card-header-right">
 					                                <i class="icofont icofont-spinner-alt-5"></i>
 					                            </div>
@@ -56,26 +55,47 @@
 				                    <div class="row">
 				                    	<div class="col-md-12">
 				                    		<div class="card-block">
-												<form action="{{ route('destino.update',$destino) }}" method="POST">
+												<form enctype="multipart/form-data" action="{{route('establecimiento.store')}}" method="POST">
 													@csrf
-													@method('PUT')
 					                            	<div class="row">
 														<div class="form-group col-md-3">
-										            		<label for="">Paquete{{ $destino->id }}</label>
-	                                                        <select name="id_paquete" class="form-control form-control-primary">
-	                                                            <option value="opt1">--Seleccionar--</option>
-																@foreach ($paquetes as $values)
-	                                                            	<option value="{{$values['id']}}" @if($destino->id_paquete=== $values['id']) selected='selected' @endif> {{$values['nombre']}}</option>
+										            		<label for="">Categoria</label>
+	                                                        <select name="id_categoria" class="form-control form-control-primary">
+	                                                            <option value="opt1">--Seleccionar--
+																</option>
+																@foreach ($categorias as $values)
+	                                                            	<option value="{{$values['id']}}"> {{$values['nombre']}}</option>
 																@endforeach
 	                                                        </select>
 	                                                    </div>
 					                            		<div class="form-group col-md-3">
 					                            			<label for="">Nombre</label>
-										            		<input type="text" name="nombre" value="{{ $destino->nombre }}" class="form-control">
-										            	</div>										            	
+										            		<input type="text" name="nombre" class="form-control">
+										            	</div>
+										            	<div class="form-group col-md-3">
+					                            			<label for="">Dirección</label>
+										            		<input type="text" name="direccion" class="form-control">
+										            	</div>
+										            	<div class="form-group col-md-3">
+					                            			<label for="">Teléfono</label>
+										            		<input type="text" name="telefono" class="form-control">
+                                                        </div>
+                                                        <div class="form-group col-md-3">
+					                            			<label for="">Descripción</label>
+										            		<textarea class="form-control" rows="2" name="descripcion" required>
+                                                            </textarea>
+										            	</div>
+                                                        <div class="form-group col-md-3">
+					                            			<label for="">Url</label>
+										            		<input type="text" name="url" class="form-control">
+                                                        </div>
+                                                        <div class="form-group col-md-3">
+                                                            <label for="">Imagen</label>
+                                                            <input type="file" name="url_imagen" class="form-control" required>
+                                                        </div>
 										            	<div class="col-md-12">
 										            		<div class="modal-footer">
-										            			<button class="btn btn-outline-primary">Guardar cambios</button>
+										            			<button class="btn btn-outline-primary">Crear</button>
 										            		</div>
 										            	</div>
 
