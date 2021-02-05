@@ -126,6 +126,7 @@ class EstablecimientoController extends Controller
         $establecimient->telefono = $request->input('telefono');
         $establecimient->descripcion = $request->input('descripcion');
         $establecimient->url = $request->input('url');
+        
         if($request->hasFile('url_imagen_e')){
                 Storage::delete('public/imgEstablecimiento/'.$establecimient->url_imagen);
                 $file = $request->url_imagen_e->store('public/imgEstablecimiento');

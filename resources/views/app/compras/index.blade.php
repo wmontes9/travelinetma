@@ -7,8 +7,8 @@
             <div class="col-lg-8">
                <div class="page-header-title">
                   <div class="d-inline">
-                     <h4>Categorias</h4>
-                     <span>Lista de categorias</span>
+                     <h4>Compras</h4>
+                     <span>Lista de compras</span>
                   </div>
                </div>
             </div>
@@ -21,7 +21,7 @@
                      <li class="breadcrumb-item" style="float: left;"><a href="{{ url('/admin') }}">Panel Administrador</a>
                      </li>
                      <li class="breadcrumb-item" style="float: left;">
-                        <a href="#!">Categorias</a>
+                        <a href="#!">Compras</a>
                      </li>
                   </ul>
                </div>
@@ -36,7 +36,7 @@
                <!-- Zero config.table start -->
                <div class="card">
                   <div class="card-header">
-                  <a href="{{ url('admin/tipo_establecimiento/create') }}" class="btn btn-outline-primary">AÑADIR</a>
+                  <a href="{{ url('admin/paquete/create') }}" class="btn btn-outline-primary">AÑADIR</a>
                   </div>
                   <div class="card-block">
                      <div class="dt-responsive table-responsive">
@@ -46,29 +46,33 @@
                                  <table id="simpletable" class="table table-striped table-bordered nowrap dataTable" role="grid" aria-describedby="simpletable_info">
                                     <thead>
                                        <tr role="row">
-                                          <th class="sorting_asc" tabindex="0" aria-controls="simpletable" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Name: activate to sort column descending" style="width: 155px;">Id</th>
-                                          <th class="sorting" tabindex="0" aria-controls="simpletable" rowspan="1" colspan="1" aria-label="Position: activate to sort column ascending" style="width: 234px;">Nombre</th>
-                                          <th class="sorting" tabindex="0" aria-controls="simpletable" rowspan="1" colspan="1" aria-label="Age: activate to sort column ascending" style="width: 52px;">Acción</th>
-                                        </tr>
+                                         <th>N°</th>
+                                         <th>Id transacción</th>
+                                         <th>Metodo de pago</th>
+                                         <th>Telefono</th>
+                                         <th> Correo </th>
+                                         <th>Paquete</th>
+                                         <th>Valor</th>
+                                         <th>Fecha</th>
+                                         <th>Estado</th>
+                                       </tr>
                                     </thead>
                                     <tbody>
-                                       @foreach ($tipos as $values)
-                                          <tr role="row" class="odd">
-                                             <td class="sorting_1">{{$values['id']}}</td>
-                                             <td>{{$values['nombre']}}</td>
-                                             <td>
-                                                <a href="{{ route('tipo_establecimiento.edit', $values)}}"><span class="icofont icofont-ui-edit">Editar</span></a>
-                                             </td>
+                                       @foreach($compras as $key =>  $compra)
+                                          <tr>
+                                             <td> {{ $key }} </td>
+                                             <td> {{ $compra->id_transaccion }} </td>
+                                             <td> {{ $compra->metodo }} </td>
+                                             <td> {{ $compra->telefono }} </td>
+                                             <td> {{ $compra->correo }} </td>
+                                             <td> {{ $compra->paquetes->nombre }} </td>
+                                              <td> {{ $compra->valor }} </td>
+                                               <td> {{ $compra->fecha }} </td>
+                                                <td> {{ $compra->estado }} </td>
                                           </tr>
-                                       @endforeach 
+                                       @endforeach
                                     </tbody>
-                                    <tfoot>
-                                       <tr>
-                                          <th rowspan="1" colspan="1">Id</th>
-                                          <th rowspan="1" colspan="1">Nombre</th>
-                                          <th rowspan="1" colspan="1">Acción</th>
-                                       </tr>
-                                    </tfoot>
+
                                  </table>
                               </div>
                            </div>

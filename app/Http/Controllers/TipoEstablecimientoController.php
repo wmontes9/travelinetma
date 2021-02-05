@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Tipo_Establecimiento;
 use Illuminate\Http\Request;
 use DB;
+use Session;
 class TipoEstablecimientoController extends Controller
 {
     /**
@@ -59,7 +60,7 @@ class TipoEstablecimientoController extends Controller
      */
     public function show(tipo_Establecimiento $tipo_Establecimiento)
     {
-        //
+        
     }
 
     /**
@@ -68,9 +69,9 @@ class TipoEstablecimientoController extends Controller
      * @param  \App\Tipo_Establecimiento  $tipo_Establecimiento
      * @return \Illuminate\Http\Response
      */
-    public function edit(Tipo_Establecimiento  $tipo_Establecimiento)
+    public function edit($tipo_Establecimiento)
     {
-        dd($tipo_Establecimiento);
+        $tipo_Establecimiento = tipo_Establecimiento::find($tipo_Establecimiento);
         return view('app.tipo_establecimiento.edit',compact('tipo_Establecimiento'));
     }
 
@@ -81,9 +82,15 @@ class TipoEstablecimientoController extends Controller
      * @param  \App\Tipo_Establecimiento  $tipo_Establecimiento
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, tipo_Establecimiento $tipo_Establecimiento)
+    public function update(Request $request,  $tipo_Establecimiento)
     {
-        dd($request->all());
+
+
+        $tipo_establecimiento = Tipo_Establecimiento::find($tipo_Establecimiento);
+        $tipo_establecimiento->nombre = $request->nombre;
+        $tipo_establecimiento->save();
+        Session::flash('response','Tipo de establecimiento actualizado correctamente.');
+        return redirect()->back();
     }
 
     /**

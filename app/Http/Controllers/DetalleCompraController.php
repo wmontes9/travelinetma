@@ -6,14 +6,16 @@ use Illuminate\Http\Request;
 use Session;
 use App\Tarifa;
 use App\Paquete;
+use App\Compra;
+use App\DetalleCompra;
 
 class DetalleCompraController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+    
+    public function __construct(){
+        date_default_timezone_set('America/Bogota');
+    }
+
     public function index()
     {
         return view('compra.carrito');
@@ -44,7 +46,7 @@ class DetalleCompraController extends Controller
       //  dd($request->all());
     
          $detalles_servicios = Paquete::where('id',$request->id_paquete)->with(['servicios'])->get();
-        //dd($detalles_servicios);
+        Session::put('id_paquete',$request->id_paquete);
 
 
         $count_array = count($request->nombres);
@@ -73,7 +75,7 @@ class DetalleCompraController extends Controller
                         }
 
                     }
-
+                    //dd($id_paquete);
 
                     $porcentaje = $total_servicios * $tarifa->valor;
                     $descuento = $porcentaje / 100;
@@ -90,12 +92,13 @@ class DetalleCompraController extends Controller
                 'documento' => $request->documentos[$i],
                 'edad' => $request->edad[$i],
                 'valor' => $total,
-                'total' => $total_pagar
+                'total' => $total_pagar,
+                'id_paquete' => $id_paquete
             );
 
             array_push($carrito, $obj);
         }
-       //dd($carrito);
+       
         Session::put('carrito',$carrito);
         return redirect('detalle_compra');
     }
@@ -114,6 +117,55 @@ class DetalleCompraController extends Controller
         return redirect()->back();
     }
 
+
+    public function resultado_pago(Request $data){
+        $fecha = date('Y-m-d');
+       // return $fecha;
+        
+        //
+        $carrito = Session::get('carrito');
+        foreach ($carrito as $key => $value) {
+             $total = $value['total'];
+        }
+
+       // return $total;
+
+        $sql = Compra::where('id_transaccion', $data->data['id'])->select('*')->count();
+        if($sql==0){
+            $compra = new Compra();
+            $compra->id_transaccion = $data->data['id'];
+            $compra->metodo = $data->data['payment_method_type'];
+            $compra->nombres = $data->user['nombres'];
+            $compra->telefono = $data->user['telefono'];
+            $compra->correo = $data->user['email'];
+            $compra->id_paquete = Session::get('id_paquete');
+            $compra->valor = $data->data['amount_in_cents'] / 100;
+            $compra->fecha = $fecha;
+            $compra->estado = $data->data['status'];
+            $compra->save();
+
+            $id_compra = $compra->id;
+
+            //detalles  protected $fillable = ['id_compra','nombres','apellidos','tipo_documento','documento','edad'];
+             foreach ($carrito as $key => $value) {
+                 $detalles = new DetalleCompra();
+                 $detalles->id_compra = $id_compra;
+                 $detalles->nombres = $value['nombres'];
+                 $detalles->apellidos = $value['apellidos'];
+                 $detalles->tipo_documento = $value['tipo_documento'];
+                 $detalles->documento = $value['documento'];
+                 $detalles->edad = $value['edad'];
+                 $detalles->save();
+             }
+        }
+
+
+        return 'success';
+
+
+
+
+}
     /**
      * Show the form for editing the specified resource.
      *
@@ -134,7 +186,8 @@ class DetalleCompraController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        
+        //return request()->all();
     }
 
     /**

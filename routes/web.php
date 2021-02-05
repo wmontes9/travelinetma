@@ -13,6 +13,25 @@ Route::group(['prefix'=>'categoria'],function(){
 
 
 Route::resource('detalle_compra','DetalleCompraController');
+Route::post('resultado_pago','DetalleCompraController@resultado_pago');
+
+//=========================================== Sitio Web cliente =================================================================
+Route::resource('/lineas', 'LineaController');
+
+Route::resource('contacto','ContactoController');
+Route::get('/establecimiento','EstablecimientoController@consultarestablecimientos');
+
+
+Route::view('/superlinea', 'linea.super')->name('superlinea');
+Route::view('/playandina','linea.playa')->name('playandina');
+Route::view('/somos','somos')->name('somos');
+Route::view('/termal','linea.termal')->name('termal');
+Route::view('/establecimientos','establecimientos.index')->name('establecimientos');
+Route::view('/tunjahistorica','linea.tunjah')->name('tunjahistorica');
+Route::view('/navidad','linea.navidad')->name('navidad');
+Route::view('/cocuy','linea.cocuy')->name('cocuy');
+Route::view('/norteg','linea.norteg')->name('norteg');
+
 
 
 
@@ -31,23 +50,8 @@ Route::group(['prefix'=>'admin', 'middleware'=>'auth_user'],function(){
     Route::resource('imagen','ImagenController');
     Route::resource('tipo_establecimiento','TipoEstablecimientoController');
     Route::resource('establecimiento','EstablecimientoController');
+    Route::resource('compras','ComprasController');
 });
 
 
-//=========================================== Sitio Web cliente =================================================================
-Route::resource('/lineas', 'LineaController');
-
-Route::resource('contacto','ContactoController');
-Route::get('/establecimiento','EstablecimientoController@consultarestablecimientos');
-
-
-Route::view('/superlinea', 'linea.super')->name('superlinea');
-Route::view('/playandina','linea.playa')->name('playandina');
-Route::view('/somos','somos')->name('somos');
-Route::view('/termal','linea.termal')->name('termal');
-Route::view('/establecimientos','establecimientos.index')->name('establecimientos');
-Route::view('/tunjahistorica','linea.tunjah')->name('tunjahistorica');
-Route::view('/navidad','linea.navidad')->name('navidad');
-Route::view('/cocuy','linea.cocuy')->name('cocuy');
-Route::view('/norteg','linea.norteg')->name('norteg');
 

@@ -5,6 +5,7 @@
     <title>@yield('title') - Traveline.T.M.A </title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
+     <meta name="csrf-token" content="{{ csrf_token() }}">
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="description" content="#">
     <meta name="keywords"
@@ -254,6 +255,13 @@
                                     <a href="{{ url('/admin/tarifa') }}?page=list">
                                         <span class="pcoded-micon"><i class="feather icon-home"></i></span>
                                         <span class="pcoded-mtext">Tarifas</span>
+                                    </a>
+                                </li>
+
+                                 <li class="">
+                                    <a href="{{ url('/admin/compras') }}">
+                                        <span class="pcoded-micon"><i class="feather icon-home"></i></span>
+                                        <span class="pcoded-mtext">Compras</span>
                                     </a>
                                 </li>
                                
