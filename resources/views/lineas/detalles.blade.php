@@ -1,6 +1,73 @@
 @extends("layouts.app")
 @section("content")
+<link href="https://fonts.googleapis.com/css?family=Droid+Sans:400,700" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.8.1/baguetteBox.min.css">
+<style>
+  body {
+    background-image: linear-gradient(to top, #ecedee 0%, #eceeef 75%, #e7e8e9 100%);
+    min-height: 100vh;
+    padding: 60px 0;
+}
 
+.container.gallery-container {
+    background-color: #fff;
+    color: #35373a;
+    min-height: 100vh;
+    border-radius: 20px;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.06);
+}
+
+.gallery-container h1 {
+    text-align: center;
+    margin-top: 70px;
+    font-family: 'Droid Sans', sans-serif;
+    font-weight: bold;
+}
+
+.gallery-container p.page-description {
+    text-align: center;
+    max-width: 800px;
+    margin: 25px auto;
+    color: #888;
+    font-size: 18px;
+}
+
+.tz-gallery {
+    padding: 40px;
+}
+
+.tz-gallery .lightbox img {
+    width: 100%;
+    margin-bottom: 30px;
+    transition: 0.2s ease-in-out;
+    box-shadow: 0 2px 3px rgba(0,0,0,0.2);
+}
+
+
+.tz-gallery .lightbox img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 15px rgba(0,0,0,0.3);
+}
+
+.tz-gallery img {
+    border-radius: 4px;
+}
+
+.baguetteBox-button {
+    background-color: transparent !important;
+}
+
+
+@media(max-width: 768px) {
+    body {
+        padding: 0;
+    }
+
+    .container.gallery-container {
+        border-radius: 0;
+    }
+}
+</style>
 <section id="banner-lineas">
 	<div id="carousel-id" class="carousel slide" data-ride="carousel">
 		<ol class="carousel-indicators">
@@ -82,6 +149,7 @@
 </style>
 @else
 
+      <!-------------------------------------->
 <section id="destinos">
   <div class="row">
       <div class="col-md-12 text-center">
@@ -108,9 +176,22 @@
                           <h3>  {{ $value->nombre }} </h3>
                           <p style="font-size:1.2em;">  </p>
                           <div class="row" class="imagenes-destinos">
-                              @foreach($value->imagenes as $index => $image)
-                                  <div class="col img-destinos"><img src="{{ asset('storage/imgDestino') }}/{{ $image->url_imagen }}" class="img-thumbnail img-destino" alt="1 slide"></div>
-                              @endforeach
+                            <div class="container-fluid gallery-container">
+                              <div class="tz-gallery">
+                                  <div class="row">
+                                    @foreach($value->imagenes as $index => $image)
+                                      <div class="col-sm-6 col-md-4">
+                                          <a class="lightbox" href="{{ asset('storage/imgDestino') }}/{{ $image->url_imagen }}">
+                                              <img src="{{ asset('storage/imgDestino') }}/{{ $image->url_imagen }}" alt="Park">
+                                          </a>
+                                      </div>
+                                    @endforeach
+                                  </div>
+                            
+                              </div>
+                            
+                            </div>
+                             
                               
                           </div>
                       </div>
@@ -133,7 +214,6 @@
 
 <section id="informacion">
   <div class="container-fluid">
-      <div class="row">
 
       <div class="row">
 
@@ -324,6 +404,8 @@
          $('#personas tbody').append(fila);
     }
 </script>
-
-
+<script src="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.8.1/baguetteBox.min.js"></script>
+<script>
+    baguetteBox.run('.tz-gallery');
+</script>
 @endsection

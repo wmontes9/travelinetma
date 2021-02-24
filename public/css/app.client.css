@@ -189,12 +189,11 @@ section#banner-lineas .item h1 {
 
 section#destinos {
     background: #f3f3f3;
-    padding: 66px 0 114px 0;
 }
 
-section#informacion {
+/*section#informacion {
     padding: 79px 0 60px 0;
-}
+}*/
 .text-company {
     text-transform: uppercase;
 }
@@ -265,7 +264,7 @@ main.py-4 {
 }
 
 section#informacion {
-    padding: 79px 0 60px 0;
+    /*padding: 79px 0 60px 0;*/
     background: #fff9f2;
 }
 

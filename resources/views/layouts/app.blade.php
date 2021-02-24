@@ -24,7 +24,6 @@
     <script src="{{ asset('js/main.js') }}" defer></script>
     <script src="{{ asset('js/vue.js') }}" ></script>
     <script src="{{ asset('js/axios.min.js') }}"></script>
-
     <title>Travel</title>
     <link rel="shortcut icon" href="img/logo.jpg">
 </head>
@@ -36,9 +35,9 @@
     <div class="top">
             <div class="content" style="padding: 0 !important;height: auto;">
                 <ul>
-                    <li><a href="tel:317 5929764"><i class="fa fa-mobile"></i> +57 317 5929764</a></li>
+                    <li><a href="tel:317 5929764"><i class="fa fa-mobile"></i> +57 311 518 2141</a></li>
                     <li><a href="mail:informacion@travelinetma.com.co"> <i class="fa fa-envelope"></i> informacion@travelinetma.com.co</a></li> 
-                     <li><a href="javascript:void(0);"> <i class="fa fa-envelope"></i> Fax: 941 446 227</a></li>
+                     <li><a href="javascript:void(0);"> <i class="fa fa-address-card"></i> Carrera 9 #19-86 Ap # 40</a></li>
                 </ul>
             </div>
         </div>
@@ -95,12 +94,12 @@
                     </li> --}}
                 </ul>  
                 <div class="justify-content-lg-end w-lg-100 ml-auto" id="content-title">
-                <div class="title d-flex justify-content-center">
-                    <p class="m-0 w-auto ttl-middle">TRAVELINE</p>
-                    <p class="m-0 w-auto ttl-after">T.M.A</p>
+                    <div class="title d-flex justify-content-center">
+                        <p class="m-0 w-auto ttl-middle">TRAVELINE</p>
+                        <p class="m-0 w-auto ttl-after">T.M.A</p>
+                    </div>
+                    RNT: 20872
                 </div>
-                RNT: 20872
-            </div>
             </div>
           
         </nav>
@@ -126,12 +125,13 @@
                 Gerente general<br>
                 Organización travelinetma<br>
                 Operador de transporte y turismo<br><br>
-                Dirección: Cra. 10 #29-90 Tunja, Boyacá
+                Dirección: Cra. 9 #19-86 Ap # 40 <br>
+                Tunja Boyacá Colombia
             </div>
             <div class="col-md-4 col-sm-4 col-xs-4 pt-2 text-white">
                 <br>
-                <i class="fas fa-envelope fa-2x mx-3"></i> travelinetma67@gmail.com <br><br>
-                <i class="fas fa-mobile-alt fa-2x mx-3"></i>311 5182141 - 317 5929764<br><br>
+                <i class="fas fa-envelope fa-2x mx-3"></i> gerencia@travelinetma.com.co <br><br>
+                <i class="fas fa-mobile-alt fa-2x mx-3"></i>311 5182141 - 316 3718835<br><br>
                 <i class="fab fa-algolia fa-2x mx-3"></i> 24-7
             </div>
             <div class="col-md-2 col-sm-2 col-xs-2 pt-2">
@@ -146,7 +146,9 @@
             <br>
             En Traveline TMA. Protegemos el medio ambiente
             <br>
-            TravelLinetma - Todos los derechos reservadoss.
+            Traveline TMA cumple con todos los protocolos de bioseguridad
+            <br>
+            TravelLinetma  &copy;  Todos los derechos reservados.
             <hr>
         </p>
     </footer>

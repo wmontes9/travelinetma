@@ -1,6 +1,6 @@
 <?php
 Route::get('/inicio', function () {
-    return view('plantilla/index');
+    return view('plantilla/welcome');
 });
 
 Route::get('/',"InicioController@index" );
