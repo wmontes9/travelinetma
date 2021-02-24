@@ -99,7 +99,7 @@
        <div class="container-fluid">
 
            <div id="bs4-multi-slide-carousel" class="carousel slide" data-ride="carousel" >
-              <div class="carousel-inner">
+              <div class="carousel-inner">   
                   @foreach($destinos as $key =>  $value)
                         @php
                           $class = ($key==0) ? $class = "active" : $class = "";
@@ -143,7 +143,7 @@
        <div class="row">
            <div class="col-md-6">
               <p class="text-justify" style="font-size:1.1em;">
-                  {{ $linea['datos_linea']->vivencia }}
+                  {!! $linea['datos_linea']->vivencia !!}
               </p>
           </div>
           <div class="col-md-2" style="padding: 0">

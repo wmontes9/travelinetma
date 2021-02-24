@@ -51,7 +51,9 @@ class TipoController extends Controller
             $id_paquete = '';
             if(!empty($_REQUEST['id_paquete'])){
                 $id_paquete = $_REQUEST['id_paquete'];
-                $destinos = Destino::where('id_paquete',$id_paquete)->with(['imagenes'])->get();
+                $destinos = Destino::where('id_paquete',$id_paquete)->with('imagenes')->get();
+                //$destinos = Destino::find($id_paquete);
+                //dd($destinos);
                 
                 $detalles_servicios = Paquete::where('id',$id_paquete)->with(['servicios'])->get();
 

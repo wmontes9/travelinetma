@@ -7,6 +7,14 @@ Auth::routes();
 
 //==========================panel de administracion========================================================
 //Route::group(['prefix'=>'admin'],function(){
+
+Route::get('/config-cache', function() {
+    $exitCode = Artisan::call('cache:clear');
+    $exitCode = Artisan::call('config:cache');
+    return 'DONE'; //Return anything
+});
+
+
 Route::group(['prefix'=>'categoria'],function(){
     Route::get('{tipo}','TipoController@index');
 });

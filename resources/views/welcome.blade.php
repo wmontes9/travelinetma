@@ -16,7 +16,6 @@
                 <li data-target="#carouselExampleCaptions" data-slide-to="0" class="active"></li>
                 <li data-target="#carouselExampleCaptions" data-slide-to="1"></li>
                 <li data-target="#carouselExampleCaptions" data-slide-to="2"></li>
-                <li data-target="#carouselExampleCaptions" data-slide-to="3"></li>
             </ol>
             <div class="carousel-inner" role="listbox">
                 <div class="carousel-item active">
@@ -24,30 +23,28 @@
                         <h3 class="title">Bienvenido</h3>
                         <p style="font-size:1.7em;">!Lo llevamos a donde sus sueños quieren llegar¡</p>
                     </div>
-                    <img class="d-block w-100" alt="First slide"  style="max-height:720px;" src="img/slider-01.jpg"/>                            
+                    <img class="d-block w-100" alt="First slide"  style="max-height:720px;" src="{{ url('img/banner/home/slider1.jpg') }}"/>                            
                     
                 </div>
                 <div class="carousel-item">
-                    <img class="d-block w-100" alt="Second slide" style="max-height:720px;" src="img/slider-02.jpg"/>
+                    <img class="d-block w-100" alt="First slide"  style="max-height:720px;" src="{{ url('img/banner/home/slider2.jpg') }}"/>                            
+                    
                     <div class="carousel-caption d-none d-md-block">
                         <h3 class="title">Servicios de Calidad</h3>
                         <p style="font-size:1.7em;">!Lo que necesitas lo tenemos¡</p>
                     </div>
                 </div>
-                <div class="carousel-item">
-                    <img class="d-block w-100" alt="Second slide" style="max-height:720px;" src="img/slider-03.jpg"/>
-                    <div class="carousel-caption d-none d-md-block">
-                        <h3 class="title">Bienvenido</h3>
-                        <p style="font-size:1.7em;">!Lo llevamos a donde sus sueños quieren llegar¡</p>
-                    </div>
-                </div>
-                <div class="carousel-item">
-                    <img class="d-block w-100" alt="Second slide" style="max-height:720px;" src="img/slider-04.jpg"/>
+
+                 <div class="carousel-item">
+                    <img class="d-block w-100" alt="First slide"  style="max-height:720px;" src="{{ url('img/banner/home/slider3.jpg') }}"/>                            
+                    
                     <div class="carousel-caption d-none d-md-block">
                         <h3 class="title">Servicios de Calidad</h3>
                         <p style="font-size:1.7em;">!Lo que necesitas lo tenemos¡</p>
                     </div>
                 </div>
+
+               
                 
             </div>
             <a class="carousel-control-prev" href="#carouselExampleCaptions" role="button" data-slide="prev">
@@ -59,7 +56,7 @@
                 <span class="sr-only">Next</span>
             </a>
         </div> 
-        <hr>
+        
         <div class="row">
             <div class="col-md-12">
                 <br>
@@ -113,8 +110,8 @@
               <button class="btn" onclick="filterSelection('{{ $tipo['id'] }}')" element="{{ $tipo['id'] }}"> {{ $tipo['nombre'] }}</button>
           @endforeach
         </div>
-        <hr>
-        <div class="container-fluid">
+       
+        <div class="container">
             <div class="row row-cols-1 row-cols-md-3 g-4">
 
 
@@ -142,7 +139,7 @@
                 @endforeach
             </div>
         </div>
-        <hr>
+
 
         <style>
             #marcas{
@@ -434,4 +431,10 @@
             });
         });
     </script>
+    <style>
+        .card {
+    background: #f3f3f3;
+    box-shadow: 1px 1px 7px 8px #f6f6f6;
+}
+    </style>
 @endsection 
