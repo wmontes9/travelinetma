@@ -1,4 +1,4 @@
-<div class="container" id="aliados">
+<div class="container">
     <div class="row">
         <div class="col-md-12">
             <h4 class="section-title text-center">Somos poseedores de las marcas:</h4>
@@ -19,3 +19,4 @@
         
 
 
+ 

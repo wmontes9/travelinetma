@@ -287,7 +287,8 @@
                           <div class="col-md-12">
                             <h2 class="text-muted">Datos de las personas</h2>
                             <p>Por favor digite la información de las personas que asistiran.</p>
-                           <table class="table table-bordered" id="personas">
+                           <div class="table-responsive">
+                             <table class="table table-bordered" id="personas">
                                <thead  >
                                    <tr>
                                        <th>Nombres</th>
@@ -359,6 +360,7 @@
                                  </tr>
                                </tfoot>-->
                            </table>
+                           </div>
                            <p class="modal-footer">
                                <a href="javascript:void(0);" onclick="nueva_fila()" class="btn btn-outline-primary"> <i class="fa fa-plus"></i> </a>
                            </p>
