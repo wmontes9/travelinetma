@@ -152,7 +152,7 @@
             <br>
             Traveline TMA cumple con todos los protocolos de bioseguridad
             <br>
-            Traveline TMA - Todos los derechos reservadoss.
+            Traveline TMA - Todos los derechos reservados.
         </p>
     </footer>
   <script>
