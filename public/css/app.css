@@ -1,0 +1,218 @@
+.text-company {
+    color: rgb(1, 109, 13);
+}
+
+.text-company-2 {
+    color: rgb(54, 148, 0);
+}
+
+.bg-company {
+    background-color: rgb(2, 140, 17);
+}
+
+.title {
+    font-family: 'Bauhaus 93';
+}
+
+div.big-nav {
+    width: 100% !important;
+    position: fixed;
+    top: 0px;
+    height: 100vh;
+    z-index: 1033;
+    background-image: url(../img/bg.jpg);
+}
+
+div.big-nav div.info-nav {
+    height: 40%;
+    width: auto !important;
+}
+
+div.big-nav div.info-nav img {
+    margin-left: auto !important;
+    margin-right: auto !important;
+}
+
+button.btn-menu {
+    float: right;
+}
+
+div#nav-list {
+    background-color: white;
+    padding-bottom: 7px;
+    border-bottom: 3px solid rgb(255, 224, 51);
+}
+
+button.btn-menu {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+}
+
+div.nav-logo {
+    z-index: -1;
+    margin-top: 5px;
+}
+
+nav#nav {
+    border-bottom: 3px solid rgb(255, 224, 51);
+}
+
+
+/* div.big-nav div.nav-sm{
+    position: absolute;
+    top: 0px;
+    left: 0px;
+} */
+
+
+/*
+- Titulo 
+*/
+
+div.title {
+    position: relative;
+}
+
+
+/* div.title p.ttl-before {
+    display: none;
+    position: absolute;
+    top: -5px;
+    left: 0px;
+    font-size: 1em;
+    text-align: center;
+    color: rgb(1, 50, 215);
+} */
+
+div.title p.ttl-middle {
+    font-family: 'Bauhaus 93';
+    font-size: 2rem;
+    color: rgb(2, 140, 17);
+    text-align: center;
+}
+
+div.title p.ttl-after {
+    font-family: 'Bauhaus 93';
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    padding-bottom: .5em;
+    padding-left: .2em;
+    color: rgb(2, 140, 17);
+    font-size: 1.1em;
+}
+
+
+/*
+--
+*/
+
+div.sub-title {
+    margin-top: 2em;
+}
+
+
+/*
+Contenido
+*/
+
+section.content {
+    padding-top: 1rem;
+}
+
+div.lk-rounded {
+    display: block;
+    width: 150px !important;
+    height: 150px !important;
+    text-align: center;
+    border-radius: 50%;
+    background-color: rgb(2, 140, 17);
+}
+
+
+/*
+    Historia
+*/
+
+section#content-history {
+    height: 910px;
+}
+
+div.history {
+    width: 60%;
+    position: absolute;
+    left: -10px;
+    padding-left: 10px;
+}
+
+div.mision-vision {
+    width: 40%;
+    position: absolute;
+    right: 0px;
+}
+
+
+/*
+Linea Pedagojica
+*/
+
+ul.actividades li::before {
+    content: url(../webfonts/bus-solid.svg);
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    color: rgb(69, 187, 0);
+    margin-right: 5px;
+}
+
+section#content-linea {
+    width: 50% !important;
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+
+/*
+///----------------/// Media Querys ///-----------------------------///
+*/
+
+@media(max-width:1125px) {
+    section#content-history {
+        height: auto;
+    }
+    div.history {
+        position: relative;
+        width: 100%;
+    }
+    div.mision-vision {
+        width: inherit !important;
+        position: relative;
+        /* display: flex;
+        justify-content: space-around;
+        align-items: center; */
+    }
+    div.mision-vision div {
+        width: 100% !important;
+    }
+    section#content-linea {
+        width: 75% !important;
+    }
+}
+
+@media(max-width:991px) {
+    div#content-title {
+        width: 100% !important;
+    }
+    section#content-linea {
+        width: 100% !important;
+    }
+}
+
+@media (max-width: 576px) {
+    .fixed-top{
+        top: 0 !important;
+    }
+ }
