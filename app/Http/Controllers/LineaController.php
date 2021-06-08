@@ -55,16 +55,15 @@ class LineaController extends Controller
         return $tipo;
     }
 
+
+
     public function get_lineas(){
       $lineas =  Tipo::with("lineas")->get();
       return $lineas;
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
+    
     public function create()
     {
         $categorias = new TipoController();
@@ -139,7 +138,21 @@ class LineaController extends Controller
      */
     public function update(Request $request, Linea $linea)
     {
-        $linea->nombre = $request->nombre;
+        if(!empty($request->file('banner'))){
+            $file = $request->banner->store('public/banner/lineas');
+            $nombre = explode('/',$file);
+            $linea->image = $nombre[3];
+           
+        }
+        dd($request->file('banner'));
+        if(!empty($request->file('banner_small'))){
+            dd();
+            $banner_small = $request->banner_small->store('public/banner/lineas');
+            $banner_small = explode('/',$banner_small);
+            $linea->banner_small = $banner_small[3];   
+        }
+
+        $linea->nombre = $request->nombre; 
         $linea->vivencia = $request->vivencia;
         $linea->save();
         Session::flash('response','Registro actualizado correctamente');

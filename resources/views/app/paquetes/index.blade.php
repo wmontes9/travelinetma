@@ -47,6 +47,7 @@
                                     <thead>
                                        <tr role="row">
                                           <th class="sorting_asc" tabindex="0" aria-controls="simpletable" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Name: activate to sort column descending" style="width: 155px;">Id</th>
+                                          <th>Linea</th>
                                           <th class="sorting" tabindex="0" aria-controls="simpletable" rowspan="1" colspan="1" aria-label="Position: activate to sort column ascending" style="width: 234px;">Nombre</th>
                                           <th class="sorting" tabindex="0" aria-controls="simpletable" rowspan="1" colspan="1" aria-label="Office: activate to sort column ascending" style="width: 111px;">Duración</th>
                                           <th class="sorting" tabindex="0" aria-controls="simpletable" rowspan="1" colspan="1" aria-label="Age: activate to sort column ascending" style="width: 52px;">Valor</th>
@@ -57,6 +58,7 @@
                                        @foreach ($paquetes as $values)
                                           <tr role="row" class="odd">
                                              <td class="sorting_1">{{$values['id']}}</td>
+                                             <td> {{ $values->linea->nombre }} </td>
                                              <td>{{$values['nombre']}}</td>
                                              <td>{{$values['duracion']}}</td>
                                              <td>{{$values['valor']}}</td>
@@ -67,15 +69,6 @@
                                           </tr>
                                        @endforeach 
                                     </tbody>
-                                    <tfoot>
-                                       <tr>
-                                          <th rowspan="1" colspan="1">Id</th>
-                                          <th rowspan="1" colspan="1">Nombre</th>
-                                          <th rowspan="1" colspan="1">Duración</th>
-                                          <th rowspan="1" colspan="1">Valor</th>
-                                          <th rowspan="1" colspan="1">Acción</th>
-                                       </tr>
-                                    </tfoot>
                                  </table>
                               </div>
                            </div>

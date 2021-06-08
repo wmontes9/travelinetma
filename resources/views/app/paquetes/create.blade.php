@@ -61,8 +61,7 @@
 														<div class="form-group col-md-3">
 										            		<label for="">Línea</label>
 	                                                        <select name="id_linea" class="form-control form-control-primary">
-	                                                            <option value="opt1">--Seleccionar--
-																</option>
+	                                                            <option value="opt1">--Seleccionar--</option>
 																@foreach ($lineas as $values)
 	                                                            	<option value="{{$values['id']}}"> {{$values['nombre']}}</option>
 																@endforeach

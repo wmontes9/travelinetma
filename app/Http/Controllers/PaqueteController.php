@@ -15,8 +15,7 @@ class PaqueteController extends Controller
      */
     public function index()
     {
-        $paquetes = new PaqueteController();
-        $paquetes = $paquetes->get_paquetes();
+        $paquetes = Paquete::with('linea')->get();
         return view('app.paquetes.index',compact('paquetes'));
     }
 

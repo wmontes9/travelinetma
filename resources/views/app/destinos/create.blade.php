@@ -62,9 +62,8 @@
 					                            	<div class="row">
 														<div class="form-group col-md-3">
 										            		<label for="">Seleccione el paquete</label>
-	                                                        <select name="id_paquete" class="form-control form-control-primary">
-	                                                            <option value="opt1">--Seleccionar--
-																</option>
+	                                                        <select name="id_paquete" class="form-control form-control-primary" required>
+	                                                            <option></option>
 																@foreach ($paquetes as $paquete)
 
 	                                                            	<option value="{{$paquete['id']}}"> {{$paquete['nombre']}} {{ $paquete->linea->nombre }} </option>
@@ -73,7 +72,7 @@
 	                                                    </div>
 					                            		<div class="form-group col-md-3">
 					                            			<label for="">Nombre del destino</label>
-										            		<input type="text" name="nombre" class="form-control">
+										            		<input type="text" name="nombre" class="form-control" required>
 										            	</div>										            	
 										            	<div class="col-md-12">
 										            		<div class="modal-footer">

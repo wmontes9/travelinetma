@@ -88,7 +88,8 @@
                                           <th>Linea</th>
                                           <th> Paquete </th>
                                           
-                                          <th  colspan="2" style="width: 52px;">Acción</th>
+                                          <th  style="width: 52px;">Acción</th>
+                                          <th></th>
                                        </tr>
                                     </thead>
                                     <tbody>
