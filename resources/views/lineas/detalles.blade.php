@@ -124,7 +124,7 @@
                                   <div class="row">
                                     @foreach($value->imagenes as $index => $image)
                                       <div class="col-sm-6 col-md-3">
-                                          <a class="lightbox" href="{{ asset('storage/imgDestino') }}/{{ $image->url_imagen }}">
+                                          <a class="lightbox" style="width: 100%" href="{{ asset('storage/imgDestino') }}/{{ $image->url_imagen }}">
                                               <img src="{{ asset('storage/imgDestino') }}/{{ $image->url_imagen }}" alt="Park">
                                           </a>
                                       </div>
