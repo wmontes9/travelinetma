@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\tipo;
+use App\Tipo;
 use Illuminate\Http\Request;
 use Session;
 use App\Linea;
@@ -51,7 +51,8 @@ class TipoController extends Controller
             $id_paquete = '';
             if(!empty($_REQUEST['id_paquete'])){
                 $id_paquete = $_REQUEST['id_paquete'];
-                $destinos = Destino::where('id_paquete',$id_paquete)->with('imagenes')->get();
+                $destinos = Destino::where('id_paquete',$id_paquete)->with('imagenes')->orderBy('orden','asc')->get();
+                //dd($destinos);
                 //$destinos = Destino::find($id_paquete);
                 //dd($destinos);
                 

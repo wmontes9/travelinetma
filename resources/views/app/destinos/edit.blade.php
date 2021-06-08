@@ -65,7 +65,7 @@
 	                                                        <select name="id_paquete" class="form-control form-control-primary">
 	                                                            <option value="opt1">--Seleccionar--</option>
 																@foreach ($paquetes as $values)
-	                                                            	<option value="{{$values['id']}}" @if($destino->id_paquete=== $values['id']) selected='selected' @endif> {{$values['nombre']}}</option>
+	                                                            	<option value="{{$values['id']}}" @if($destino->id_paquete=== $values['id']) selected='selected' @endif> {{$values['nombre']}} {{ $values->linea->nombre }} </option>
 																@endforeach
 	                                                        </select>
 	                                                    </div>

@@ -1,4 +1,4 @@
-@extends('layouts.admin')
+-@extends('layouts.admin')
 
 @section('content')
 
@@ -65,8 +65,9 @@
 	                                                        <select name="id_paquete" class="form-control form-control-primary">
 	                                                            <option value="opt1">--Seleccionar--
 																</option>
-																@foreach ($paquetes as $values)
-	                                                            	<option value="{{$values['id']}}"> {{$values['nombre']}}</option>
+																@foreach ($paquetes as $paquete)
+
+	                                                            	<option value="{{$paquete['id']}}"> {{$paquete['nombre']}} {{ $paquete->linea->nombre }} </option>
 																@endforeach
 	                                                        </select>
 	                                                    </div>

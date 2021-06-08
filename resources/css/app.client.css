@@ -755,7 +755,7 @@ h4.section-title.text-center {
 
 
 #paquetes .figure {
-    height: 164px;
+    height: 244px;
     background-size: cover;
     background-position: center;
 }
@@ -833,3 +833,4 @@ nav#nav {
 #personas  td{
     padding: 2px 1px !important;
 }
+

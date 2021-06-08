@@ -32,6 +32,6 @@ class Paquete extends Model
     
     public function linea()
     {
-        return $this->belongsTo(Linea::class, 'id_paquete');
+        return $this->belongsTo(Linea::class, 'id_linea');
     }
 }

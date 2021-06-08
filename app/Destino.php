@@ -12,5 +12,10 @@ class Destino extends Model
 
     public function imagenes(){
     	return $this->hasMany(Imagen::class, 'id_destino');
-    }    
+    } 
+
+
+    public function paquete(){
+       return $this->belongsTo(Paquete::class, 'id_paquete'); 
+    }   
 }
