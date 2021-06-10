@@ -78,9 +78,20 @@
 					                            			<label for="">Nombre</label>
 										            		<input type="text" name="nombre" class="form-control" value="{{ $linea->nombre }}"  required>
 										            	</div>
-										            	<div class="form-group col-md-9">
+
+										            	<div class="form-group col-md-3">
+					                            			<span>Banner <small>1800x730px</small></span>
+										            		<input type="file" name="banner" class="form-control" value="{{ $linea->nombre }}" >
+										            	</div>
+
+										            	<div class="form-group col-md-4">
+															<span>Banner <small>720x480px</small></span>
+															<input type="file" name="banner_small" class="form-control" style="margin-top: 7px" required>
+														</div>
+
+										            	<div class="form-group col-md-12">
 					                            			<label for="">Descripción</label>
-										            		<input type="text" name="vivencia" class="form-control" value="{{ $linea->vivencia }}" required>
+					                            			<textarea name="vivencia" class="form-control" rows="5" required>{{ $linea->vivencia }}</textarea>
 										            	</div>
 										            	
 										            	<div class="col-md-12">

@@ -79,7 +79,7 @@ table td {
                                                                          Opciones
                                                                        </i>
                                                                        <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
-                                                                         <button class="dropdown-item" type="button">Editar</button>
+                                                                         <a href="{{ route('linea.edit',$linea) }}" class="dropdown-item">Editar</a>
                                                                          <form action="{{ route('linea.destroy',$linea->id) }}" method="post">
                                                                            @csrf
                                                                            @method('delete')

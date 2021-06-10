@@ -74,6 +74,7 @@
                                           <th  style="width: 234px;">Descripción</th>
                                           <th  style="width: 52px;">Editar</th>
                                           <th  style="width: 52px;">Eliminar</th>
+
                                        </tr>
                                     </thead>
                                     <tbody>

@@ -68,6 +68,7 @@
 					                            			<label for="">Descripción</label>
 										            		<textarea name="descripcion" class="form-control" rows="5" required></textarea>
 										            	</div>									            	
+
 										            	<div class="col-md-12">
 										            		<div class="modal-footer">
 										            			<button class="btn btn-outline-primary">Crear</button>
