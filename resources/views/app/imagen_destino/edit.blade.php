@@ -60,8 +60,8 @@
                                                     {{csrf_field()}}
                                                     @method('put')
 					                            	<div class="row">
-                                                        <div class="form-group col-md-3">
-										            		<label for="">Destinos</label>
+                                                        <div class="form-group col-md-6">
+										            		<label for="">Destino</label>
 	                                                        <select name="id_destino" class="form-control form-control-primary">
 	                                                            <option value="opt1">--Seleccionar--
 																</option>
@@ -70,10 +70,18 @@
 																@endforeach
 	                                                        </select>
 	                                                    </div>
-                                                        <div class="form-group col-md-5">
+                                                        <div class="form-group col-md-6">
                                                             <label for="">Imagen</label>
                                                             <input type="file" name="url_imagen_e"  class="form-control">
                                                         </div>
+														<div class="form-group col-md-6">
+										            		<label for="">Tipo imagen</label>
+	                                                        <select name="tipo" class="form-control form-control-primary" required>
+	                                                            <option>--Seleccionar--</option>
+																<option value="normal" @if($imagen->tipo==='normal') selected='selected' @endif>Normal</option>
+																<option value="navidad" @if($imagen->tipo==='navidad') selected='selected' @endif>Navidad</option>
+	                                                        </select>
+	                                                    </div>
                                                         <div class="form-group col-md-3">
                                                             <label for="">Imagen</label>
                                                             <img src='{{ asset("storage/imgDestino")}}/{{$imagen->url_imagen}}' class="img-responsive" width="100%">

@@ -56,7 +56,7 @@
 				                    <div class="row">
 				                    	<div class="col-md-12">
 				                    		<div class="card-block">
-												<form action="{{ route('paquete.update',$paquete) }}" method="POST">
+												<form action="{{ route('paquete.update',$paquete) }}" enctype="multipart/form-data" method="POST">
 													@csrf
 													@method('PUT')
 					                            	<div class="row">
@@ -82,7 +82,14 @@
 					                            			<label for="">Valor</label>
 										            		<input type="text" name="valor" value="{{ $paquete->valor }}" class="form-control">
 										            	</div>
-										            	
+														<div class="form-group col-md-5">
+                                                            <label for="">Imagen</label>
+                                                            <input type="file" name="url_imagen_e"  class="form-control">
+                                                        </div>
+                                                        <div class="form-group col-md-3">
+                                                            <label for="">Imagen</label>
+                                                            <img src='{{ asset("storage/imgPaquete")}}/{{$paquete->url_imagen}}' class="img-responsive" width="100%">
+                                                        </div>
 										            	<div class="col-md-12">
 										            		<div class="modal-footer">
 										            			<button class="btn btn-outline-primary">Guardar cambios</button>

@@ -12,5 +12,9 @@ class Destino extends Model
 
     public function imagenes(){
     	return $this->hasMany(Imagen::class, 'id_destino');
-    }    
+    } 
+    public function paquetes()
+    {
+    	return $this->belongsToMany(Paquete::class, 'detalle_paquete','id_paquete','id_destino')->withPivot('id_paquete','id_destino','orden');
+    }  
 }

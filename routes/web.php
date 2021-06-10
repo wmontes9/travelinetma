@@ -52,6 +52,8 @@ Route::group(['prefix'=>'admin', 'middleware'=>'auth_user'],function(){
 
     Route::resource('linea','LineaController');
     Route::resource('paquete','PaqueteController'); 
+    Route::get('eliminardestinos/{id_destino}/{id_paquete}','DetallePaqueteController@eliminar');
+    Route::resource('detalle_paquete','DetallePaqueteController');
     Route::resource('/tarifa','TarifaController');
     Route::resource('/tipo','TipoController');
     Route::resource('/usuario','UsuarioController'); 

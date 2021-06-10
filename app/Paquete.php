@@ -21,7 +21,7 @@ class Paquete extends Model
     
     public function destinos()
     {
-    	return $this->hasMany(Destino::class, 'id_paquete');
+    	return $this->belongsToMany(Destino::class, 'detalle_paquete','id_paquete','id_destino')->withPivot('id_paquete','id_destino','orden');
     }
 
     public function itinerario()
@@ -32,6 +32,6 @@ class Paquete extends Model
     
     public function linea()
     {
-        return $this->belongsTo(Linea::class, 'id_paquete');
+        return $this->belongsTo(Linea::class, 'id_linea');
     }
 }

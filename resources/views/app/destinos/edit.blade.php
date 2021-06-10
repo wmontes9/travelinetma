@@ -60,19 +60,14 @@
 													@csrf
 													@method('PUT')
 					                            	<div class="row">
-														<div class="form-group col-md-3">
-										            		<label for="">Paquete{{ $destino->id }}</label>
-	                                                        <select name="id_paquete" class="form-control form-control-primary">
-	                                                            <option value="opt1">--Seleccionar--</option>
-																@foreach ($paquetes as $values)
-	                                                            	<option value="{{$values['id']}}" @if($destino->id_paquete=== $values['id']) selected='selected' @endif> {{$values['nombre']}}</option>
-																@endforeach
-	                                                        </select>
-	                                                    </div>
-					                            		<div class="form-group col-md-3">
+					                            		<div class="form-group col-md-5">
 					                            			<label for="">Nombre</label>
 										            		<input type="text" name="nombre" value="{{ $destino->nombre }}" class="form-control">
-										            	</div>										            	
+										            	</div>
+														<div class="form-group col-md-7">
+					                            			<label for="">Descripción</label>
+										            		<textarea name="descripcion" class="form-control" rows="5" required>{{ $destino->descripcion }}</textarea>
+										            	</div>									            	
 										            	<div class="col-md-12">
 										            		<div class="modal-footer">
 										            			<button class="btn btn-outline-primary">Guardar cambios</button>

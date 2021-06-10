@@ -100,7 +100,28 @@ td.text-center.bg-default {
     background-color: transparent !important;
 }
 
+.pcoded .pcoded-header[header-theme="theme1"] {
+    top: 0;
+}
+nav.pcoded-navbar {
+    top: 0;
+}
 
+.pcoded-main-container {
+    top: 0 !important;
+    margin: 0 !important;
+}
+
+ul.filtros{
+    display: flex;
+    justify-content: center;
+}
+ul.filtros li select{
+    padding: 8px 0;
+}
+ul.filtros li{
+    margin: 4px 5px;
+}
 @media(max-width: 768px) {
     body {
         padding: 0;

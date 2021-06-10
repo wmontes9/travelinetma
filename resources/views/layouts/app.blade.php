@@ -142,18 +142,28 @@
                 <img src="{{asset('img/logo.png')}}" class="img-fluid">
             </div>
         </div>
-        <p class="text-center w-100 text-white">
-            <br>
-            Traveline TMA (Línea Viajera) está en contra de la explotación y el abuso sexual de menores de edad en el país.
-            <br>
-            Ley 679-01 Art. 17.
-            <br>
-            En Traveline TMA. Protegemos el medio ambiente
-            <br>
-            Traveline TMA cumple con todos los protocolos de bioseguridad
-            <br>
-            Traveline TMA - Todos los derechos reservados.
-        </p>
+        <div class="row">
+            <div class="col-md-2"></div>
+            <div class="col-md-8">
+                <p class="text-center w-100 text-white">
+                <br>
+                Traveline TMA (Línea Viajera) está en contra de la explotación y el abuso sexual de menores de edad en el país.
+                <br>
+                Ley 679-01 Art. 17.
+                <br>
+                En Traveline TMA. Protegemos el medio ambiente
+                <br>
+                Traveline TMA cumple con todos los protocolos de bioseguridad
+                <br>
+                Traveline TMA - Todos los derechos reservados.
+            </p>  
+            </div>
+            <div class="col-md-1">
+                <img src="{{ url('img/qr.png') }}" class="img-thumbnail" style="margin-top: 30px" alt="">
+            </div>
+
+        </div>
+            
     </footer>
   <script>
     window.onload = ()=>{

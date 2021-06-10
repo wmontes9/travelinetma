@@ -50,6 +50,7 @@
                                           <th class="sorting" tabindex="0" aria-controls="simpletable" rowspan="1" colspan="1" aria-label="Position: activate to sort column ascending" style="width: 234px;">Nombre</th>
                                           <th class="sorting" tabindex="0" aria-controls="simpletable" rowspan="1" colspan="1" aria-label="Office: activate to sort column ascending" style="width: 111px;">Duración</th>
                                           <th class="sorting" tabindex="0" aria-controls="simpletable" rowspan="1" colspan="1" aria-label="Age: activate to sort column ascending" style="width: 52px;">Valor</th>
+                                          <th class="sorting" tabindex="0" aria-controls="simpletable" rowspan="1" colspan="1" aria-label="Age: activate to sort column ascending" style="width: 52px;">Imagen</th>
                                           <th class="sorting" tabindex="0" aria-controls="simpletable" rowspan="1" colspan="1" aria-label="Age: activate to sort column ascending" style="width: 52px;">Acción</th>
                                        </tr>
                                     </thead>
@@ -60,6 +61,7 @@
                                              <td>{{$values['nombre']}}</td>
                                              <td>{{$values['duracion']}}</td>
                                              <td>{{$values['valor']}}</td>
+                                             <td><img src='{{ asset("storage/imgPaquete")}}/{{$values['url_imagen']}}' class="img-responsive" style="max-width: 130px"></td>
                                              <td>
                                                 <a href="{{ route('paquete.edit', $values)}}"><span class="icofont icofont-ui-edit">Editar</span></a>
                                                 <a href="a"><span class="icofont icofont-ui-delete">Eliminar</span></a>

@@ -1,4 +1,4 @@
-@extends('layouts.admin')
+-@extends('layouts.admin')
 
 @section('content')
 
@@ -60,20 +60,14 @@
 												<form action="{{ route('destino.store') }}" method="POST">
 													@csrf
 					                            	<div class="row">
-														<div class="form-group col-md-3">
-										            		<label for="">Seleccione el paquete</label>
-	                                                        <select name="id_paquete" class="form-control form-control-primary">
-	                                                            <option value="opt1">--Seleccionar--
-																</option>
-																@foreach ($paquetes as $values)
-	                                                            	<option value="{{$values['id']}}"> {{$values['nombre']}}</option>
-																@endforeach
-	                                                        </select>
-	                                                    </div>
-					                            		<div class="form-group col-md-3">
+					                            		<div class="form-group col-md-5">
 					                            			<label for="">Nombre del destino</label>
 										            		<input type="text" name="nombre" class="form-control">
-										            	</div>										            	
+										            	</div>	
+														<div class="form-group col-md-7">
+					                            			<label for="">Descripción</label>
+										            		<textarea name="descripcion" class="form-control" rows="5" required></textarea>
+										            	</div>									            	
 										            	<div class="col-md-12">
 										            		<div class="modal-footer">
 										            			<button class="btn btn-outline-primary">Crear</button>

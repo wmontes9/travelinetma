@@ -73,9 +73,17 @@
                                                                     @endforeach
                                                                 </select>
                                                             </div>
-                                                            <div class="form-group col-md-3">
+                                                            <div class="form-group col-md-5">
                                                                 <label for="">Imagen destino</label>
                                                                 <input type="file" id="url_imagen" name="url_imagen" class="form-control" required>
+                                                            </div>
+                                                            <div class="form-group col-md-4">
+                                                                <label for="">Tipo imagen</label>
+                                                                <select name="tipo" class="form-control form-control-primary" required>
+                                                                    <option>--Seleccionar--</option>
+                                                                    <option value="normal" selected='selected'>Normal</option>
+                                                                    <option value="navidad">Navidad</option>
+                                                                </select>
                                                             </div>										            	
                                                             <div class="col-md-12">
                                                                 <div class="modal-footer">

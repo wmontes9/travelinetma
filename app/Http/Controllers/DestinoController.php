@@ -4,7 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Paquete;
 use App\Destino;
+use App\Linea;
 use Illuminate\Http\Request;
+use App\Imagen;
 
 class DestinoController extends Controller
 {
@@ -15,9 +17,24 @@ class DestinoController extends Controller
      */
     public function index()
     {
+        /*$destinos = [];
+        $lineas = Linea::get();
+
+        if(!empty($_REQUEST['id_linea'])){
+            $destinos = Destino::with(['paquete'=>function($paquete){
+                $paquete->with('linea');
+            }])->whereHas('paquete',function($p){
+                $p->where('id_linea',$_REQUEST['id_linea']);
+            })->orderBy('orden','asc')->get();
+        }
+        */
+        
+
+       //¿ dd($destinos);
+       $lineas = Linea::get();
         $destinos = new DestinoController();
         $destinos = $destinos->get_destinos();
-        return view('app.destinos.index',compact('destinos'));
+        return view('app.destinos.index',compact('destinos','lineas'));
     }
 
 
@@ -37,8 +54,7 @@ class DestinoController extends Controller
      */
     public function create()
     {
-        $paquetes = new DestinoController();
-        $paquetes = $paquetes->get_paquetes();
+        $paquetes = Paquete::with(['linea'])->get();
         return view('app.destinos.create',compact('paquetes'));
     }
 
@@ -50,9 +66,11 @@ class DestinoController extends Controller
      */
     public function store(Request $request)
     {
+        //$cantidad = Destino::all()->count();
         $destino = new Destino();
         $destino->nombre = $request->input('nombre');
-        $destino->id_paquete = $request->input('id_paquete');
+        $destino->descripcion = $request->input('descripcion');
+        //$destino->orden = $cantidad+1;
         $destino->save();
         
         return redirect()->route('destino.index');
@@ -77,8 +95,7 @@ class DestinoController extends Controller
      */
     public function edit(destino $destino)
     {
-        $paquetes = new PaqueteController();
-        $paquetes = $paquetes->get_paquetes();
+        $paquetes = Paquete::with(['linea'])->get();
         //dd($destino);
         return view('app.destinos.edit',compact('paquetes','destino'));
     }
@@ -92,9 +109,22 @@ class DestinoController extends Controller
      */
     public function update(Request $request, destino $destino)
     {
-        $destino->id_paquete = $request->input('id_paquete');
-        $destino->nombre = $request->input('nombre');
-    
+       // dd($request->all());
+        if($request->tipo_actualizacion=='orden'){
+            $destino_db = Destino::where('id_paquete',$destino->id_paquete)->where('orden',$request->orden)->get()->last();
+            //dd($destino_db);
+            if(!empty($destino_db->id)){
+                $destino_ordenes = Destino::find($destino_db->id);
+              //  $destino_ordenes->orden = 0;
+                $destino_ordenes->save();
+            }
+            $destino->orden = $request->orden;
+        }else{
+            $destino->nombre = $request->input('nombre');
+            $destino->descripcion = $request->input('descripcion');
+        }
+        
+        //dd($destino);
         $destino->save();
 
         return redirect()->route('destino.index');
@@ -108,6 +138,8 @@ class DestinoController extends Controller
      */
     public function destroy(destino $destino)
     {
-        //
+        $imagenes = Imagen::where('id_destino',$destino->id)->delete();
+        $destino->delete();
+        return redirect()->back();
     }
 }

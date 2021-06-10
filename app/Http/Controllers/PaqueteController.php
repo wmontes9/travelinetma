@@ -1,10 +1,11 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use Illuminate\Support\Facades\Storage;
 use App\Paquete;
 use App\Linea;
 use Illuminate\Http\Request;
+use Illuminate\Http\File;
 
 class PaqueteController extends Controller
 {
@@ -54,6 +55,9 @@ class PaqueteController extends Controller
         $paquete->nombre = $request->input('nombre');
         $paquete->duracion = $request->input('duracion');
         $paquete->valor = $request->input('valor');
+        $file = $request->url_imagen->store('public/imgPaquete');     
+        $nombre = explode('/',$file);
+        $paquete->url_imagen=$nombre[2];
         $paquete->save();
         
         return redirect()->route('paquete.index');
@@ -99,7 +103,14 @@ class PaqueteController extends Controller
         $paquete->nombre = $request->input('nombre');
         $paquete->duracion = $request->input('duracion');
         $paquete->valor = $request->input('valor');
-        
+        if($request->hasFile('url_imagen_e')){
+            Storage::delete('public/imgPaquete/'.$paquete->url_imagen);
+            $file = $request->url_imagen_e->store('public/imgPaquete');
+            $nombre = explode('/',$file);
+            if($file){
+                $paquete->url_imagen = $nombre[2];
+            }
+       }  
         $paquete->save();
 
         return redirect()->route('paquete.index');

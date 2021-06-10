@@ -55,6 +55,7 @@ class ImagenController extends Controller
         $file = $request->url_imagen->store('public/imgDestino');     
         $nombre = explode('/',$file);
         $imagen->url_imagen=$nombre[2];
+        $imagen->tipo=$request->input('tipo');
         $imagen->save();
         return redirect()->route('imagen.index');
     }
@@ -103,6 +104,7 @@ class ImagenController extends Controller
                 $image->url_imagen = $nombre[2];
             }
        }  
+       $image->tipo = $request->input('tipo');
        $image->save(); 
        return redirect()->route('imagen.index');
     }

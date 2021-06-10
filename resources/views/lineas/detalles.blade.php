@@ -124,8 +124,13 @@
                                   <div class="row">
                                     @foreach($value->imagenes as $index => $image)
                                       <div class="col-sm-6 col-md-3">
+<<<<<<< HEAD
                                           <a class="lightbox" style="width: 100%" href="{{ asset('storage/imgDestino') }}/{{ $image->url_imagen }}">
                                               <img src="{{ asset('storage/imgDestino') }}/{{ $image->url_imagen }}" alt="Park">
+=======
+                                          <a class="lightbox" href="{{ asset('storage/imgDestino') }}/{{ $image->url_imagen }}">
+                                              <img src="{{ asset('storage/imgDestino') }}/{{ $image->url_imagen }}" alt="Park" style="width: 100%">
+>>>>>>> cc1f66768f642175360a4c795240bd2c541d02a5
                                           </a>
                                       </div>
                                     @endforeach

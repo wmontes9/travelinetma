@@ -55,7 +55,7 @@
 				                    <div class="row">
 				                    	<div class="col-md-12">
 				                    		<div class="card-block">
-												<form action="{{ route('paquete.store') }}" method="POST">
+												<form enctype="multipart/form-data" action="{{ route('paquete.store') }}" method="POST">
 													@csrf
 					                            	<div class="row">
 														<div class="form-group col-md-3">
@@ -80,7 +80,10 @@
 					                            			<label for="">Valor</label>
 										            		<input type="text" name="valor" class="form-control">
 										            	</div>
-										            	
+														<div class="form-group col-md-3">
+															<label for="">Imagen paquete</label>
+															<input type="file" id="url_imagen" name="url_imagen" class="form-control" required>
+														</div>					
 										            	<div class="col-md-12">
 										            		<div class="modal-footer">
 										            			<button class="btn btn-outline-primary">Crear</button>

@@ -188,6 +188,11 @@
                                             </a>
                                         </li>
                                         <li class="">
+                                            <a href="{{url('admin/detalle_paquete')}}">
+                                                <span class="pcoded-mtext">Detalle paquete</span>
+                                            </a>
+                                        </li>
+                                        <li class="">
                                             <a href="{{url('admin/servicio')}}">
                                                 <span class="pcoded-mtext">Servicios</span>
                                             </a>

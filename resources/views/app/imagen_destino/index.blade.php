@@ -49,6 +49,7 @@
                                           <th class="sorting_asc"  style="width: 155px;">Id</th>
                                           <th class="sorting" tabindex="0" aria-controls="simpletable" rowspan="1" colspan="1" aria-label="Position: activate to sort column ascending" style="width: 234px;">Imagen</th>
                                           <th class="sorting_asc"  style="width: 155px;">Destino</th>
+                                          <th class="sorting_asc"  style="width: 155px;">Tipo</th>
                                           <th class="sorting" tabindex="0" aria-controls="simpletable" rowspan="1" colspan="1" aria-label="Age: activate to sort column ascending" style="width: 52px;">Acción</th>
                                           <th></th>
                                        </tr>
@@ -59,7 +60,10 @@
                                           <tr role="row" class="odd">
                                              <td width="10%" class="sorting_1">{{$values['id']}}</td>
                                              <td width="10%"><img src='{{ asset("storage/imgDestino")}}/{{$values['url_imagen']}}' class="img-responsive" style="max-width: 130px"></td>
-                                             <td width="70%"> {{ $values->destinos->nombre }} </td>
+                                             <td width="60%"> {{ $values->destinos->nombre }} </td>
+                                             <td width="10%">
+                                                {{ $values->tipo }}
+                                             </td>
                                              <td>
                                                 <a href="{{ route('imagen.edit', $values)}}" class="btn btn-primary"><span class="icofont icofont-ui-edit">Editar</span></a>
                                                 
