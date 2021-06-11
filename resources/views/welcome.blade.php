@@ -52,7 +52,7 @@
         <div class="row">
                 <div class="col-md-12">
                     <br>
-                    <h2 class="text-center title text-company">Líneas de Servicio.</h2>
+                    <h2 class="text-center title text-company">Líneas de Servicio</h2>
                 </div>
                 <div class="col-md-12 form-group">
                      <div id="myBtnContainer" class="text-center">
