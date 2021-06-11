@@ -48,7 +48,7 @@
 </section>
 
 <section id="lineas">
-    <div class="container">
+    <div class="container-fluid">
         <div class="row">
                 <div class="col-md-12">
                     <br>
@@ -65,14 +65,10 @@
                 <div class="col-md-12 form-group">
                     @foreach($tipos as  $value)
                         @foreach($value['lineas'] as $index => $linea)        
-                            <div class="col-md-6 col-lg-4 filterDiv  {{ $linea['pivot']['id_tipo'] }} show active">
+                            <div class="col-md-6 col-lg-3 filterDiv  {{ $linea['pivot']['id_tipo'] }} show active" >
                                 <div class="col">
                                     <div class="card">
-                                        <img
-                                        src='{{ asset("storage/banner/lineas")}}/{{$linea['image']}}'
-                                        class="card-img-top"
-                                        alt="..."
-                                        />
+                                       <img src="{{ asset('storage/banner/lineas')}}/{{ $linea['banner_small'] }}" class="img-thumbnail">
                                         <div class="card-body">
                                         <h5 class="card-title"><a href="{{ url('/categoria',$value['nombre']) }}?ids={{ $linea['id'] }}&linea={{ $linea['nombre'] }}">{{ $linea['nombre'] }}</a></h5>
                                         <p class="card-text">

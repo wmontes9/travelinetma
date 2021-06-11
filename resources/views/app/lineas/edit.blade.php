@@ -69,25 +69,30 @@
 													</div>
 				                    			@endif
 					                    			
-												<form action="{{ route('linea.update',$linea->id) }}" method="POST">
+												<form action="{{ route('linea.update',$linea->id) }}" method="POST" enctype="multipart/form-data">
 													@csrf
 													@method('put')
 					                            	<div class="row">
-														
+														<div class="form-group col-md-2">
+										            		<img src="{{ asset('storage/banner/lineas')}}/{{ $linea->banner_small }}" class="img-thumbnail">
+															<span>Banner <small>780x480px</small></span>
+															<input type="file" name="banner_small" class="form-control" style="margin-top: 7px" required>
+														</div>
+
+														<div class="form-group col-md-3">
+										            		<img src="{{ asset('storage/banner/lineas')}}/{{ $linea->image }}" class="img-thumbnail">
+					                            			<span>Banner <small>1800x730px</small></span>
+										            		<input type="file" name="banner" class="form-control" value="{{ $linea->nombre }}" >
+										            	</div>
+
 					                            		<div class="form-group col-md-3">
 					                            			<label for="">Nombre</label>
 										            		<input type="text" name="nombre" class="form-control" value="{{ $linea->nombre }}"  required>
 										            	</div>
 
-										            	<div class="form-group col-md-3">
-					                            			<span>Banner <small>1800x730px</small></span>
-										            		<input type="file" name="banner" class="form-control" value="{{ $linea->nombre }}" >
-										            	</div>
+										            	
 
-										            	<div class="form-group col-md-4">
-															<span>Banner <small>720x480px</small></span>
-															<input type="file" name="banner_small" class="form-control" style="margin-top: 7px" required>
-														</div>
+
 
 										            	<div class="form-group col-md-12">
 					                            			<label for="">Descripción</label>

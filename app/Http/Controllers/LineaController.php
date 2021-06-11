@@ -78,15 +78,30 @@ class LineaController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
-    {
-        //file     
-        $file = $request->image->store('public/banner/lineas');     
-        $nombre = explode('/',$file);
+    { 
 
+
+
+        
+        //file     
         $linea = new Linea();
-        $linea->image = $nombre[3];
-        $linea->nombre = $request->nombre;
+
+        if(!empty($request->file('banner'))){
+            $file = $request->banner->store('public/banner/lineas');
+            $nombre = explode('/',$file);
+            $linea->image = $nombre[3];
+           
+        }
+        if(!empty($request->file('banner_small'))){
+            
+            $banner_small = $request->banner_small->store('public/banner/lineas');
+            $banner_small = explode('/',$banner_small);
+            $linea->banner_small = $banner_small[3];   
+        }
+
+        $linea->nombre = $request->nombre; 
         $linea->vivencia = $request->vivencia;
+
         $linea->save();
 
         $id_linea = $linea->id;
@@ -144,9 +159,8 @@ class LineaController extends Controller
             $linea->image = $nombre[3];
            
         }
-        dd($request->file('banner'));
         if(!empty($request->file('banner_small'))){
-            dd();
+            
             $banner_small = $request->banner_small->store('public/banner/lineas');
             $banner_small = explode('/',$banner_small);
             $linea->banner_small = $banner_small[3];   
@@ -156,6 +170,7 @@ class LineaController extends Controller
         $linea->vivencia = $request->vivencia;
         $linea->save();
         Session::flash('response','Registro actualizado correctamente');
+        //dd('success');
         return redirect()->back();
 
     }

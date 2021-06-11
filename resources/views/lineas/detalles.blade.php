@@ -2,9 +2,7 @@
 @section("content")
 <link href="https://fonts.googleapis.com/css?family=Droid+Sans:400,700" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.8.1/baguetteBox.min.css">
-<style>
 
-</style>
 <section id="banner-lineas">
 	<div id="carousel-id" class="carousel slide" data-ride="carousel">
 		<ol class="carousel-indicators">
@@ -86,10 +84,6 @@
 </section>
 
 
-<style>
-
-
-</style>
 @else
 
       <!-------------------------------------->
@@ -110,40 +104,38 @@
        <div class="container-fluid">
 
            <div id="bs4-multi-slide-carousel" class="carousel slide" data-ride="carousel" >
-              <div class="carousel-inner">   
-                  @foreach($destinos as $key =>  $value)
-                        @php
-                          $class = ($key==0) ? $class = "active" : $class = "";
-                      @endphp
-                      <div class="carousel-item {{ $class }}">
-                          <h3>  {{ $value->nombre }} </h3>
-                          <p style="font-size:1.2em;">  </p>
-                          <div class="row" class="imagenes-destinos">
-                            <div class="container-fluid gallery-container">
-                              <div class="tz-gallery">
-                                  <div class="row">
-                                    @foreach($value->imagenes as $index => $image)
-                                      <div class="col-sm-6 col-md-3">
-<<<<<<< HEAD
-                                          <a class="lightbox" style="width: 100%" href="{{ asset('storage/imgDestino') }}/{{ $image->url_imagen }}">
-                                              <img src="{{ asset('storage/imgDestino') }}/{{ $image->url_imagen }}" alt="Park">
-=======
-                                          <a class="lightbox" href="{{ asset('storage/imgDestino') }}/{{ $image->url_imagen }}">
-                                              <img src="{{ asset('storage/imgDestino') }}/{{ $image->url_imagen }}" alt="Park" style="width: 100%">
->>>>>>> cc1f66768f642175360a4c795240bd2c541d02a5
-                                          </a>
-                                      </div>
-                                    @endforeach
-                                  </div>
-                            
-                              </div>
-                            
-                            </div>
-                             
+              <div class="carousel-inner">
+                    @foreach($detalles_paquete as $key =>  $detalle)
+                          @php
+                            $class = ($key==0) ? $class = "active" : $class = "";
+                        @endphp
+                        <div class="carousel-item {{ $class }}">
+                            <h3>  {{ $detalle->destino->nombre }} </h3>
+                            <p style="font-size:1.2em;">  </p>
+                            <div class="row" class="imagenes-destinos">
+                              <div class="container-fluid gallery-container">
+                                <div class="tz-gallery">
+                                    <div class="row">
+                                      @foreach($detalle->destino->imagenes as $index => $image)
+                                        <div class="col-sm-6 col-md-3">
+
+                                            <a class="lightbox" href="{{ asset('storage/imgDestino') }}/{{ $image->url_imagen }}">
+                                                <img src="{{ asset('storage/imgDestino') }}/{{ $image->url_imagen }}" alt="Park" style="width: 100%">
+
+                                            </a>
+                                        </div>
+                                      @endforeach
+                                    </div>
                               
-                          </div>
-                      </div>
-                  @endforeach
+                                </div>
+                              
+                              </div>
+                               
+                                
+                            </div>
+                        </div>
+                    @endforeach
+
        
               </div>
                   <a class="carousel-control-prev" href="#bs4-multi-slide-carousel" role="button" data-slide="prev">
@@ -195,6 +187,12 @@
                       @endforeach
                   </ol>
               </ul>
+              <ul class="list-group">
+                  <li class="list-group-item active">Opcional</li>
+                  <ol>
+                      Transporte Bogota - Tunja $70.000
+                  </ol>
+              </ul>
             </div>
               
           </div>
@@ -206,14 +204,24 @@
               <table class="table table-bordered">
                   <thead>
                       <tr>
-                        <td colspan="{{ $long }}" style="background-color:darkgreen; font-size:1.3em;" class="text-white">Tarifas por persona</td>
+                        <td colspan="{{ $long }}" style="background-color:darkgreen; font-size:1.3em;" class="text-white">Tarifas por persona saliendo desde Tunja</td>
                       </tr>
                      
                   </thead>
                   <tbody>
                    <tr>
                       @foreach($tarifas as $inde => $tarifa)
-                          <td style="background-color:#b7c95d;"> {{ $tarifa->edad_min }} - {{ $tarifa->edad_max }} Años / {{ $tarifa->valor }}% </td>
+                          <td style="background-color:#b7c95d;">
+                            @if($tarifa->edad_min>=18)
+                              Adultos
+                            @elseif($tarifa->edad_min>=5 && $tarifa->edad_max<18)
+                              Niños mayores de 5 años
+                            @elseif($tarifa->edad_min>=0 && $tarifa->edad_max<=5)
+                              Niños menores de 5 años
+                            @endif
+                            
+
+                         </td>
                       @endforeach 
                   </tr>
                    <tr>
@@ -302,6 +310,7 @@
                                        <th>Documento</th>
                                        <th>Edad</th>
                                        <th>Eps</th>
+                                       <th>Salidad desde:</th>
                                    </tr>
                                </thead>
                                <tbody>
@@ -331,6 +340,13 @@
                                            <td> <input type="text" name="documentos[]" class="form-control" required> </td>
                                            <td> <input type="number" name="edad[]" class="form-control" required> </td>
                                            <td> <input type="text" name="eps[]" class="form-control" required> </td>
+                                           <td>
+                                              <select name="salida[]" class="form-control" required>
+                                                    <option value="1">Tunja</option>
+                                                    <option value="2">Bogota</option>
+                                              </select>
+                                           </td>
+                                          
                                        </tr>
                                      @endforeach
                                   @endif
@@ -353,6 +369,13 @@
                                            <td> <input type="text" name="documentos[]" class="form-control" required> </td>
                                            <td> <input type="number" name="edad[]" class="form-control" required> </td>
                                            <td> <input type="text" name="eps[]" class="form-control" required> </td>
+                                           <td>
+                                              <select name="salida[]" class="form-control" required>
+                                                    <option value="1">Tunja</option>
+                                                    <option value="2">Bogota</option>
+                                              </select>
+                                           </td>
+                                          
                                        </tr>
                                      @endif
                                </tbody>
@@ -424,6 +447,12 @@
                <td> <input type="text" name="documentos[]" class="form-control" required> </td>
                <td> <input type="number" name="edad[]" class="form-control" required> </td>
                <td> <input type="text" name="eps[]" class="form-control" required> </td>
+             <td>
+                 <select name="salida[]" class="form-control" required>
+                        <option value="1">Tunja</option>
+                        <option value="2">Bogota</option>
+                  </select>
+             </td>  
            </tr>
          `;
 

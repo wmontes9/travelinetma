@@ -10,6 +10,7 @@ use App\Paquete;
 use DB;
 use App\Destino;
 use App\Tarifa;
+use App\DetallePaquete;
 
 
 class TipoController extends Controller
@@ -51,27 +52,33 @@ class TipoController extends Controller
             $id_paquete = '';
             if(!empty($_REQUEST['id_paquete'])){
                 $id_paquete = $_REQUEST['id_paquete'];
-                $destinos = Destino::where('id_paquete',$id_paquete)->with('imagenes')->orderBy('orden','asc')->get();
-                //dd($destinos);
-                //$destinos = Destino::find($id_paquete);
-                //dd($destinos);
+
+              /*  $paquete = Paquete::with(['detalle_paquete'=>function($dp){
+                    $dp->with(['destino']);
+                }])->whereHas('detalle_paquete',function($dp) use($id_paquete){
+                    $dp->where('id_paquete',$id_paquete);
+                })->get()->last();
+
+                */
+
+                $detalles_paquete = DetallePaquete::with(['destino'=>function($destino){
+                    $destino->with(['imagenes']);
+                }])->where('id_paquete',$id_paquete)->orderBy('orden','ASC')->get();
+
+               // dd($detalles_paquete);
+
+                               
                 
                 $detalles_servicios = Paquete::where('id',$id_paquete)->with(['servicios'])->get();
 
 
-                $tarifas = Tarifa::where('id_paquete',$id_paquete)->with('paquetes')->get();
+                $tarifas = Tarifa::where('id_paquete',$id_paquete)->with('paquetes')->orderBy('edad_max','ASC')->get();
 
 
-                foreach ($detalles_servicios as $key => $value) {
-                    foreach ($value->servicios as $key => $servicio) {
-
-                       // dump($servicio->pivot->valor);
-                    }
-                }
 
                // dd();
 
-                 return view('lineas.detalles',compact('linea','destinos','lineas','tipo','tarifas','detalles_servicios','paquetes'));
+                 return view('lineas.detalles',compact('linea','lineas','tipo','tarifas','detalles_servicios','detalles_paquete'));
             }else{
                  return view('lineas.detalles',compact('linea','lineas','tipo','detalles_servicios','paquetes'));
             }

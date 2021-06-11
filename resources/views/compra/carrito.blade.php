@@ -133,47 +133,55 @@
                     </tr>
                   </thead>
                   <tbody>
-                      @foreach(Session::get('carrito') as $index => $value)
-                        @php
-                          $total = $value['total'];
-                          $descuentos = $value['otros_descuentos'];
+                      @if(Session::has('carrito'))
+                      @if(count(Session::get('carrito'))>0)
+                        @foreach(Session::get('carrito') as $index => $value)
+                          @php
+                            $total = $value['total'];
+                            $descuentos = $value['otros_descuentos'];
 
-                        @endphp
-                          <tr>
-                            <td> {{ $value['nombres'] }}  </td>
-                            <td> {{ $value['apellidos'] }} </td>
-                            <td> {{ $value['tipo_documento'] }} </td>
-                            <td> {{ $value['documento'] }} </td>
-                            <td> {{ $value['edad'] }} </td>
-                            <td> {{ number_format($value['total_servicios']) }} </td>
-                             <td>  {{ number_format($value['descuento']) }} </td>
-                            <td> 
-                                @php
-                                  echo number_format($value['valor']);
-                                  
-                                @endphp
-                             </td>
-                            
-                            <td>
-                              <a href="{{ url('detalle_compra',$index) }}" class="btn  btn-sm btn-outline-danger btn-block"> <i class="fa fa-trash"></i> </a>
-                            </td>
-                          </tr>
-                      @endforeach
-                      <tr>
-                        <td colspan="4"></td>
-                        <td><b>Otros descuentos</b></td>
-                        <td> {{ number_format($descuentos) }} </td>
-                        <td><b>Total</b></td>
-                        <td>
-                            @php
-                              $total = $total - $descuentos;
-                              echo '$'.number_format($total);
-                            @endphp
-                            <input type="hidden" value="{{ $total }}" name="total" id="total">
-                        </td>
-                        <!--<td style="width: 20px"><button class="btn btn-outline-success btn-block" >Pagar</button></td>-->
-                         <td style="width: 20px"><button class="btn btn-outline-success btn-block" id="button-send">Pagar</button></td>
-                      </tr>
+                          @endphp
+                            <tr>
+                              <td> {{ $value['nombres'] }}  </td>
+                              <td> {{ $value['apellidos'] }} </td>
+                              <td> {{ $value['tipo_documento'] }} </td>
+                              <td> {{ $value['documento'] }} </td>
+                              <td> {{ $value['edad'] }} </td>
+                              <td> {{ number_format($value['total_servicios']) }} </td>
+                               <td>  {{ number_format($value['descuento']) }} </td>
+                              <td> 
+                                  @php
+                                    echo number_format($value['valor']);
+                                    
+                                  @endphp
+                               </td>
+                              
+                              <td>
+                                <a href="{{ url('detalle_compra',$index) }}" class="btn  btn-sm btn-outline-danger btn-block"> <i class="fa fa-trash"></i> </a>
+                              </td>
+                            </tr>
+                        @endforeach
+                        <tr>
+                          <td colspan="4"></td>
+                          <td><b>Otros descuentos</b></td>
+                          <td> {{ number_format($descuentos) }} </td>
+                          <td><b>Total</b></td>
+                          <td>
+                              @php
+                                $total = $total - $descuentos;
+                                echo '$'.number_format($total);
+                              @endphp
+                              <input type="hidden" value="{{ $total }}" name="total" id="total">
+                          </td>
+                          <!--<td style="width: 20px"><button class="btn btn-outline-success btn-block" >Pagar</button></td>-->
+                           <td style="width: 20px"><button class="btn btn-outline-success btn-block" id="button-send">Pagar</button></td>
+                        </tr>
+                        @else
+                        <script>
+                          location.href = '{{ url('/') }}';
+                        </script>
+                        @endif
+                      @endif
                   </tbody>
             </table>
             </div>

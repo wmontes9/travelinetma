@@ -69,6 +69,7 @@ class DetalleCompraController extends Controller
                 $total = 0;
 
 
+
                  foreach($tarifas as $key => $tarifa){
                      //dd('aca');
                    // dd($tarifa->edad_min);
@@ -81,9 +82,12 @@ class DetalleCompraController extends Controller
                                   $id_paquete = $servicio->id_paquete;
                                  $total_servicios = $total_servicios + $servicio->pivot->valor;
                             }
-
                         }
-                        //dd($id_paquete);
+                        $salida = $request->salida[$i];
+                        if($salida==2){
+                            $total_servicios = $total_servicios + 70000;
+                        }
+                        
 
                         $porcentaje = $total_servicios * $tarifa->valor;
                         $descuento = $porcentaje / 100;
@@ -205,6 +209,9 @@ class DetalleCompraController extends Controller
     {
         $carrito = Session::get('carrito');
         unset($carrito[$index]);
+        if(count($carrito)==0){
+            Session::flush();
+        }
         Session::put('carrito',$carrito);
         return redirect()->back();
     }

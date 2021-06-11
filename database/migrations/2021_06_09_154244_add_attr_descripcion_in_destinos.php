@@ -14,7 +14,7 @@ class AddAttrDescripcionInDestinos extends Migration
     public function up()
     {
         Schema::table('destinos', function (Blueprint $table) {
-            $table->string('descripcion')->after('nombre');
+            $table->text('descripcion')->after('nombre');
         });
     }
 

@@ -82,15 +82,15 @@
 														    </select>
 														</div>
 
-														<div class="form-group col-md-4">
-															<span>Banner <small>1800x730px</small></span>
-															<input type="file" name="image" class="form-control" style="margin-top: 7px" required>
+														<div class="form-group col-md-2">
+															<span>Banner <small>780x480px</small></span>
+															<input type="file" name="banner_small" class="form-control" style="margin-top: 7px" required>
 														</div>
 
-														<div class="form-group col-md-4">
-															<span>Banner <small>720x480px</small></span>
-															<input type="file" name="image_small" class="form-control" style="margin-top: 7px" required>
-														</div>
+														<div class="form-group col-md-3">
+					                            			<span>Banner <small>1800x730px</small></span>
+										            		<input type="file" name="banner" class="form-control" >
+										            	</div>
 														
 					                            		<div class="form-group col-md-4">
 					                            			<label for="">Nombre</label>

@@ -34,4 +34,6 @@ class Paquete extends Model
     {
         return $this->belongsTo(Linea::class, 'id_linea');
     }
+
+     
 }
