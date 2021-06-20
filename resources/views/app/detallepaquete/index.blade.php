@@ -87,11 +87,11 @@
                   </div>
                   
                   <div class="card-block">
-                     <div class="dt-responsive table-respnsive">
+                     <div class="dt-responsiv">
                         <div id="simpletable_wrapper" class="dataTables_wrapper dt-bootstrap4">
                            <div class="row">
                               <div class="col-xs-12 col-sm-12">
-                                 <table id="simpletable" class="table table-striped table-bordered nowrap dataTable" role="grid" aria-describedby="simpletable_info">
+                                 <table id="simpletable" class="table display" style="width: 100%;" >
                                     <thead>
                                        <tr role="row">
                                           <th>Id</th>
