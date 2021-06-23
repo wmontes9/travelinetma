@@ -67,12 +67,13 @@
                                                 <select name="id_paquete" class="form-control form-control-primary">
                                                    <option value="opt1">--Seleccionar--</option>
                                                    @foreach ($paquetes as $values)
+
                                                       <option value="{{$values['id']}}" 
                                                       @isset($paquete)
                                                          @if($paquete->id=== $values['id']) 
                                                          selected='selected' @endif
                                                       @endisset>
-                                                      {{$values['nombre']}}
+                                                      {{$values['nombre']}} {{$values['linea']->nombre}} 
                                                       </option>
                                                    @endforeach
                                                 </select>

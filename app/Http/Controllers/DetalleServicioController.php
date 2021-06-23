@@ -17,8 +17,8 @@ class DetalleServicioController extends Controller
      */
     public function index()
     {
-        $paquetes = new PaqueteController();
-        $paquetes = $paquetes->get_paquetes();
+
+        $paquetes = Paquete::with('linea')->get();
         return view('app.detalleservicio.index',compact('paquetes'));
     }
 
@@ -27,8 +27,7 @@ class DetalleServicioController extends Controller
         $servicios = new ServicioController();
         $servicios = $servicios->get_servicios();
 
-        $paquetes = new PaqueteController();
-        $paquetes = $paquetes->get_paquetes();
+        $paquetes = Paquete::with('linea')->get();
 
         $id_paquete = $request->input("id_paquete"); 
         $paquete = Paquete::findOrFail($id_paquete);
