@@ -17,6 +17,15 @@
               padding: 165px;
               background-position: center;
             }
+            #paquetes{
+              background-image: url("{{ url('img/fondos/mapa.png')}}");
+              background-size: contain;
+              background-position: center;
+            }
+            #paquetes .card-body {
+    padding: 5px;
+    background: #efefef;
+}
         </style>
         <div class="img"></div>
 				<img data-src="holder.js/900x500/auto/#777:#7a7a7a/text:First slide" class="banner-lineas" alt="First slide" src="{{ asset('storage/banner/lineas')}}/{{ $linea['datos_linea']->image }}">
@@ -51,7 +60,7 @@
         <div class="row">
           <div class="col-md-12">
               <h4 class="section-title text-center">
-                PAQUETES
+                <b>PAQUETES</b>
               </h4>
               <div class="divider"></div>
           </div>
@@ -70,7 +79,7 @@
 
                            </p>
                            <p class="text-center btn-details-paquete">
-                             <a href="{{ url('/categoria',$tipo->categoria) }}?ids={{ $tipo->id_linea }}&linea={{ $tipo->nombre }}&id_paquete={{ $value->id }}" class="btn btn-outline-success"> <i class="fa fa-info"></i> Detalles</a>
+                             <a href="{{ url('/categoria',$tipo->categoria) }}?ids={{ $tipo->id_linea }}&linea={{ $tipo->nombre }}&id_paquete={{ $value->id }}" class="btn btn-success"> <i class="fa fa-info"></i> Detalles</a>
                            </p>
                         </div>
                            
