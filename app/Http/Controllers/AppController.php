@@ -13,7 +13,7 @@ class AppController extends Controller
     	$lineas = Linea::with('paquetes')->get();
     	$establecimientos = Establecimiento::all();
     	$destinos = Destino::all();
-   // 	dd($establecimientos);
+   // 	dd($establecimientos)
     	return view('app.index',compact('lineas','establecimientos','destinos'));
 
     }
