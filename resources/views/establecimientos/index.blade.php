@@ -59,7 +59,7 @@ background: #f3f3f3;
                                       alt="..."
                                       />
                                       <div class="card-body text-justify" style="padding: 0 15px; min-height: 300px; max-height: 330px" >
-                                      <h5 class="card-title text-center"><a href="{{ $establecimiento['url'] }}">{{ $establecimiento['nombre'] }}</a></h5>
+                                      <h5 class="card-title text-center"><a href="{{ $establecimiento['url'] }}"  target="_blank">{{ $establecimiento['nombre'] }}</a></h5>
                                       <p class="card-text">
                                           <?php 
                                           $string = "<b>Dirección: </b>".$establecimiento['direccion'].
@@ -68,7 +68,7 @@ background: #f3f3f3;
                                           ?>
                                         <p>
                                          {!! str_limit($string, $limit = 200, $end = '...')!!}.</p>
-                                        <a href="{{ $establecimiento['url'] }}"><p>Ver +</p></a>
+                                        <a href="{{ $establecimiento['url'] }}"  target="_blank"><p>Ver +</p></a>
                                       </p>
                                       </div>
                                   </div>
