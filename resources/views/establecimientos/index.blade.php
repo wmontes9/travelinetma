@@ -52,13 +52,13 @@ background: #f3f3f3;
                       @foreach($value['establecimientos'] as $index => $establecimiento)        
                           <div class="col-md-6 col-lg-4 filterDiv  {{ $establecimiento['id_tipo'] }} show active establecimiento">
                               <div class="col">
-                                  <div class="card" style="min-height: 350px"> 
+                                  <div class="card" > 
                                       <img
                                       src='{{ asset("storage/imgEstablecimiento")}}/{{$establecimiento['url_imagen']}}'
                                       class="card-img-top"
                                       alt="..."
                                       />
-                                      <div class="card-body text-justify" style="padding: 0 15px;">
+                                      <div class="card-body text-justify" style="padding: 0 15px; min-height: 350px;" >
                                       <h5 class="card-title text-center"><a href="{{ $establecimiento['url'] }}">{{ $establecimiento['nombre'] }}</a></h5>
                                       <p class="card-text">
                                           <?php 
