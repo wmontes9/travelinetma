@@ -126,13 +126,23 @@
                                 <div class="tz-gallery">
                                     <div class="row">
                                       @foreach($detalle->destino->imagenes as $index => $image)
-                                        <div class="col-sm-6 col-md-3">
+                                        @if($image->tipo!='navidad')
+                                          <div class="col-sm-6 col-md-3">
+                                              <a class="lightbox" href="{{ asset('storage/imgDestino') }}/{{ $image->url_imagen }}">
+                                                  <img src="{{ asset('storage/imgDestino') }}/{{ $image->url_imagen }}" alt="Park" style="width: 100%">
 
-                                            <a class="lightbox" href="{{ asset('storage/imgDestino') }}/{{ $image->url_imagen }}">
-                                                <img src="{{ asset('storage/imgDestino') }}/{{ $image->url_imagen }}" alt="Park" style="width: 100%">
+                                              </a>
+                                          </div>
+                                        @else
+                                          @if($_REQUEST['id']==12)
+                                          <div class="col-sm-6 col-md-3">
+                                              <a class="lightbox" href="{{ asset('storage/imgDestino') }}/{{ $image->url_imagen }}">
+                                                  <img src="{{ asset('storage/imgDestino') }}/{{ $image->url_imagen }}" alt="Park" style="width: 100%">
 
-                                            </a>
-                                        </div>
+                                              </a>
+                                          </div>
+                                          @endif
+                                        @endif
                                       @endforeach
                                     </div>
                               
