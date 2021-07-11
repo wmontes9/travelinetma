@@ -52,17 +52,23 @@ background: #f3f3f3;
                       @foreach($value['establecimientos'] as $index => $establecimiento)        
                           <div class="col-md-6 col-lg-4 filterDiv  {{ $establecimiento['id_tipo'] }} show active establecimiento">
                               <div class="col">
-                                  <div class="card">
+                                  <div class="card" > 
                                       <img
                                       src='{{ asset("storage/imgEstablecimiento")}}/{{$establecimiento['url_imagen']}}'
                                       class="card-img-top"
                                       alt="..."
                                       />
-                                      <div class="card-body text-justify" style="padding: 0 15px;">
-                                      <h5 class="card-title text-center"><a href="{{ $establecimiento['url'] }}">{{ $establecimiento['nombre'] }}</a></h5>
+                                      <div class="card-body text-justify" style="padding: 0 15px; min-height: 300px; max-height: 330px" >
+                                      <h5 class="card-title text-center"><a href="{{ $establecimiento['url'] }}"  target="_blank">{{ $establecimiento['nombre'] }}</a></h5>
                                       <p class="card-text">
-                                        <p>Dirección: {{ $establecimiento['direccion'] }} <br> Teléfono: {{ $establecimiento['telefono'] }}<br><br>Servicios: {{ $establecimiento['descripcion'] }}.</p>
-                                        <a href="{{ $establecimiento['url'] }}"><p>Ver +</p></a>
+                                          <?php 
+                                          $string = "<b>Dirección: </b>".$establecimiento['direccion'].
+                                          '</br>'."<b>Teléfono: </b>". $establecimiento['telefono'].
+                                          '</br>'."<b>Descripción: </b>".$establecimiento['descripcion'];
+                                          ?>
+                                        <p>
+                                         {!! str_limit($string, $limit = 200, $end = '...')!!}.</p>
+                                        <a href="{{ $establecimiento['url'] }}"  target="_blank"><p>Ver +</p></a>
                                       </p>
                                       </div>
                                   </div>
