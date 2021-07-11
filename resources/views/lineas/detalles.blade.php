@@ -134,7 +134,7 @@
                                               </a>
                                           </div>
                                         @else
-                                          @if($_REQUEST['id']==12)
+                                          @if($_REQUEST['ids']==12)
                                           <div class="col-sm-6 col-md-3">
                                               <a class="lightbox" href="{{ asset('storage/imgDestino') }}/{{ $image->url_imagen }}">
                                                   <img src="{{ asset('storage/imgDestino') }}/{{ $image->url_imagen }}" alt="Park" style="width: 100%">
