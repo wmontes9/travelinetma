@@ -415,7 +415,7 @@
                     amountInCents: monto,
                     reference: ref,
                     //publicKey: 'pub_prod_Zzkf0UPT3rHF546TH4XDSo1W0RmfkfQT'
-                    publicKey: 'pub_test_q63oZEkSRLI51w4L2zyVd2e9AoEXj8Fo',
+                    publicKey: 'pub_prod_bHWszpW4wLfBQwBuPn5uI67w72jy9HVK',
                    redirectUrl:  "{{ url('/detalle_compra') }}" // Optional
                   });
 
