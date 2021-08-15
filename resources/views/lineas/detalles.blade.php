@@ -57,37 +57,35 @@
     <div class="row">
 
       <div class="col-md-12">
-        <div class="row div-paquetes">
+        <div class="row">
           <div class="col-md-12">
               <h4 class="section-title text-center">
                 <b>PAQUETES</b>
               </h4>
               <div class="divider"></div>
           </div>
-          
+          <div class="col-xs-12 col-sm-3 col-md-6">
             @foreach($paquetes as $key => $value)
-              <div class="col-xs-12 col-sm-3 col-md-4 div-descripcion">
-                <div class="card text-center" >
-                  <div class="figure" style="background-image: url('{{ asset('storage/banner/lineas')}}/{{ $linea['datos_linea']->image }}')">
-                      
-                  </div>
-                  
-                  <div class="card-body">
-                    <h3><a href=""> {{ $value->nombre }} </a></h3>
-                    <p>
-                      <b>Duración</b>: {{ $value->duracion }} <br>
-                      <b>Valor</b>: ${{ number_format($value->valor) }} 
+                  <div class="card text-center" >
+                        <div class="figure" style="background-image: url('{{ asset('storage/banner/lineas')}}/{{ $linea['datos_linea']->image }}')">
+                            
+                        </div>
+                        
+                        <div class="card-body">
+                          <h3><a href=""> {{ $value->nombre }} </a></h3>
+                           <p>
+                            <b>Duración</b>: {{ $value->duracion }} <br>
+                            <b>Valor</b>: ${{ number_format($value->valor) }} 
 
-                    </p>
-                    <p class="text-center btn-details-paquete">
-                      <a href="{{ url('/categoria',$tipo->categoria) }}?ids={{ $tipo->id_linea }}&linea={{ $tipo->nombre }}&id_paquete={{ $value->id }}" class="btn btn-success"> <i class="fa fa-info"></i> Detalles</a>
-                    </p>
-                  </div>
+                           </p>
+                           <p class="text-center btn-details-paquete">
+                             <a href="{{ url('/categoria',$tipo->categoria) }}?ids={{ $tipo->id_linea }}&linea={{ $tipo->nombre }}&id_paquete={{ $value->id }}" class="btn btn-success"> <i class="fa fa-info"></i> Detalles</a>
+                           </p>
+                        </div>
                            
-                </div>
-              </div>
-            @endforeach
-          
+                 </div>
+              @endforeach
+          </div>
         </div>
       </div>
     </div>

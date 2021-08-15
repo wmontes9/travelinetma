@@ -28,6 +28,7 @@ class TipoController extends Controller
 
     public function index()
     {  
+        
 
         $linea = $this->get_detalles($this->id_linea);
 
