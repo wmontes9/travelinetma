@@ -216,3 +216,13 @@ section#content-linea {
         top: 0 !important;
     }
  }
+/* =========================================================================
+-------------------------section paquetes-------------------------------- */
+.div-paquetes{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.div-descripcion{
+    margin-top: 5px;
+}
