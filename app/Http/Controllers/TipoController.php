@@ -28,9 +28,10 @@ class TipoController extends Controller
 
     public function index()
     {  
-        
 
         $linea = $this->get_detalles($this->id_linea);
+
+        //dd($linea);
 
         if($linea){
            
@@ -43,10 +44,13 @@ class TipoController extends Controller
             $id_tipo = $tipo->id_tipo;
 
             $lineas = $this->get_lineas_tipo($id_tipo);
+            
 
 
             $paquetes = new PaqueteController();
             $paquetes = $paquetes->show($this->id_linea);
+
+           
 
 
             //
@@ -81,11 +85,20 @@ class TipoController extends Controller
 
                  return view('lineas.detalles',compact('linea','lineas','tipo','tarifas','detalles_servicios','detalles_paquete'));
             }else{
+                $link = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
+
+               // dd(count($paquetes));
+                if(count($paquetes)===1){
+                   $ruta = $link.'&id_paquete='.$paquetes[0]->id; 
+                  return redirect($ruta);
+                }
+                //dd($url_actual);
                  return view('lineas.detalles',compact('linea','lineas','tipo','detalles_servicios','paquetes'));
             }
            
 
         }else{
+           
               //  return redirect()->back();
         }
 }
