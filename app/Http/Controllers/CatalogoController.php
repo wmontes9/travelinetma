@@ -23,7 +23,7 @@ class CatalogoController extends Controller
         'destinos.imagenes'])->get();
 
 
-
+        // dd($lineas);
         return view('partials.catalogo_paquete',compact('lineas'));
     }
 

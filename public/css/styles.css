@@ -113,10 +113,7 @@
                          "lateral incluye tarifas"
                          "lateral info-general info-general";
 }
-.info-paquetes >div{
-    /* background: chartreuse; */
-    
-}
+
 .info-paquetes .logo-info{
     grid-area: logo-info;
     display: flex;
@@ -247,6 +244,7 @@ li::marker{
 }
 .footer-general{
     width: 100%;
+    border-bottom: 2px dotted #3ab54a;
 }
 /* ===========================================================================
 ---------------------------------media query-------------------------------
@@ -263,6 +261,12 @@ li::marker{
             "lateral incluye incluye"
             "lateral tarifas tarifas"
             "lateral info-general info-general";
+    }
+    .img1 .img-destino,
+    .img2 .img-destino,
+    .img3 .img-destino{
+       
+        height: 100px !important;
     }
 }
 @media screen and (max-width:  500px){
@@ -284,5 +288,11 @@ li::marker{
     }
     .inicio-catalogo .info-catalogo{
         font-size: 100%;
+    }
+    .img1 .img-destino,
+    .img2 .img-destino,
+    .img3 .img-destino{
+       
+        height: 80px !important;
     }
 }

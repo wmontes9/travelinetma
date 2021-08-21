@@ -39,6 +39,7 @@
                 <img src="{{asset('img/footer-info.png')}}" alt="" class="footer-img">
             </footer>
         </section>
+        
         @foreach($lineas as $key => $value)
         <section class="info-paquetes">
             <div class="logo-info">
@@ -76,18 +77,20 @@
             <div class="img2">
                 
                 @if(!empty($value->destinos[1]->imagenes[0]))
-                    <img src="{{asset('storage/imgDestino')}}/{{$value->destinos[0]->imagenes[0]->url_imagen}}" alt="" class="img-destino">
+                    <img src="{{asset('storage/imgDestino')}}/{{$value->destinos[1]->imagenes[0]->url_imagen}}" alt="" class="img-destino">
                 @endif
             </div>
             <div class="img3">
-                @if(!empty($value->destinos[1]->imagenes[0]))
-                    <img src="{{asset('storage/imgDestino')}}/{{$value->destinos[0]->imagenes[0]->url_imagen}}" alt="" class="img-destino">
+                @if(!empty($value->destinos[2]->imagenes[0]))
+                    <img src="{{asset('storage/imgDestino')}}/{{$value->destinos[2]->imagenes[0]->url_imagen}}" alt="" class="img-destino">
                 @endif
             </div>
             <div class="incluye">
                 <ul>
                     <h2 style="background: #69b853">Incluye</h2>
-                    <li>lista desordenada</li>
+                    @foreach($value->servicios as $servicio)
+                        <li> {{$servicio->nombre}} </li>
+                    @endforeach
                 </ul>
             </div>
             <div class="tarifas">
