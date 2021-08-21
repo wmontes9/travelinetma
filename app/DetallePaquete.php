@@ -10,9 +10,12 @@ class DetallePaquete extends Model
     protected $fillable = ['id_paquete','id_destino','orden'];
 
 
+    public function paquete(){
+        return $this->belongsTo(Paquete::class, 'id_paquete');
+    }
+    
     public function destino(){
         return $this->belongsTo(Destino::class, 'id_destino');
     }
-
     
 }

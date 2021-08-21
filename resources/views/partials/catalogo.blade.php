@@ -2,7 +2,8 @@
 	<div class="modal-dialog modal-lg">
 		<div class="modal-content">
 			<div class="modal-body">
-				<iframe src="https://drive.google.com/file/d/125Dbf9hsHFIeXH4eYV2MWh43vyPcsmCq/preview" style="width: 100%; display: block;min-height: 800px"></iframe>
+				<iframe src="{{url('/catalogo')}}" style="width: 100%; display: block;min-height: 800px"></iframe>
+				{{-- @include('partials.catalogo_paquete') --}}
 			</div>
 			<div class="modal-footer">
 				<a href="https://drive.google.com/file/d/125Dbf9hsHFIeXH4eYV2MWh43vyPcsmCq/preview" target="_blank"  class="btn btn-success" >Nueva ventana</a>

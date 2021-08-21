@@ -1,0 +1,288 @@
+.contenedor{
+    width: 90%;
+    max-width: 1400px;
+    margin: 20px auto;
+    background: #f9f9f9;
+   
+   
+}
+.contenedor .inicio-catalogo{
+    grid-area: inicio-catalogo;
+    display: grid;
+    grid-gap: 15px;
+    grid-template-columns: repeat(3,1fr);
+    grid-template-rows: repeat(6,auto);
+    grid-template-areas: "header-catalogo header-catalogo header-catalogo"
+                         "logo-catalogo logo-catalogo logo-catalogo"
+                         "info-catalogo info-catalogo info-catalogo"
+                         "boyaca boyaca boyaca"
+                         "witget-3 witget-3 witget-4"
+                         "footer-inicio footer-inicio footer-inicio";   
+    align-items: center;
+    /* justify-items: center;            */
+}
+
+.inicio-catalogo .header-catalogo{
+    grid-area:header-catalogo ;
+    height: 100px;
+    background: linear-gradient(150deg,#58ba0a,#18752f);
+    
+}
+.inicio-catalogo .logo-catalogo{
+    grid-area: logo-catalogo;
+    justify-self: center;
+}
+.logo-catalogo .logo-principal{
+    width: 100%;
+    height: 300px;
+}
+
+.inicio-catalogo .info-catalogo{
+    grid-area: info-catalogo;
+    font-family: 'Glory', sans-serif;
+    font-size: 200%;
+    color: #428440;
+    display: grid;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+}
+.inicio-catalogo .boyaca{
+    grid-area: boyaca;
+}
+.inicio-catalogo .witget-3{
+    grid-area: witget-3;
+    text-align: center;
+}
+.witget-3 .dialogo{
+    font-family: 'Shadows Into Light', cursive;
+    font-size: 250%;
+}
+.inicio-catalogo .witget-4{
+    grid-area: witget-4;
+    background-image: url('../img/qr.png');
+    background-size: 50%;
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 200px;
+}
+.inicio-catalogo .boyaca{
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    grid-template-rows: repeat(1,auto);
+    grid-template-areas: "witget-1 witget-2";
+   
+}
+.boyaca .witget-1{
+    grid-area: witget-1;
+}
+.boyaca-img{
+    width: 100%;
+}
+.boyaca .witget-2{
+    grid-area: witget-2;
+    
+}
+.soy-boyaca-img{
+    width: 100%;
+}
+.footer-inicio{
+    grid-area: footer-inicio;
+    border-bottom: 1px solid #3ab54a;
+
+}
+.footer-img{
+    width: 100%;
+}
+
+
+/* ===================================================================================
+---------------------------contenido catalogo--------------------------------------
+=================================================================================== */
+.contenedor .info-paquetes{
+    grid-area: info-paquetes;
+    display: grid;
+    grid-gap: 5px;
+    grid-template-columns: 16% repeat(2,40%);
+    grid-template-rows: repeat(7,auto);
+    grid-template-areas: "logo-info lineas-info boyaca-vivirla"
+                         "lateral nombre1 nombre2"
+                         "lateral vivencia vivencia"
+                         "lateral destinos img1"
+                         "lateral img2 img3"
+                         "lateral incluye tarifas"
+                         "lateral info-general info-general";
+}
+.info-paquetes >div{
+    /* background: chartreuse; */
+    
+}
+.info-paquetes .logo-info{
+    grid-area: logo-info;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.info-paquetes .lineas-info{
+    grid-area: lineas-info;
+    align-self: center;
+    color: grey;
+}
+.lineas-info .texto{
+    font-family: 'IBM Plex Mono', monospace !important;
+    text-align: center;
+    font-size: 150%;
+}
+.lineas-info .texto-linea{
+    font-family: 'IBM Plex Mono', monospace !important;
+    text-align: end;
+    margin-right: 10%;
+    font-size: 150%;
+}
+.info-paquetes .boyaca-vivirla{
+    grid-area: boyaca-vivirla;
+    display: grid;
+    align-items: center;
+    justify-self: center;
+}
+.boyaca-vivirla .vivirla-img{
+    width: 100%;
+}
+.info-paquetes .lateral{
+    grid-area: lateral;
+    
+    background: linear-gradient(150deg, #a8ec70,#18752f);
+}
+.info-paquetes .nombre1{
+    grid-area: nombre1;
+    align-self: center;
+    
+}
+.nombre1 .texto1-nombre1{
+  text-align: center;  
+  font-family: 'Shadows Into Light', cursive !important; 
+  color: #1c7831;
+ 
+}
+.nombre1 .texto2-nombre1{
+    text-align: end;   
+    font-family: 'Shadows Into Light', cursive !important;
+    margin-right: 20%;
+    color: #9fe46c;
+}
+.info-paquetes .nombre2{
+    grid-area: nombre2;
+    
+   
+}
+.nombre2 .texto2{
+    text-align: start;  
+    font-family: 'Shadows Into Light', cursive !important; 
+    color: grey;
+    margin-left: 15%;
+}
+.info-paquetes .vivencia{
+    grid-area: vivencia;
+}
+.vivencia .texto-vivencia{
+    font-family: 'Caveat', cursive !important;
+    font-size: 25px;
+}
+.info-paquetes .destinos{
+    grid-area: destinos;
+    align-self: start;
+    justify-self: stretch;
+}
+li::marker{
+    color: red;
+}
+.info-paquetes .img1{
+    grid-area: img1;
+    display: grid;
+    align-items: center;
+    justify-items: self-end;
+}
+.info-paquetes .img2{
+    grid-area: img2;
+    display: grid;
+    align-items: self-start;
+    justify-items: center;
+}
+.info-paquetes .img3{
+    grid-area: img3;
+    display: grid;
+    align-items: self-start;
+    justify-items: self-end;
+}
+.img1 .img-destino,
+.img2 .img-destino,
+.img3 .img-destino{
+    width: 70%;
+    border-radius: 10%;
+    height: 200px;
+}
+.info-paquetes .incluye{
+    grid-area: incluye;
+    display: grid;
+    align-items: start;
+    justify-self: stretch;
+}
+.info-paquetes .tarifas{
+    grid-area: tarifas;
+}
+.table{
+    /* border: 1px solid green; */
+    width: 100%;
+}
+.table .tabla-info{
+    background: #69b853;
+}
+.table th, .table td {
+    padding: 0.55rem;
+    vertical-align: top;
+    border: 1px solid #69b853;
+}
+.info-paquetes .info-general{
+    grid-area: info-general;
+}
+.footer-general{
+    width: 100%;
+}
+/* ===========================================================================
+---------------------------------media query-------------------------------
+=========================================================================== */
+@media screen and (max-width:  701px){
+    .contenedor .info-paquetes {
+        
+        grid-template-areas:
+            "logo-info lineas-info boyaca-vivirla"
+            "lateral nombre1 nombre2"
+            "lateral vivencia vivencia"
+            "lateral destinos img1"
+            "lateral img2 img3"
+            "lateral incluye incluye"
+            "lateral tarifas tarifas"
+            "lateral info-general info-general";
+    }
+}
+@media screen and (max-width:  500px){
+    .contenedor .info-paquetes {
+       
+        grid-template-areas:
+            "logo-info lineas-info boyaca-vivirla"
+            "lateral nombre1 nombre2"
+            "lateral vivencia vivencia"
+            "lateral destinos destinos"
+            "lateral img2 img3"
+            "lateral incluye incluye"
+            "lateral tarifas tarifas"
+            "lateral info-general info-general";
+    }
+    .logo-catalogo .logo-principal {
+        width: 100%;
+        height: 200px;
+    }
+    .inicio-catalogo .info-catalogo{
+        font-size: 100%;
+    }
+}

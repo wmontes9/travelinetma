@@ -17,6 +17,9 @@ class Destino extends Model
     {
     	return $this->belongsToMany(Paquete::class, 'detalle_paquete','id_paquete','id_destino')->withPivot('id_paquete','id_destino','orden');
     }  
-
+    public function detalles_paquetes()
+    {
+        return $this->hasMany(DetallePaquete::class);
+    }
    
 }

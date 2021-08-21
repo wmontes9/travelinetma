@@ -4,7 +4,7 @@
 
 Auth::routes();
 //Route::get('/', function () {  return view('welcome');})->name('inicio');
-
+Route::resource('/catalogo','CatalogoController');
 //==========================panel de administracion========================================================
 //Route::group(['prefix'=>'admin'],function(){
 

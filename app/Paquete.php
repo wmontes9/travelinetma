@@ -34,6 +34,24 @@ class Paquete extends Model
     {
         return $this->belongsTo(Linea::class, 'id_linea');
     }
+    /**
+     * Get all of the comments for the Paquete
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function detalles_paquetes()
+    {
+        return $this->hasMany(DetallePaquete::class);
+    }
+
+
+    public function tarifas()
+    {
+        return $this->hasMany(Tarifa::class, 'id_paquete');
+    }
+
+
+
 
      
 }

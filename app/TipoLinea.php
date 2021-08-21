@@ -8,4 +8,6 @@ class TipoLinea extends Model
 {
     protected $table = 'tipo_lineas';
     protected $fillable = ['id_linea','id_tipo'];
+
+    
 }
